@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="https://specs.doc.virtufin.com/specs/core-data-types/">
+        <link rel="canonical" href="https://specs.doc.virtufin.com/specs/client-testing/">
       
       
-        <link rel="prev" href="../cross-cutting/">
-      
-      
-        <link rel="next" href="../api-gateway/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>Core Data Types - Virtufin Platform Specifications</title>
+        <title>Client testing - Virtufin Platform Specifications</title>
       
     
     
@@ -113,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Core Data Types
+              Client testing
             
           </span>
         </div>
@@ -253,12 +249,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../cross-cutting/" class="md-tabs__link">
           
   
@@ -356,31 +350,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -398,7 +389,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -441,35 +432,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Core Data Types
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../core-data-types/" class="md-nav__link">
         
   
   
@@ -485,258 +451,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Purpose
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#requirement-entity-attribute-value-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirement: Entity-Attribute-Value Model
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirement: Entity-Attribute-Value Model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-entity-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Entity lifecycle
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-value-observation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Value observation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirement-variant-discriminated-union" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirement: Variant Discriminated Union
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirement: Variant Discriminated Union">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-type-safe-construction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Type-safe construction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-flatbuffers-serialization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: FlatBuffers serialization
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-implicit-conversions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Implicit conversions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirement-reactive-observables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirement: Reactive Observables
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirement: Reactive Observables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-nats-subscription" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: NATS subscription
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-connection-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Connection lifecycle
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirement-financial-domain-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirement: Financial Domain Types
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirement: Financial Domain Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-cash-arithmetic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Cash arithmetic
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-currency-mismatch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Currency mismatch
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirement-flatbuffers-wire-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirement: FlatBuffers Wire Format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirement: FlatBuffers Wire Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-cross-language-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Cross-language compatibility
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-build-time-code-generation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Build-time code generation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -953,34 +667,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        Workflow
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirements">
+    <nav class="md-nav" aria-label="Workflow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#requirement-entity-attribute-value-model" class="md-nav__link">
+  <a href="#how-test-parity-is-maintained" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Entity-Attribute-Value Model
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirement: Entity-Attribute-Value Model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-entity-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Entity lifecycle
+        How test parity is maintained
       
     </span>
   </a>
@@ -988,10 +690,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-value-observation" class="md-nav__link">
+  <a href="#running-the-generator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Value observation
+        Running the generator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the checker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generated-vs-hand-written-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generated vs hand-written tests
       
     </span>
   </a>
@@ -1002,176 +726,48 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#requirement-variant-discriminated-union" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#virtufin-api-client-test-cases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Variant Discriminated Union
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirement: Variant Discriminated Union">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-type-safe-construction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Type-safe construction
+        virtufin-api Client Test Cases
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-flatbuffers-serialization" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#virtufin-websocketmanager-client-test-cases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: FlatBuffers serialization
+        virtufin-websocketmanager Client Test Cases
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-implicit-conversions" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#virtufin-workmanager-client-test-cases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Implicit conversions
+        virtufin-workmanager Client Test Cases
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirement-reactive-observables" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#rules-for-adding-tests" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Reactive Observables
+        Rules for Adding Tests
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Requirement: Reactive Observables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-nats-subscription" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: NATS subscription
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-connection-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Connection lifecycle
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirement-financial-domain-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirement: Financial Domain Types
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirement: Financial Domain Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-cash-arithmetic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Cash arithmetic
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-currency-mismatch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Currency mismatch
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#requirement-flatbuffers-wire-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirement: FlatBuffers Wire Format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Requirement: FlatBuffers Wire Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-cross-language-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Cross-language compatibility
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-build-time-code-generation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Build-time code generation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1192,76 +788,784 @@
 
 
 
-  <h1>Core Data Types</h1>
+  <h1>Client testing</h1>
 
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
-<p>Core .NET library providing the Virtufin data model: Entity-Attribute-Value framework, Variant discriminated union, FlatBuffers serialization, and reactive observables for NATS, WebSocket, and Valkey data sources.</p>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<h3 id="requirement-entity-attribute-value-model">Requirement: Entity-Attribute-Value Model<a class="headerlink" href="#requirement-entity-attribute-value-model" title="Permanent link">&para;</a></h3>
-<p>The library SHALL provide a registry-based EAV framework where entities own named attributes whose values are provided by pluggable value providers.</p>
-<h4 id="scenario-entity-lifecycle">Scenario: Entity lifecycle<a class="headerlink" href="#scenario-entity-lifecycle" title="Permanent link">&para;</a></h4>
+<p>Standardized client test requirements across all 3 repos (api, websocketmanager, workmanager) and all 3 languages (Python, TypeScript, .NET). Every repo SHALL have the same set of client tests in every language, ensuring SDK parity and preventing regressions.</p>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<h3 id="how-test-parity-is-maintained">How test parity is maintained<a class="headerlink" href="#how-test-parity-is-maintained" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>     proto file ──► generator ──► checker ──► CI gate
+</code></pre></div>
+<ol>
+<li><strong>Generator</strong> (<code>virtufin-common/scripts/generate-client-tests.py</code>): Reads a <code>.proto</code> file and emits test files in Python, TypeScript, and .NET with test-case ID comments. Run after proto changes.</li>
+<li><strong>Checker</strong> (<code>virtufin-common/scripts/check-client-test-parity.sh</code>): Scans all 3 repos for ID comments and reports gaps against this spec. Run locally or in CI.</li>
+<li><strong>CI</strong> (<code>virtufin-common/.github/workflows/test-parity-common.yaml</code>): Weekly + on-demand parity gate.</li>
+</ol>
+<h3 id="running-the-generator">Running the generator<a class="headerlink" href="#running-the-generator" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>virtufin-&lt;service&gt;
+python3<span class="w"> </span>../virtufin-common/scripts/generate-client-tests.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>src/Virtufin.&lt;Service&gt;.Protos/proto/&lt;service&gt;.proto<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--prefix<span class="w"> </span>&lt;X&gt;
+</code></pre></div>
+<p>The generator is idempotent. Run it whenever the <code>.proto</code> file changes.</p>
+<h3 id="running-the-checker">Running the checker<a class="headerlink" href="#running-the-checker" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>virtufin<span class="w">  </span><span class="c1"># directory containing all service repos</span>
+<span class="nv">VIRTUFIN_ROOT</span><span class="o">=</span>.<span class="w"> </span>bash<span class="w"> </span>virtufin-common/scripts/check-client-test-parity.sh
+</code></pre></div>
+<p>Exits 0 if all IDs are present, 1 if gaps exist.</p>
+<h3 id="generated-vs-hand-written-tests">Generated vs hand-written tests<a class="headerlink" href="#generated-vs-hand-written-tests" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>WHEN</strong> an entity is created with a unique identifier</li>
-<li><strong>THEN</strong> it SHALL be registerable in a global registry and support adding attributes of any type</li>
+<li><strong>Generated</strong> (<code>tests/python/test_generated.py</code>, <code>tests/typescript/generated.test.ts</code>, <code>tests/...Client.Tests/GeneratedTests.cs</code>): Structural coverage from <code>.proto</code>. Do not edit — regenerated on proto changes.</li>
+<li><strong>Hand-written</strong> (<code>tests/python/test_*.py</code>, <code>tests/typescript/*.test.ts</code>, <code>tests/...Client.Tests/*Tests.cs</code>): Business logic, patterns, integration. ID-commented for parity.</li>
 </ul>
-<h4 id="scenario-value-observation">Scenario: Value observation<a class="headerlink" href="#scenario-value-observation" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> an attribute value changes</li>
-<li><strong>THEN</strong> value providers SHALL notify subscribers reactively</li>
-</ul>
-<h3 id="requirement-variant-discriminated-union">Requirement: Variant Discriminated Union<a class="headerlink" href="#requirement-variant-discriminated-union" title="Permanent link">&para;</a></h3>
-<p>The library SHALL provide a sealed <code>Variant</code> type representing a value that is exactly one of: None, Bool, Int32, String, Dictionary, or nested array. It SHALL support FlatBuffers serialization and implicit conversions from C# primitives.</p>
-<h4 id="scenario-type-safe-construction">Scenario: Type-safe construction<a class="headerlink" href="#scenario-type-safe-construction" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a Variant is constructed from a C# primitive (int, string, bool, etc.)</li>
-<li><strong>THEN</strong> the type SHALL be determined at construction and retrievable via pattern matching</li>
-</ul>
-<h4 id="scenario-flatbuffers-serialization">Scenario: FlatBuffers serialization<a class="headerlink" href="#scenario-flatbuffers-serialization" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a Variant is serialized to FlatBuffers binary</li>
-<li><strong>THEN</strong> it SHALL deserialize to an equivalent Variant with the same value and type</li>
-</ul>
-<h4 id="scenario-implicit-conversions">Scenario: Implicit conversions<a class="headerlink" href="#scenario-implicit-conversions" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a Variant is used where a <code>string</code> or <code>int</code> is expected</li>
-<li><strong>THEN</strong> the implicit conversion SHALL succeed if the underlying type matches, or throw if it does not</li>
-</ul>
-<h3 id="requirement-reactive-observables">Requirement: Reactive Observables<a class="headerlink" href="#requirement-reactive-observables" title="Permanent link">&para;</a></h3>
-<p>The library SHALL provide <code>IObservable&lt;T&gt;</code> implementations for NATS, WebSocket, and Valkey data sources. Observables SHALL auto-reconnect on connection loss.</p>
-<h4 id="scenario-nats-subscription">Scenario: NATS subscription<a class="headerlink" href="#scenario-nats-subscription" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a NATS observable is subscribed to with a subject pattern</li>
-<li><strong>THEN</strong> each message published on matching subjects SHALL be delivered to all subscribers</li>
-</ul>
-<h4 id="scenario-connection-lifecycle">Scenario: Connection lifecycle<a class="headerlink" href="#scenario-connection-lifecycle" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> the underlying connection to a data source is lost</li>
-<li><strong>THEN</strong> the observable SHALL reconnect automatically and resume message delivery</li>
-</ul>
-<h3 id="requirement-financial-domain-types">Requirement: Financial Domain Types<a class="headerlink" href="#requirement-financial-domain-types" title="Permanent link">&para;</a></h3>
-<p>The library SHALL provide financial domain primitives including <code>Currency</code> (EUR, USD) and <code>Cash</code>. Operations on mismatched currencies SHALL be rejected.</p>
-<h4 id="scenario-cash-arithmetic">Scenario: Cash arithmetic<a class="headerlink" href="#scenario-cash-arithmetic" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> two Cash values with the same currency are added</li>
-<li><strong>THEN</strong> the result SHALL be a Cash with the summed amount and same currency</li>
-</ul>
-<h4 id="scenario-currency-mismatch">Scenario: Currency mismatch<a class="headerlink" href="#scenario-currency-mismatch" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> two Cash values with different currencies are combined</li>
-<li><strong>THEN</strong> the operation SHALL reject with a clear error</li>
-</ul>
-<h3 id="requirement-flatbuffers-wire-format">Requirement: FlatBuffers Wire Format<a class="headerlink" href="#requirement-flatbuffers-wire-format" title="Permanent link">&para;</a></h3>
-<p>The library SHALL define a FlatBuffers schema for the Variant type and generate serialization code at build time. All language SDKs SHOULD use this schema for cross-language data interchange.</p>
-<h4 id="scenario-cross-language-compatibility">Scenario: Cross-language compatibility<a class="headerlink" href="#scenario-cross-language-compatibility" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a Variant is serialized by a C# producer</li>
-<li><strong>THEN</strong> a Python or TypeScript consumer using the same FlatBuffers schema SHALL be able to deserialize it correctly</li>
-</ul>
-<h4 id="scenario-build-time-code-generation">Scenario: Build-time code generation<a class="headerlink" href="#scenario-build-time-code-generation" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> the project is built</li>
-<li><strong>THEN</strong> the FlatBuffers compiler (<code>flatc</code>) SHALL generate C# serialization code before compilation begins</li>
-</ul>
+<p>Both carry test-case IDs. Generated tests provide baseline coverage; hand-written extend it.</p>
+<hr />
+<h2 id="virtufin-api-client-test-cases">virtufin-api Client Test Cases<a class="headerlink" href="#virtufin-api-client-test-cases" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Test Case</th>
+<th>Python</th>
+<th>TypeScript</th>
+<th>.NET</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Constructor</td>
+<td>Default host/port</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Constructor</td>
+<td>Custom host/port</td>
+<td>✓</td>
+<td>--</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Constructor</td>
+<td>All expected methods present</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Package</td>
+<td>Proto types importable</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>Package</td>
+<td>Proto enums accessible</td>
+<td>--</td>
+<td>--</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A6</td>
+<td>Package</td>
+<td>gRPC client stub accessible</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A7</td>
+<td>Package</td>
+<td>Transport dependency available</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A8</td>
+<td>Method</td>
+<td>publishWithResult - matched response</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>A9</td>
+<td>Method</td>
+<td>publishWithResult - timeout</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>A10</td>
+<td>Method</td>
+<td>publishWithResult - auto correlationId</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>A11</td>
+<td>Integration</td>
+<td>Connectivity check</td>
+<td>✓</td>
+<td>--</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A12</td>
+<td>Integration</td>
+<td>List services</td>
+<td>✓</td>
+<td>--</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A13</td>
+<td>Integration</td>
+<td>List methods</td>
+<td>✓</td>
+<td>--</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>A14</td>
+<td>Integration</td>
+<td>Publish event</td>
+<td>✓</td>
+<td>--</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="virtufin-websocketmanager-client-test-cases">virtufin-websocketmanager Client Test Cases<a class="headerlink" href="#virtufin-websocketmanager-client-test-cases" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Test Case</th>
+<th>Python</th>
+<th>TypeScript</th>
+<th>.NET</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>Constructor</td>
+<td>Default host/port</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>Constructor</td>
+<td>Custom host/port</td>
+<td>✓</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>Constructor</td>
+<td>All expected methods present</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>Package</td>
+<td>Proto types importable</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>Package</td>
+<td>gRPC client stub accessible</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>Package</td>
+<td>Transport dependency available</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W7</td>
+<td>Package</td>
+<td>ConnectRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>Package</td>
+<td>ConnectResponse schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>Package</td>
+<td>ListRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>Package</td>
+<td>ListResponse schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W11</td>
+<td>Package</td>
+<td>DisconnectRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W12</td>
+<td>Package</td>
+<td>SendRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W13</td>
+<td>Package</td>
+<td>SendRequest fields (id, message, timeout)</td>
+<td>--</td>
+<td>--</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W14</td>
+<td>Package</td>
+<td>SendRawRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W15</td>
+<td>Package</td>
+<td>StartPublishRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W16</td>
+<td>Package</td>
+<td>StopPublishRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W17</td>
+<td>Package</td>
+<td>WebSocketConnection schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W18</td>
+<td>Method</td>
+<td>Connect delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W19</td>
+<td>Method</td>
+<td>List delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W20</td>
+<td>Method</td>
+<td>Disconnect delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W21</td>
+<td>Method</td>
+<td>Send delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W22</td>
+<td>Method</td>
+<td>Send with default timeout</td>
+<td>✓</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W23</td>
+<td>Method</td>
+<td>SendRaw delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W24</td>
+<td>Method</td>
+<td>StartPublish delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W25</td>
+<td>Method</td>
+<td>StopPublish delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W26</td>
+<td>Method</td>
+<td>Close releases channel</td>
+<td>✓</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W27</td>
+<td>Error</td>
+<td>Connect error propagates</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W28</td>
+<td>Error</td>
+<td>Send error propagates</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W29</td>
+<td>Error</td>
+<td>List error propagates</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W30</td>
+<td>Lifecycle</td>
+<td>GrpcChannel construction</td>
+<td>--</td>
+<td>--</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>W31</td>
+<td>Lifecycle</td>
+<td>Transport creates successfully</td>
+<td>--</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>W32</td>
+<td>Lifecycle</td>
+<td>Package exports index entry</td>
+<td>--</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="virtufin-workmanager-client-test-cases">virtufin-workmanager Client Test Cases<a class="headerlink" href="#virtufin-workmanager-client-test-cases" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Test Case</th>
+<th>Python</th>
+<th>TypeScript</th>
+<th>.NET</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>Constructor</td>
+<td>Default host/port</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Constructor</td>
+<td>Custom host/port</td>
+<td>✓</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>Constructor</td>
+<td>All expected methods present</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>Package</td>
+<td>Proto types importable</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>Package</td>
+<td>Proto enums accessible</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>Package</td>
+<td>gRPC client stub accessible</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M7</td>
+<td>Package</td>
+<td>Transport dependency available</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>Package</td>
+<td>CreateWorkerRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M9</td>
+<td>Package</td>
+<td>ListWorkersRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M10</td>
+<td>Package</td>
+<td>DeleteWorkerRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M11</td>
+<td>Package</td>
+<td>StartWorkerRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M12</td>
+<td>Package</td>
+<td>StopWorkerRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M13</td>
+<td>Package</td>
+<td>RecoverWorkersRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M14</td>
+<td>Package</td>
+<td>LoadCodeFromContentRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M15</td>
+<td>Package</td>
+<td>LoadCodeFromUrlRequest schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M16</td>
+<td>Package</td>
+<td>WorkerInfo schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M17</td>
+<td>Package</td>
+<td>CodeSource schema</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M18</td>
+<td>Package</td>
+<td>WorkerStatus enum</td>
+<td>--</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M19</td>
+<td>Method</td>
+<td>CreateWorker with URL</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M20</td>
+<td>Method</td>
+<td>CreateWorker with content</td>
+<td>✓</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M21</td>
+<td>Method</td>
+<td>CreateWorker without connect raises</td>
+<td>✓</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M22</td>
+<td>Method</td>
+<td>ListWorkers delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M23</td>
+<td>Method</td>
+<td>DeleteWorker delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M24</td>
+<td>Method</td>
+<td>StartWorker delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M25</td>
+<td>Method</td>
+<td>StopWorker delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M26</td>
+<td>Method</td>
+<td>RecoverWorkers delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M27</td>
+<td>Method</td>
+<td>GetWorkerHistory delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M28</td>
+<td>Method</td>
+<td>LoadCodeFromContent delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M29</td>
+<td>Method</td>
+<td>LoadCodeFromUrl delegates to stub</td>
+<td>✓</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M30</td>
+<td>Error</td>
+<td>CreateWorker error propagates</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M31</td>
+<td>Error</td>
+<td>ListWorkers error propagates</td>
+<td>--</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M32</td>
+<td>Error</td>
+<td>DeleteWorker error propagates</td>
+<td>--</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M33</td>
+<td>Lifecycle</td>
+<td>GrpcChannel construction</td>
+<td>--</td>
+<td>--</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>M34</td>
+<td>Lifecycle</td>
+<td>Transport creates successfully</td>
+<td>--</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+<tr>
+<td>M35</td>
+<td>Lifecycle</td>
+<td>Package exports index entry</td>
+<td>--</td>
+<td>✓</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="rules-for-adding-tests">Rules for Adding Tests<a class="headerlink" href="#rules-for-adding-tests" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Every test case listed above SHALL exist for every language marked ✓.</li>
+<li>When adding a new test to ANY language, a corresponding row SHALL be added to this spec.</li>
+<li>The CI parity checker SHALL fail if gaps are detected.</li>
+<li>Test naming SHALL follow these conventions so the checker can match them:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Pattern</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td><code>test_&lt;snake_case_name&gt;</code></td>
+<td><code>test_connect_delegates_to_stub</code></td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td><code>it("&lt;human readable name&gt;")</code></td>
+<td><code>it("connect delegates to gRPC client")</code></td>
+</tr>
+<tr>
+<td>.NET</td>
+<td><code>CamelCaseName</code></td>
+<td><code>ConnectDelegatesToStub</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each test case ID (e.g., <code>W18</code>, <code>M19</code>) MUST appear as a comment in ALL language implementations to enable automated matching:</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># W18</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_connect_delegates_to_stub</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">mock_stub</span><span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// W18</span>
+<span class="nx">it</span><span class="p">(</span><span class="s2">&quot;connect delegates to gRPC client&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">});</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// W18</span>
+<span class="na">[Fact]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ConnectDelegatesToStub</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></p>
 
 
 
