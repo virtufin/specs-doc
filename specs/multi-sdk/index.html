@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://gitea.haenerconsulting.com/virtufin/virtufin-openspec/commit/fe6f76edd96efae71d757d9b773445b5a010e05f"
+    <a href="https://gitea.haenerconsulting.com/virtufin/virtufin-openspec/commit/e6d3930dba0205a0e18f5559fc141445ca14e30b"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit fe6f76e">
+       title="View commit e6d3930">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">fe6f76e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">e6d3930</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://gitea.haenerconsulting.com/virtufin/virtufin-openspec/commit/fe6f76edd96efae71d757d9b773445b5a010e05f"
+    <a href="https://gitea.haenerconsulting.com/virtufin/virtufin-openspec/commit/e6d3930dba0205a0e18f5559fc141445ca14e30b"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit fe6f76e">
+       title="View commit e6d3930">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">fe6f76e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">e6d3930</text>
       </svg>
     </a>
 </div>
@@ -830,6 +830,45 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#requirement-request-reply-over-pubsub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Request-Reply over PubSub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Request-Reply over PubSub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-successful-request-reply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Successful request-reply
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1150,6 +1189,45 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#requirement-request-reply-over-pubsub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Request-Reply over PubSub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Request-Reply over PubSub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-successful-request-reply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Successful request-reply
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1199,7 +1277,7 @@
 <li><strong>THEN</strong> the call SHALL be made over gRPC asynchronously</li>
 </ul>
 <h3 id="requirement-first-class-typescript-client">Requirement: First-Class TypeScript Client<a class="headerlink" href="#requirement-first-class-typescript-client" title="Permanent link">&para;</a></h3>
-<p>Each service SHALL provide an npm package (<code>@virtufin/&lt;service&gt;</code>) with gRPC-Web or ConnectRPC client support.</p>
+<p>Each service SHALL provide an npm package (<code>virtufin-&lt;service&gt;</code>) with gRPC-Web or ConnectRPC client support. Packages SHALL use unscoped naming.</p>
 <h4 id="scenario-browser-grpc-web-call">Scenario: Browser gRPC-Web call<a class="headerlink" href="#scenario-browser-grpc-web-call" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a TypeScript consumer in a browser environment calls a service method</li>
@@ -1229,6 +1307,18 @@
 <ul>
 <li><strong>WHEN</strong> a client SDK v1 connects to a service with an incompatible proto schema</li>
 <li><strong>THEN</strong> the error SHALL be clearly identifiable as a version mismatch</li>
+</ul>
+<h3 id="requirement-request-reply-over-pubsub">Requirement: Request-Reply over PubSub<a class="headerlink" href="#requirement-request-reply-over-pubsub" title="Permanent link">&para;</a></h3>
+<p>Python and C# client SDKs SHALL support the request-reply pattern over Dapr pub/sub using correlation IDs. The <code>publish_with_result_async</code> (Python) and <code>PublishWithResultAsync</code> (C#) methods SHALL publish to a topic with a generated <code>correlationid</code> in metadata, subscribe to a reply topic, and return the first response whose <code>correlationid</code> metadata matches.</p>
+<h4 id="scenario-successful-request-reply">Scenario: Successful request-reply<a class="headerlink" href="#scenario-successful-request-reply" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a client publishes a request with correlation ID X and a responder publishes a response on the reply topic with the same correlation ID</li>
+<li><strong>THEN</strong> the client SHALL receive the matching response within the specified timeout</li>
+</ul>
+<h4 id="scenario-timeout">Scenario: Timeout<a class="headerlink" href="#scenario-timeout" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> no matching response arrives within the timeout period</li>
+<li><strong>THEN</strong> the client SHALL raise a TimeoutError (Python) or TimeoutException (C#)</li>
 </ul>
 
 
@@ -1261,7 +1351,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-06-03T22:47:25Z</span>
+  <span style="display:table-cell;text-align:right">2026-06-08T05:10:42Z</span>
 </div>
 
     </div>

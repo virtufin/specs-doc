@@ -2,38 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://specs.doc.virtufin.com/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://specs.doc.virtufin.com/specs/api-gateway/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://specs.doc.virtufin.com/specs/ci-cd-tooling/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://specs.doc.virtufin.com/specs/core-data-types/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://specs.doc.virtufin.com/specs/cross-cutting/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://specs.doc.virtufin.com/specs/deployment/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://specs.doc.virtufin.com/specs/multi-sdk/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://specs.doc.virtufin.com/specs/websocket-proxy/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://specs.doc.virtufin.com/specs/worker-management/</loc>
-         <lastmod>2026-06-03</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
 </urlset>
