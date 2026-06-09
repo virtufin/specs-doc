@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://gitea.haenerconsulting.com/virtufin/virtufin-openspec/commit/cfc7a47fe6d52b207a8abe7a537f25c23509eb9b"
+    <a href="https://gitea.haenerconsulting.com/virtufin/virtufin-openspec/commit/c807f591e657a6ca3399a718d7c0dad3be3d823a"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit cfc7a47">
+       title="View commit c807f59">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">cfc7a47</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">c807f59</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://gitea.haenerconsulting.com/virtufin/virtufin-openspec/commit/cfc7a47fe6d52b207a8abe7a537f25c23509eb9b"
+    <a href="https://gitea.haenerconsulting.com/virtufin/virtufin-openspec/commit/c807f591e657a6ca3399a718d7c0dad3be3d823a"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit cfc7a47">
+       title="View commit c807f59">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">cfc7a47</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">c807f59</text>
       </svg>
     </a>
 </div>
@@ -917,6 +917,28 @@
     <span class="md-ellipsis">
       
         Scenario: Constructor-based configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-apiworker-with-pre-configured-apiclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ApiWorker with pre-configured ApiClient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-apicommandworker-with-pre-configured-apiclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ApiCommandWorker with pre-configured ApiClient
       
     </span>
   </a>
@@ -1542,6 +1564,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#scenario-apiworker-with-pre-configured-apiclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ApiWorker with pre-configured ApiClient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-apicommandworker-with-pre-configured-apiclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ApiCommandWorker with pre-configured ApiClient
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1782,6 +1826,16 @@
 <li><strong>WHEN</strong> a worker extends WorkerBase or CommandWorker</li>
 <li><strong>THEN</strong> it SHALL pass the response CloudEvent type and source URI via the constructor, not via abstract property overrides</li>
 </ul>
+<h4 id="scenario-apiworker-with-pre-configured-apiclient">Scenario: ApiWorker with pre-configured ApiClient<a class="headerlink" href="#scenario-apiworker-with-pre-configured-apiclient" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a worker extends ApiWorker with <code>apiHost</code>, <code>apiPort</code>, <code>responseEventType</code>, and <code>source</code></li>
+<li><strong>THEN</strong> the base class SHALL create an <code>ApiClient</code> at the configured host/port and provide it to <code>ProcessAsync(CloudEvent, ApiClient)</code></li>
+</ul>
+<h4 id="scenario-apicommandworker-with-pre-configured-apiclient">Scenario: ApiCommandWorker with pre-configured ApiClient<a class="headerlink" href="#scenario-apicommandworker-with-pre-configured-apiclient" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a worker extends ApiCommandWorker with <code>apiHost</code>, <code>apiPort</code>, <code>responseEventType</code>, and <code>source</code></li>
+<li><strong>THEN</strong> the base class SHALL create an <code>ApiClient</code> at the configured host/port and make it available during <code>HandleCommandAsync</code></li>
+</ul>
 <h3 id="requirement-commandworker-base-class">Requirement: CommandWorker Base Class<a class="headerlink" href="#requirement-commandworker-base-class" title="Permanent link">&para;</a></h3>
 <p>A <code>CommandWorker</code> abstract class SHALL extend <code>WorkerBase</code> to simplify command-based workers. It SHALL parse the CloudEvent data as JSON, extract a <code>"command"</code> field, and dispatch to the abstract <code>HandleCommandAsync</code> method. Unknown commands SHALL produce automatic error responses.</p>
 <h4 id="scenario-command-dispatch">Scenario: Command dispatch<a class="headerlink" href="#scenario-command-dispatch" title="Permanent link">&para;</a></h4>
@@ -1842,7 +1896,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-06-09T14:34:25Z</span>
+  <span style="display:table-cell;text-align:right">2026-06-09T20:58:08Z</span>
 </div>
 
     </div>
