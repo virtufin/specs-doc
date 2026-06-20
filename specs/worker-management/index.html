@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/94149285635b9992d251603645dce9bd0af9a079"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/7b8bbbf103db4584773795c5cad90e9fa929fb7f"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 9414928">
+       title="View commit 7b8bbbf">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">9414928</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">7b8bbbf</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/94149285635b9992d251603645dce9bd0af9a079"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/7b8bbbf103db4584773795c5cad90e9fa929fb7f"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 9414928">
+       title="View commit 7b8bbbf">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">9414928</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">7b8bbbf</text>
       </svg>
     </a>
 </div>
@@ -2368,7 +2368,7 @@
 <li><strong>THEN</strong> the output CloudEvent SHALL NOT have a <code>correlationid</code> extension</li>
 </ul>
 <h3 id="requirement-generic-commandworker-base-class">Requirement: Generic CommandWorker Base Class<a class="headerlink" href="#requirement-generic-commandworker-base-class" title="Permanent link">&para;</a></h3>
-<p>The <code>Virtufin.Worker.DevKit</code> package SHALL provide a generic <code>CommandWorker&lt;T&gt; where T : struct, Enum</code> and a generic <code>ApiCommandWorker&lt;T&gt; where T : struct, Enum</code> as the canonical base classes for command-based workers. The wire protocol of the CloudEvent <code>data.command</code> field SHALL be the lowercase identifier of the enum value (e.g. enum <code>WebsocketManagerCommand.create</code> corresponds to the wire string <code>"create"</code>). The base class SHALL parse the wire string with <code>Enum.TryParse&lt;T&gt;(command, ignoreCase: true, out _)</code> and dispatch to an abstract <code>HandleAsync(CloudEvent, T, JsonNode)</code> method. An unknown wire command SHALL produce an error response. The non-generic <code>CommandWorker</code> / <code>ApiCommandWorker</code> types are removed (alpha, no backward compatibility).</p>
+<p>The <code>Virtufin.Worker.DevKit</code> package SHALL provide a generic <code>CommandWorker&lt;T&gt; where T : struct, Enum</code> and a generic <code>ApiCommandWorker&lt;T&gt; where T : struct, Enum</code> as the canonical base classes for command-based workers. The wire protocol of the CloudEvent <code>data.command</code> field SHALL be the lowercase identifier of the enum value (e.g. enum <code>WebSocketManagerCommand.create</code> corresponds to the wire string <code>"create"</code>). The base class SHALL parse the wire string with <code>Enum.TryParse&lt;T&gt;(command, ignoreCase: true, out _)</code> and dispatch to an abstract <code>HandleAsync(CloudEvent, T, JsonNode)</code> method. An unknown wire command SHALL produce an error response. The non-generic <code>CommandWorker</code> / <code>ApiCommandWorker</code> types are removed (alpha, no backward compatibility).</p>
 <h4 id="scenario-generic-dispatch-on-valid-command">Scenario: Generic dispatch on valid command<a class="headerlink" href="#scenario-generic-dispatch-on-valid-command" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a CloudEvent arrives with <code>{"command": "create", ...}</code> and the worker is <code>CommandWorker&lt;MyEnum&gt;</code> where <code>MyEnum.create</code> exists</li>
@@ -2376,7 +2376,7 @@
 </ul>
 <h4 id="scenario-wire-name-identifier-lowercase">Scenario: Wire name == identifier (lowercase)<a class="headerlink" href="#scenario-wire-name-identifier-lowercase" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a worker defines an enum value <code>WebsocketManagerCommand.create</code></li>
+<li><strong>WHEN</strong> a worker defines an enum value <code>WebSocketManagerCommand.create</code></li>
 <li><strong>THEN</strong> the corresponding wire command string SHALL be the lowercase identifier <code>"create"</code></li>
 </ul>
 <h4 id="scenario-unknown-command_1">Scenario: Unknown command<a class="headerlink" href="#scenario-unknown-command_1" title="Permanent link">&para;</a></h4>
@@ -2440,7 +2440,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-06-19T13:16:42Z</span>
+  <span style="display:table-cell;text-align:right">2026-06-20T13:04:31Z</span>
 </div>
 
     </div>
