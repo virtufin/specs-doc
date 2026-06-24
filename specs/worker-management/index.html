@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/7b8bbbf103db4584773795c5cad90e9fa929fb7f"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/750622ad51fa527fabdc5718f95b1fbd67f50e02"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 7b8bbbf">
+       title="View commit 750622a">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">7b8bbbf</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">750622a</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/7b8bbbf103db4584773795c5cad90e9fa929fb7f"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/750622ad51fa527fabdc5718f95b1fbd67f50e02"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 7b8bbbf">
+       title="View commit 750622a">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">7b8bbbf</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">750622a</text>
       </svg>
     </a>
 </div>
@@ -774,10 +774,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-dll-worker-execution" class="md-nav__link">
+  <a href="#scenario-dll-worker-execution-in-process-default" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: DLL worker execution
+        Scenario: DLL worker execution (in-process, default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-dll-worker-execution-subprocess-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: DLL worker execution (subprocess, fallback)
       
     </span>
   </a>
@@ -1233,6 +1244,460 @@
     <span class="md-ellipsis">
       
         Scenario: New enum value triggers compiler warning on the switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-in-process-dotnet-dll-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: In-Process Dotnet DLL Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: In-Process Dotnet DLL Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-first-loadcodeasync-initializes-coreclr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: First LoadCodeAsync initializes CoreCLR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-subsequent-loadcodeasync-in-the-same-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Subsequent LoadCodeAsync in the same process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-per-worker-assemblyloadcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Per-worker AssemblyLoadContext
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-devkit-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: DevKit resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-direct-in-process-dispatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Direct in-process dispatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-runtime-discovery-on-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Runtime discovery on target
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-roll-forward-to-a-newer-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Roll-forward to a newer runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-fallback-to-subprocess-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Fallback to subprocess engine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-dll-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native DLL Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native DLL Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-native-worker-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Native worker execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-per-architecture-entry-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Per-architecture entry selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-unsupported-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Unsupported architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-missing-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Missing manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-abi-version-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ABI version mismatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-worker-abi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native Worker ABI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native Worker ABI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-abi-struct-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ABI struct layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-cloudevent-flatbuffer-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: CloudEvent FlatBuffer input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-workerresponse-flatbuffer-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: WorkerResponse FlatBuffer output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-freeresult-pairing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: FreeResult pairing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-logging-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Logging callback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-gateway-call-indirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Gateway call indirection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-manifest-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Manifest format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-worker-identity-and-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native Worker Identity and Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native Worker Identity and Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-worker-identity-env-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Worker identity env vars
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-correlation-id-from-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Correlation id from input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-concurrent-process-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Concurrent Process calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-reload-under-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Reload under load
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-cleanup-on-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Cleanup on stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-worker-caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native Worker Caveats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native Worker Caveats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-in-process-crash-isolation-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: In-process crash isolation caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-unmanaged-timeout-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Unmanaged timeout caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-abi-version-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ABI version policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-worker-library-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native Worker Library Naming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native Worker Library Naming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-linux-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Linux filename
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-windows-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Windows filename
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-macos-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: macOS filename
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-library-name-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Library name validation
       
     </span>
   </a>
@@ -1676,10 +2141,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-dll-worker-execution" class="md-nav__link">
+  <a href="#scenario-dll-worker-execution-in-process-default" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: DLL worker execution
+        Scenario: DLL worker execution (in-process, default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-dll-worker-execution-subprocess-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: DLL worker execution (subprocess, fallback)
       
     </span>
   </a>
@@ -2146,6 +2622,460 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#requirement-in-process-dotnet-dll-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: In-Process Dotnet DLL Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: In-Process Dotnet DLL Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-first-loadcodeasync-initializes-coreclr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: First LoadCodeAsync initializes CoreCLR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-subsequent-loadcodeasync-in-the-same-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Subsequent LoadCodeAsync in the same process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-per-worker-assemblyloadcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Per-worker AssemblyLoadContext
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-devkit-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: DevKit resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-direct-in-process-dispatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Direct in-process dispatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-runtime-discovery-on-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Runtime discovery on target
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-roll-forward-to-a-newer-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Roll-forward to a newer runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-fallback-to-subprocess-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Fallback to subprocess engine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-dll-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native DLL Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native DLL Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-native-worker-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Native worker execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-per-architecture-entry-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Per-architecture entry selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-unsupported-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Unsupported architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-missing-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Missing manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-abi-version-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ABI version mismatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-worker-abi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native Worker ABI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native Worker ABI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-abi-struct-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ABI struct layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-cloudevent-flatbuffer-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: CloudEvent FlatBuffer input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-workerresponse-flatbuffer-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: WorkerResponse FlatBuffer output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-freeresult-pairing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: FreeResult pairing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-logging-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Logging callback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-gateway-call-indirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Gateway call indirection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-manifest-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Manifest format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-worker-identity-and-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native Worker Identity and Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native Worker Identity and Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-worker-identity-env-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Worker identity env vars
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-correlation-id-from-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Correlation id from input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-concurrent-process-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Concurrent Process calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-reload-under-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Reload under load
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-cleanup-on-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Cleanup on stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-worker-caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native Worker Caveats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native Worker Caveats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-in-process-crash-isolation-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: In-process crash isolation caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-unmanaged-timeout-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Unmanaged timeout caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-abi-version-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ABI version policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-native-worker-library-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Native Worker Library Naming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Native Worker Library Naming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-linux-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Linux filename
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-windows-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Windows filename
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-macos-filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: macOS filename
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-library-name-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Library name validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2232,7 +3162,7 @@
 <li><strong>THEN</strong> the WorkManager SHALL publish a <code>worker.error</code> event with <code>error_type</code> and <code>error_message</code> in the data payload</li>
 </ul>
 <h3 id="requirement-polyglot-worker-engines">Requirement: Polyglot Worker Engines<a class="headerlink" href="#requirement-polyglot-worker-engines" title="Permanent link">&para;</a></h3>
-<p>The WorkManager SHALL support executing worker code in multiple languages via a pluggable engine architecture. Built-in engines SHALL include Python (subprocess), C# (Roslyn runtime compilation), and pre-compiled .NET DLL (isolated AssemblyLoadContext).</p>
+<p>The WorkManager SHALL support executing worker code in multiple languages via a pluggable engine architecture. Built-in engines SHALL include Python (subprocess), C# (Roslyn runtime compilation), pre-compiled .NET DLL (in-process, the default <code>DotnetDllEngine</code> via <code>hostfxr</code> + <code>AssemblyLoadContext</code>), and pre-compiled .NET DLL in a dedicated subprocess (the fallback <code>DotnetDllSubProcessEngine</code>, not registered by default).</p>
 <h4 id="scenario-python-worker-execution">Scenario: Python worker execution<a class="headerlink" href="#scenario-python-worker-execution" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a worker with a Python engine processes a message</li>
@@ -2243,10 +3173,15 @@
 <li><strong>WHEN</strong> a worker with a C# source engine processes a message</li>
 <li><strong>THEN</strong> the code SHALL be compiled at runtime via Roslyn and executed in-process</li>
 </ul>
-<h4 id="scenario-dll-worker-execution">Scenario: DLL worker execution<a class="headerlink" href="#scenario-dll-worker-execution" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-dll-worker-execution-in-process-default">Scenario: DLL worker execution (in-process, default)<a class="headerlink" href="#scenario-dll-worker-execution-in-process-default" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a worker with a DotnetDll engine processes a message</li>
-<li><strong>THEN</strong> the assembly SHALL be loaded in an isolated <code>AssemblyLoadContext</code> and executed in-process</li>
+<li><strong>WHEN</strong> a worker with MIME type <code>application/x-dotnet-dll</code> processes a message</li>
+<li><strong>THEN</strong> the worker DLL SHALL be loaded into an isolated <code>AssemblyLoadContext</code> and executed in-process in the WorkManager, with sub-microsecond per-call latency</li>
+</ul>
+<h4 id="scenario-dll-worker-execution-subprocess-fallback">Scenario: DLL worker execution (subprocess, fallback)<a class="headerlink" href="#scenario-dll-worker-execution-subprocess-fallback" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a worker with MIME type <code>application/x-dotnet-dll</code> is configured to use the fallback subprocess engine</li>
+<li><strong>THEN</strong> the worker DLL SHALL be loaded in a dedicated <code>DotnetDllWorkerSubProcess</code> subprocess and CloudEvents SHALL be exchanged over a Unix domain socket</li>
 </ul>
 <h4 id="scenario-engine-extension">Scenario: Engine extension<a class="headerlink" href="#scenario-engine-extension" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2409,6 +3344,278 @@
 <li><strong>WHEN</strong> a new value is added to the command enum and the worker's <code>HandleAsync</code> switch expression does not handle it</li>
 <li><strong>THEN</strong> the C# compiler SHALL emit a warning (CS8509 or equivalent) for the unhandled enum value</li>
 </ul>
+<h3 id="requirement-in-process-dotnet-dll-engine">Requirement: In-Process Dotnet DLL Engine<a class="headerlink" href="#requirement-in-process-dotnet-dll-engine" title="Permanent link">&para;</a></h3>
+<p>The WorkManager SHALL support an in-process <code>DotnetDllEngine</code> (default for MIME type <code>application/x-dotnet-dll</code>) that loads pre-compiled .NET worker DLLs directly into the AOT-compiled WorkManager process. The engine SHALL embed the .NET runtime (<code>CoreCLR</code>) into the host process on first use via the <code>hostfxr</code> C API and SHALL load the worker DLL into a per-worker, collectible <code>AssemblyLoadContext</code>. The engine SHALL be AOT-compatible: the engine code itself is compiled with <code>&lt;IsAotCompatible&gt;true&lt;/IsAotCompatible&gt;</code> and SHALL NOT use reflection on its own types; the only reflection SHALL be on the JIT-loaded worker assembly.</p>
+<h4 id="scenario-first-loadcodeasync-initializes-coreclr">Scenario: First LoadCodeAsync initializes CoreCLR<a class="headerlink" href="#scenario-first-loadcodeasync-initializes-coreclr" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the first <code>LoadCodeAsync</code> is called for MIME type <code>application/x-dotnet-dll</code></li>
+<li><strong>THEN</strong> the engine SHALL load <code>libhostfxr</code> via <code>NativeLibrary.Load</code> and call <code>hostfxr_initialize_for_runtime_config</code> to initialize <code>CoreCLR</code> in the host process; the cost SHALL be paid once per WorkManager process</li>
+</ul>
+<h4 id="scenario-subsequent-loadcodeasync-in-the-same-process">Scenario: Subsequent LoadCodeAsync in the same process<a class="headerlink" href="#scenario-subsequent-loadcodeasync-in-the-same-process" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a second <code>LoadCodeAsync</code> is called after <code>CoreCLR</code> is already initialized</li>
+<li><strong>THEN</strong> the engine SHALL skip the <code>hostfxr</code> initialization and load the new worker DLL directly</li>
+</ul>
+<h4 id="scenario-per-worker-assemblyloadcontext">Scenario: Per-worker AssemblyLoadContext<a class="headerlink" href="#scenario-per-worker-assemblyloadcontext" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a <code>LoadCodeAsync</code> is called with a worker nupkg</li>
+<li><strong>THEN</strong> the engine SHALL extract the worker DLL (and its sibling dependencies) from the nupkg's <code>lib/&lt;tfm&gt;/</code> entries, create a new collectible <code>AssemblyLoadContext</code>, and load the worker assembly into it</li>
+</ul>
+<h4 id="scenario-devkit-resolution">Scenario: DevKit resolution<a class="headerlink" href="#scenario-devkit-resolution" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the JIT-loaded worker assembly references <code>Virtufin.Worker.DevKit</code></li>
+<li><strong>THEN</strong> the engine SHALL resolve the reference to the AOT-compiled <code>Virtufin.Worker.DevKit</code> instance already loaded in the WorkManager process (so the worker and the engine see the same type identity)</li>
+</ul>
+<h4 id="scenario-direct-in-process-dispatch">Scenario: Direct in-process dispatch<a class="headerlink" href="#scenario-direct-in-process-dispatch" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> <code>ProcessAsync</code> is called on the engine with a CloudEvent</li>
+<li><strong>THEN</strong> the engine SHALL call the worker's <code>IWorker.ProcessAsync</code> directly, with no socket, no JSON serialization, and no subprocess scheduling; the per-call latency SHALL be sub-microsecond</li>
+</ul>
+<h4 id="scenario-runtime-discovery-on-target">Scenario: Runtime discovery on target<a class="headerlink" href="#scenario-runtime-discovery-on-target" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the WorkManager runs on a target that does not have a compatible .NET runtime installed</li>
+<li><strong>THEN</strong> the first <code>LoadCodeAsync</code> SHALL fail with a clear error message that names the missing runtime and the discovery paths (<code>DOTNET_ROOT</code>, system install, side-by-side <code>host/fxr/&lt;version&gt;/</code>)</li>
+</ul>
+<h4 id="scenario-roll-forward-to-a-newer-runtime">Scenario: Roll-forward to a newer runtime<a class="headerlink" href="#scenario-roll-forward-to-a-newer-runtime" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the WorkManager is built for .NET 10 and the target has a .NET 11+ runtime installed</li>
+<li><strong>THEN</strong> the engine SHALL use the newer runtime; the generated <code>runtimeconfig.json</code> SHALL declare <code>"rollForward": "Major"</code></li>
+</ul>
+<h4 id="scenario-fallback-to-subprocess-engine">Scenario: Fallback to subprocess engine<a class="headerlink" href="#scenario-fallback-to-subprocess-engine" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a worker requires subprocess isolation (e.g. it may crash the process on unhandled managed exceptions) or depends on thread-static state that does not survive <code>AssemblyLoadContext</code> reload</li>
+<li><strong>THEN</strong> the operator MAY opt back into the <code>DotnetDllSubProcessEngine</code> by editing <code>Program.cs</code> (one-line change); the renamed out-of-process engine is kept in the tree as a documented fallback</li>
+</ul>
+<h3 id="requirement-native-dll-engine">Requirement: Native DLL Engine<a class="headerlink" href="#requirement-native-dll-engine" title="Permanent link">&para;</a></h3>
+<p>The WorkManager SHALL support a <code>NativeDllEngine</code> for executing workers
+shipped as a per-architecture native shared library (<code>.so</code> / <code>.dll</code> /
+<code>.dylib</code>). The engine SHALL run in-process inside the (NativeAOT-compiled)
+WorkManager and SHALL NOT require a separate worker-host subprocess or a
+JIT build stage. The engine SHALL be registered for MIME type
+<code>application/x-native-dll</code>. Per-architecture entries SHALL live under
+<code>runtimes/&lt;rid&gt;/native/</code> inside the worker zip, matching the NuGet
+convention for native packages.</p>
+<h4 id="scenario-native-worker-execution">Scenario: Native worker execution<a class="headerlink" href="#scenario-native-worker-execution" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a worker with MIME type <code>application/x-native-dll</code> processes a
+  CloudEvent</li>
+<li><strong>THEN</strong> the engine SHALL <code>NativeLibrary.Load</code> the matching
+  <code>runtimes/&lt;rid&gt;/native/&lt;file&gt;</code> entry from the worker zip, resolve the
+  <code>entry_point</code> and <code>free_result</code> exports declared in <code>manifest.json</code>,
+  marshal the input CloudEvent to a FlatBuffer, invoke the native
+  <code>Process</code> function, and deserialize the returned FlatBuffer into a
+  <code>WorkerResponse</code>.</li>
+</ul>
+<h4 id="scenario-per-architecture-entry-selection">Scenario: Per-architecture entry selection<a class="headerlink" href="#scenario-per-architecture-entry-selection" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a worker zip contains entries under
+  <code>runtimes/&lt;rid&gt;/native/</code> for at least one supported RID
+  (<code>linux-x64</code>, <code>linux-arm64</code>)</li>
+<li><strong>THEN</strong> the engine SHALL select the entry whose <code>&lt;rid&gt;</code> directory
+  matches <code>RuntimeInformation.RuntimeIdentifier</code> of the running process
+  and SHALL load the corresponding <code>lib&lt;library&gt;.so</code>,
+  <code>&lt;library&gt;.dll</code>, or <code>lib&lt;library&gt;.dylib</code> per the platform (see
+  Native Worker Library Naming).</li>
+</ul>
+<h4 id="scenario-unsupported-architecture">Scenario: Unsupported architecture<a class="headerlink" href="#scenario-unsupported-architecture" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the worker zip does not contain a <code>runtimes/&lt;rid&gt;/native/</code>
+  entry for the running architecture</li>
+<li><strong>THEN</strong> the engine SHALL throw <code>NotSupportedException</code> listing the
+  supported archs (<code>linux-x64</code>, <code>linux-arm64</code>).</li>
+</ul>
+<h4 id="scenario-missing-manifest">Scenario: Missing manifest<a class="headerlink" href="#scenario-missing-manifest" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the worker zip does not contain <code>manifest.json</code> at the root</li>
+<li><strong>THEN</strong> the engine SHALL refuse to load the worker and throw a clear
+  error naming the missing file.</li>
+</ul>
+<h4 id="scenario-abi-version-mismatch">Scenario: ABI version mismatch<a class="headerlink" href="#scenario-abi-version-mismatch" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the <code>manifest.json</code> declares an <code>abi_version</code> that is not in
+  the engine's supported set</li>
+<li><strong>THEN</strong> the engine SHALL refuse to load the worker and throw a clear
+  error naming the supported versions.</li>
+</ul>
+<h3 id="requirement-native-worker-abi">Requirement: Native Worker ABI<a class="headerlink" href="#requirement-native-worker-abi" title="Permanent link">&para;</a></h3>
+<p>The <code>NativeDllEngine</code> SHALL define and enforce a stable C ABI between the
+managed engine and the native worker. The ABI SHALL consist of: (a) a
+FlatBuffers schema for the CloudEvent wire format; (b) two C function
+exports <code>Process</code> and <code>FreeResult</code>; (c) a <code>VirtufinHost</code> struct carrying
+host callbacks; (d) a <code>manifest.json</code> declaring the ABI version, the
+library basename, and the export names. The engine SHALL vendor a
+<code>virtufin_worker_api.h</code> header for distribution to worker authors.</p>
+<h4 id="scenario-abi-struct-layout">Scenario: ABI struct layout<a class="headerlink" href="#scenario-abi-struct-layout" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a native worker is loaded</li>
+<li><strong>THEN</strong> the engine SHALL pass a <code>VirtufinHost*</code> whose first field is
+  an opaque <code>engine_ptr</code> (a <code>GCHandle</code> to the engine instance), whose
+  second field is <code>abi_version</code> (currently <code>1</code>), and whose remaining
+  fields are C function pointers <code>log</code>, <code>gateway_call</code>, and
+  <code>free_response</code>.</li>
+</ul>
+<h4 id="scenario-cloudevent-flatbuffer-input">Scenario: CloudEvent FlatBuffer input<a class="headerlink" href="#scenario-cloudevent-flatbuffer-input" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the engine invokes <code>Process(host, in_buf, in_len, &amp;out_buf, &amp;out_len)</code></li>
+<li><strong>THEN</strong> <code>in_buf</code> SHALL point to a FlatBuffer-encoded <code>CloudEvent</code>
+  matching the vendored <code>worker_api.fbs</code> schema. The
+  <code>extensions[correlationid]</code> field SHALL carry the correlation id from
+  the input CloudEvent when present.</li>
+</ul>
+<h4 id="scenario-workerresponse-flatbuffer-output">Scenario: WorkerResponse FlatBuffer output<a class="headerlink" href="#scenario-workerresponse-flatbuffer-output" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> <code>Process</code> returns <code>0</code></li>
+<li><strong>THEN</strong> <code>*out_buf</code> SHALL point to a FlatBuffer-encoded
+  <code>WorkerResponse</code> in which exactly one of <code>result_event</code> or
+  <code>error_message</code> is set. If <code>result_event</code> is set, the engine SHALL
+  publish it on the reply topic derived from the input CloudEvent. If
+  <code>error_message</code> is set, the engine SHALL surface a <code>worker.error</code>
+  lifecycle event and publish an error response if the worker did not
+  specify one.</li>
+</ul>
+<h4 id="scenario-freeresult-pairing">Scenario: FreeResult pairing<a class="headerlink" href="#scenario-freeresult-pairing" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> <code>Process</code> returns a non-null <code>*out_buf</code></li>
+<li><strong>THEN</strong> the engine SHALL call <code>FreeResult(out_buf)</code> exactly once,
+  including on the error path. The worker SHALL use the same allocator
+  for the <code>*out_buf</code> allocation that <code>FreeResult</code> releases.</li>
+</ul>
+<h4 id="scenario-logging-callback">Scenario: Logging callback<a class="headerlink" href="#scenario-logging-callback" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the native worker calls <code>host-&gt;log(level, message)</code></li>
+<li><strong>THEN</strong> the engine SHALL map <code>level</code> (<code>0=trace</code>, <code>1=debug</code>, <code>2=info</code>,
+  <code>3=warn</code>, <code>4=error</code>) to the corresponding
+  <code>Microsoft.Extensions.Logging.LogLevel</code> and forward <code>message</code> to the
+  engine's structured logger. The lifetime of <code>message</code> SHALL be limited
+  to the call.</li>
+</ul>
+<h4 id="scenario-gateway-call-indirection">Scenario: Gateway call indirection<a class="headerlink" href="#scenario-gateway-call-indirection" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the native worker calls <code>host-&gt;gateway_call(service, method, request, request_len, &amp;response, &amp;response_len)</code></li>
+<li><strong>THEN</strong> the engine SHALL deserialize <code>request</code> as JSON into a
+  <code>Dictionary&lt;string, object?&gt;</code>, invoke
+  <code>ApiClient.InvokeAsync(service, method, dict)</code>, JSON-serialize the
+  returned dictionary into <code>*response</code> (allocated with
+  <code>Marshal.AllocCoTaskMem</code>), and return <code>0</code> on success or non-zero on
+  internal failure. The worker SHALL free <code>*response</code> via
+  <code>host-&gt;free_response(response)</code>.</li>
+</ul>
+<h4 id="scenario-manifest-format">Scenario: Manifest format<a class="headerlink" href="#scenario-manifest-format" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the engine parses the worker's <code>manifest.json</code></li>
+<li><strong>THEN</strong> the JSON object SHALL contain <code>abi_version</code> (integer) and
+  <code>library</code> (non-empty string matching <code>[A-Za-z0-9_.-]+</code>), and MAY
+  contain <code>entry_point</code> (string, default <code>"Process"</code>) and <code>free_result</code>
+  (string, default <code>"FreeResult"</code>). Additional fields SHALL be ignored
+  by v1. A missing or empty <code>library</code> field SHALL cause the engine to
+  refuse the worker with a clear error.</li>
+</ul>
+<h3 id="requirement-native-worker-identity-and-lifecycle">Requirement: Native Worker Identity and Lifecycle<a class="headerlink" href="#requirement-native-worker-identity-and-lifecycle" title="Permanent link">&para;</a></h3>
+<p>The <code>NativeDllEngine</code> SHALL communicate worker identity to the native
+worker via process-level environment variables set at LoadCodeAsync time,
+and SHALL release the loaded library and all engine-owned resources on
+worker stop.</p>
+<h4 id="scenario-worker-identity-env-vars">Scenario: Worker identity env vars<a class="headerlink" href="#scenario-worker-identity-env-vars" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the engine loads a native worker</li>
+<li><strong>THEN</strong> it SHALL set <code>VIRTUFIN_WORKER_ID</code> to the worker GUID,
+  <code>VIRTUFIN_WORKER_GROUP</code> to the worker group if non-null, and
+  <code>VIRTUFIN_WORKER_TOPIC</code> to the worker's input topic. The worker SHALL
+  read these once at initialization.</li>
+</ul>
+<h4 id="scenario-correlation-id-from-input">Scenario: Correlation id from input<a class="headerlink" href="#scenario-correlation-id-from-input" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the engine marshals the input CloudEvent for a <code>Process</code> call</li>
+<li><strong>THEN</strong> the FlatBuffer's <code>extensions[correlationid]</code> attribute SHALL
+  carry the input CloudEvent's <code>correlationid</code> extension attribute if
+  present. Workers SHALL read it from the FlatBuffer, not from env vars.</li>
+</ul>
+<h4 id="scenario-concurrent-process-calls">Scenario: Concurrent Process calls<a class="headerlink" href="#scenario-concurrent-process-calls" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> multiple <code>Process</code> invocations are made against the same loaded
+  library</li>
+<li><strong>THEN</strong> the engine SHALL allow them to proceed concurrently. The native
+  worker SHALL be reentrant; any per-worker mutable state SHALL be
+  protected by the worker's own synchronization primitives.</li>
+</ul>
+<h4 id="scenario-reload-under-load">Scenario: Reload under load<a class="headerlink" href="#scenario-reload-under-load" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> <code>LoadCodeAsync</code> is called while a <code>ProcessAsync</code> is in flight</li>
+<li><strong>THEN</strong> the engine SHALL block the reload until the in-flight call
+  completes. The new code SHALL take effect for subsequent calls only.</li>
+</ul>
+<h4 id="scenario-cleanup-on-stop">Scenario: Cleanup on stop<a class="headerlink" href="#scenario-cleanup-on-stop" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the engine is disposed or the worker is stopped</li>
+<li><strong>THEN</strong> the engine SHALL call <code>NativeLibrary.Free</code> on the loaded
+  library, free the <code>GCHandle</code> for the engine pointer, delete the temp
+  file holding the DLL, and restore the prior values of
+  <code>VIRTUFIN_WORKER_ID</code>, <code>VIRTUFIN_WORKER_GROUP</code>, <code>VIRTUFIN_WORKER_TOPIC</code>
+  if they were set.</li>
+</ul>
+<h3 id="requirement-native-worker-caveats">Requirement: Native Worker Caveats<a class="headerlink" href="#requirement-native-worker-caveats" title="Permanent link">&para;</a></h3>
+<p>The <code>NativeDllEngine</code> SHALL document its isolation and timeout
+characteristics in the engine README and the worker author guide.</p>
+<h4 id="scenario-in-process-crash-isolation-caveat">Scenario: In-process crash isolation caveat<a class="headerlink" href="#scenario-in-process-crash-isolation-caveat" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a native worker raises an unrecoverable error (segmentation
+  fault, illegal instruction, stack overflow from native code)</li>
+<li><strong>THEN</strong> the WorkManager process SHALL terminate because the error
+  cannot be caught in a way that leaves the .NET runtime in a defined
+  state. Workers SHALL be authored under the assumption that a crash
+  terminates the entire WorkManager. This caveat is unique to the
+  <code>NativeDllEngine</code>; the Python and DotnetDll engines isolate their
+  workers in subprocesses.</li>
+</ul>
+<h4 id="scenario-unmanaged-timeout-caveat">Scenario: Unmanaged timeout caveat<a class="headerlink" href="#scenario-unmanaged-timeout-caveat" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the <code>MessageHandlingTimeoutSeconds</code> elapses while a native
+  <code>Process</code> call is in flight</li>
+<li><strong>THEN</strong> the <code>CancellationToken</code> on the managed side SHALL fire and the
+  engine SHALL surface a <code>worker.error</code> lifecycle event, but the native
+  call SHALL continue to run until it returns or the process crashes.
+  Workers SHALL be authored to honor the timeout cooperatively (e.g. via
+  periodic checks of a flag set from a watchdog thread, if at all) or
+  SHALL be guaranteed to return within the timeout.</li>
+</ul>
+<h4 id="scenario-abi-version-policy">Scenario: ABI version policy<a class="headerlink" href="#scenario-abi-version-policy" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the WorkManager ships a new major ABI version</li>
+<li><strong>THEN</strong> the engine SHALL continue to load workers declaring the
+  previous ABI version for at least one release cycle, and SHALL refuse
+  workers declaring ABIs older than that.</li>
+</ul>
+<h3 id="requirement-native-worker-library-naming">Requirement: Native Worker Library Naming<a class="headerlink" href="#requirement-native-worker-library-naming" title="Permanent link">&para;</a></h3>
+<p>The <code>NativeDllEngine</code> SHALL derive the per-platform shared library
+filename from the manifest's <code>library</code> field by appending an OS-specific
+prefix and suffix, matching the convention used by NuGet-distributed
+native packages (<code>runtimes/&lt;rid&gt;/native/</code>). The engine SHALL pick the
+filename based on <code>RuntimeInformation.IsOSPlatform</code>.</p>
+<h4 id="scenario-linux-filename">Scenario: Linux filename<a class="headerlink" href="#scenario-linux-filename" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the running platform reports <code>OSPlatform.Linux</code></li>
+<li><strong>THEN</strong> the engine SHALL load <code>lib&lt;library&gt;.so</code> from
+  <code>runtimes/&lt;rid&gt;/native/</code>.</li>
+</ul>
+<h4 id="scenario-windows-filename">Scenario: Windows filename<a class="headerlink" href="#scenario-windows-filename" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the running platform reports <code>OSPlatform.Windows</code></li>
+<li><strong>THEN</strong> the engine SHALL load <code>&lt;library&gt;.dll</code> from
+  <code>runtimes/&lt;rid&gt;/native/</code>.</li>
+</ul>
+<h4 id="scenario-macos-filename">Scenario: macOS filename<a class="headerlink" href="#scenario-macos-filename" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the running platform reports <code>OSPlatform.OSX</code></li>
+<li><strong>THEN</strong> the engine SHALL load <code>lib&lt;library&gt;.dylib</code> from
+  <code>runtimes/&lt;rid&gt;/native/</code>.</li>
+</ul>
+<h4 id="scenario-library-name-validation">Scenario: Library name validation<a class="headerlink" href="#scenario-library-name-validation" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the manifest's <code>library</code> field is empty or contains
+  characters outside <code>[A-Za-z0-9_.-]</code></li>
+<li><strong>THEN</strong> the engine SHALL refuse the worker and throw a clear error
+  naming the offending value.</li>
+</ul>
 
 
 
@@ -2440,7 +3647,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-06-20T13:04:31Z</span>
+  <span style="display:table-cell;text-align:right">2026-06-24T21:24:17Z</span>
 </div>
 
     </div>
