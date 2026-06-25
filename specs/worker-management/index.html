@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/750622ad51fa527fabdc5718f95b1fbd67f50e02"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/e3e6ddc0eadb3593606ea24740ac7b665d688a9d"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 750622a">
+       title="View commit e3e6ddc">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">750622a</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">e3e6ddc</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/750622ad51fa527fabdc5718f95b1fbd67f50e02"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/e3e6ddc0eadb3593606ea24740ac7b665d688a9d"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 750622a">
+       title="View commit e3e6ddc">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">750622a</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">e3e6ddc</text>
       </svg>
     </a>
 </div>
@@ -778,17 +778,6 @@
     <span class="md-ellipsis">
       
         Scenario: DLL worker execution (in-process, default)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-dll-worker-execution-subprocess-fallback" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: DLL worker execution (subprocess, fallback)
       
     </span>
   </a>
@@ -1338,17 +1327,6 @@
     <span class="md-ellipsis">
       
         Scenario: Roll-forward to a newer runtime
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-fallback-to-subprocess-engine" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Fallback to subprocess engine
       
     </span>
   </a>
@@ -2152,17 +2130,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-dll-worker-execution-subprocess-fallback" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: DLL worker execution (subprocess, fallback)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#scenario-engine-extension" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2711,17 +2678,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#scenario-fallback-to-subprocess-engine" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Fallback to subprocess engine
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3162,7 +3118,7 @@
 <li><strong>THEN</strong> the WorkManager SHALL publish a <code>worker.error</code> event with <code>error_type</code> and <code>error_message</code> in the data payload</li>
 </ul>
 <h3 id="requirement-polyglot-worker-engines">Requirement: Polyglot Worker Engines<a class="headerlink" href="#requirement-polyglot-worker-engines" title="Permanent link">&para;</a></h3>
-<p>The WorkManager SHALL support executing worker code in multiple languages via a pluggable engine architecture. Built-in engines SHALL include Python (subprocess), C# (Roslyn runtime compilation), pre-compiled .NET DLL (in-process, the default <code>DotnetDllEngine</code> via <code>hostfxr</code> + <code>AssemblyLoadContext</code>), and pre-compiled .NET DLL in a dedicated subprocess (the fallback <code>DotnetDllSubProcessEngine</code>, not registered by default).</p>
+<p>The WorkManager SHALL support executing worker code in multiple languages via a pluggable engine architecture. Built-in engines SHALL include Python (subprocess), C# (Roslyn runtime compilation), and pre-compiled .NET DLL (in-process, the default <code>DotnetDllEngine</code> via <code>hostfxr</code> + <code>AssemblyLoadContext</code>).</p>
 <h4 id="scenario-python-worker-execution">Scenario: Python worker execution<a class="headerlink" href="#scenario-python-worker-execution" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a worker with a Python engine processes a message</li>
@@ -3177,11 +3133,6 @@
 <ul>
 <li><strong>WHEN</strong> a worker with MIME type <code>application/x-dotnet-dll</code> processes a message</li>
 <li><strong>THEN</strong> the worker DLL SHALL be loaded into an isolated <code>AssemblyLoadContext</code> and executed in-process in the WorkManager, with sub-microsecond per-call latency</li>
-</ul>
-<h4 id="scenario-dll-worker-execution-subprocess-fallback">Scenario: DLL worker execution (subprocess, fallback)<a class="headerlink" href="#scenario-dll-worker-execution-subprocess-fallback" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a worker with MIME type <code>application/x-dotnet-dll</code> is configured to use the fallback subprocess engine</li>
-<li><strong>THEN</strong> the worker DLL SHALL be loaded in a dedicated <code>DotnetDllWorkerSubProcess</code> subprocess and CloudEvents SHALL be exchanged over a Unix domain socket</li>
 </ul>
 <h4 id="scenario-engine-extension">Scenario: Engine extension<a class="headerlink" href="#scenario-engine-extension" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3380,11 +3331,6 @@
 <ul>
 <li><strong>WHEN</strong> the WorkManager is built for .NET 10 and the target has a .NET 11+ runtime installed</li>
 <li><strong>THEN</strong> the engine SHALL use the newer runtime; the generated <code>runtimeconfig.json</code> SHALL declare <code>"rollForward": "Major"</code></li>
-</ul>
-<h4 id="scenario-fallback-to-subprocess-engine">Scenario: Fallback to subprocess engine<a class="headerlink" href="#scenario-fallback-to-subprocess-engine" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a worker requires subprocess isolation (e.g. it may crash the process on unhandled managed exceptions) or depends on thread-static state that does not survive <code>AssemblyLoadContext</code> reload</li>
-<li><strong>THEN</strong> the operator MAY opt back into the <code>DotnetDllSubProcessEngine</code> by editing <code>Program.cs</code> (one-line change); the renamed out-of-process engine is kept in the tree as a documented fallback</li>
 </ul>
 <h3 id="requirement-native-dll-engine">Requirement: Native DLL Engine<a class="headerlink" href="#requirement-native-dll-engine" title="Permanent link">&para;</a></h3>
 <p>The WorkManager SHALL support a <code>NativeDllEngine</code> for executing workers
@@ -3647,7 +3593,7 @@ filename based on <code>RuntimeInformation.IsOSPlatform</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-06-24T21:24:17Z</span>
+  <span style="display:table-cell;text-align:right">2026-06-25T10:29:15Z</span>
 </div>
 
     </div>
