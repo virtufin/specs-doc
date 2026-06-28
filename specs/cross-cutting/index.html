@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/e3e6ddc0eadb3593606ea24740ac7b665d688a9d"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit e3e6ddc">
+       title="View commit 3b2552c">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">e3e6ddc</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/e3e6ddc0eadb3593606ea24740ac7b665d688a9d"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit e3e6ddc">
+       title="View commit 3b2552c">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">e3e6ddc</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
       </svg>
     </a>
 </div>
@@ -545,22 +545,33 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requirement-per-service-pubsub-topics" class="md-nav__link">
+  <a href="#requirement-topic-naming-delegated-to-pubsub-topics-spec" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Per-service Pubsub Topics
+        Requirement: Topic Naming (delegated to pubsub-topics spec)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirement: Per-service Pubsub Topics">
+    <nav class="md-nav" aria-label="Requirement: Topic Naming (delegated to pubsub-topics spec)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-publisher-uses-its-own-topic" class="md-nav__link">
+  <a href="#scenario-service-publishes-a-domain-event" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Publisher uses its own topic
+        Scenario: Service publishes a domain event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-service-publishes-a-scenario-scoped-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Service publishes a scenario-scoped event
       
     </span>
   </a>
@@ -1294,22 +1305,33 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requirement-per-service-pubsub-topics" class="md-nav__link">
+  <a href="#requirement-topic-naming-delegated-to-pubsub-topics-spec" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Per-service Pubsub Topics
+        Requirement: Topic Naming (delegated to pubsub-topics spec)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirement: Per-service Pubsub Topics">
+    <nav class="md-nav" aria-label="Requirement: Topic Naming (delegated to pubsub-topics spec)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-publisher-uses-its-own-topic" class="md-nav__link">
+  <a href="#scenario-service-publishes-a-domain-event" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Publisher uses its own topic
+        Scenario: Service publishes a domain event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-service-publishes-a-scenario-scoped-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Service publishes a scenario-scoped event
       
     </span>
   </a>
@@ -1698,10 +1720,12 @@
 
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
 <p>Shared infrastructure, security, observability, and resilience requirements that apply across all Virtufin services. Every service SHALL conform to these requirements.</p>
+<p>Topic and state-key naming conventions live in <a href="../pubsub-topics/spec.md">pubsub-topics/spec.md</a>; scenario registry conventions live in <a href="../scenarios/spec.md">scenarios/spec.md</a>. This spec covers the access patterns (API-mediated access, ownership) and the non-naming cross-cutting concerns.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <h3 id="requirement-api-mediated-pubsub-and-state">Requirement: API-Mediated Pub/Sub and State<a class="headerlink" href="#requirement-api-mediated-pubsub-and-state" title="Permanent link">&para;</a></h3>
 <p>Services MUST NOT call <code>DaprClient.PublishEventAsync</code>, <code>DaprClient.GetStateAsync</code>, <code>DaprClient.SaveStateAsync</code>, <code>DaprClient.DeleteStateAsync</code>, <code>GetBulkStateAsync</code>, or any other Dapr pubsub or state API directly. Services MUST use the virtufin-api's <code>Pubsub</code> and <code>State</code> gRPC services for all pubsub and state operations.</p>
 <p>The virtufin-api is the only service that talks to Dapr pubsub/state on behalf of other services. This gives the API a single place to enforce topic naming, access control, observability, and state ownership.</p>
+<p>The virtufin-api also exposes scenario-registry RPCs (create / pause / archive / delete) that read and write <code>scenario.&lt;scenarioId&gt;</code> state keys per <a href="../scenarios/spec.md">scenarios/spec.md</a>.</p>
 <h4 id="scenario-service-publishes-an-event">Scenario: Service publishes an event<a class="headerlink" href="#scenario-service-publishes-an-event" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service needs to publish an event</li>
@@ -1720,24 +1744,25 @@
 <li><strong>THEN</strong> the Dapr sidecar is the right path; pubsub and state go through the API</li>
 <li>The sidecar stays even after the API-mediates pubsub/state; the two concerns are independent</li>
 </ul>
-<h3 id="requirement-per-service-pubsub-topics">Requirement: Per-service Pubsub Topics<a class="headerlink" href="#requirement-per-service-pubsub-topics" title="Permanent link">&para;</a></h3>
-<p>Each service owns its pubsub topic for lifecycle events. Topic names follow the <code>&lt;service&gt;.&lt;event_category&gt;</code> convention and are defined as a constant in the publishing service's <code>Configuration/Topics.cs</code>. Current topics:</p>
+<h3 id="requirement-topic-naming-delegated-to-pubsub-topics-spec">Requirement: Topic Naming (delegated to pubsub-topics spec)<a class="headerlink" href="#requirement-topic-naming-delegated-to-pubsub-topics-spec" title="Permanent link">&para;</a></h3>
+<p>Topic patterns, CloudEvents envelope contract, scenario ID conventions, NATS permissions, state-key taxonomy, and migration rules are defined in <a href="../pubsub-topics/spec.md">pubsub-topics/spec.md</a>. This spec does NOT duplicate those rules; services SHALL conform to the patterns in that spec.</p>
+<h4 id="scenario-service-publishes-a-domain-event">Scenario: Service publishes a domain event<a class="headerlink" href="#scenario-service-publishes-a-domain-event" title="Permanent link">&para;</a></h4>
 <ul>
-<li><code>websocketmanager.connectionstatus</code> — WebSocketManager connection lifecycle</li>
-<li><code>workmanager.workerstatus</code> — WorkManager worker lifecycle</li>
+<li><strong>WHEN</strong> a service publishes an event under any of the namespaces defined in <a href="../pubsub-topics/spec.md">pubsub-topics/spec.md</a> (Tier 0 infrastructure, market data lane, scenario lane)</li>
+<li><strong>THEN</strong> it SHALL call <code>Pubsub.PublishEvent</code> with the topic matching the pattern for that namespace</li>
+<li><strong>AND</strong> the API SHALL reject publishes that violate the topic validation rules in the spec</li>
 </ul>
-<p>Callers use the regular <code>Pubsub.PublishEvent(topic: Topics.X, …)</code> and <code>Pubsub.Subscribe(topic: Topics.X, …)</code> RPCs; <code>ce-type</code> discriminates events within the topic. There are no <code>*System*</code> RPC variants.</p>
-<h4 id="scenario-publisher-uses-its-own-topic">Scenario: Publisher uses its own topic<a class="headerlink" href="#scenario-publisher-uses-its-own-topic" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-service-publishes-a-scenario-scoped-event">Scenario: Service publishes a scenario-scoped event<a class="headerlink" href="#scenario-service-publishes-a-scenario-scoped-event" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a service publishes a lifecycle event</li>
-<li><strong>THEN</strong> it SHALL call <code>Pubsub.PublishEvent</code> with the topic set to its own <code>Configuration/Topics.cs</code> constant</li>
-<li><strong>AND</strong> it SHALL set <code>ce-type</code> to a value from its own <code>ce-type</code> constants file (e.g. <code>ConnectionEvents.Connected</code> for the WSM)</li>
+<li><strong>WHEN</strong> a service publishes to <code>sc.&lt;scenarioId&gt;.&lt;domain&gt;.*</code></li>
+<li><strong>THEN</strong> the API SHALL validate that <code>scenarioId</code> is registered (or is the reserved <code>LIVE</code>) per <a href="../scenarios/spec.md">scenarios/spec.md</a></li>
+<li><strong>AND</strong> reject publishes to unregistered or non-active scenarios</li>
 </ul>
 <h4 id="scenario-subscriber-consumes-another-services-events">Scenario: Subscriber consumes another service's events<a class="headerlink" href="#scenario-subscriber-consumes-another-services-events" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a service needs to consume another service's lifecycle events</li>
+<li><strong>WHEN</strong> a service needs to consume another service's events</li>
 <li><strong>THEN</strong> it SHALL call <code>Pubsub.Subscribe</code> with the topic string duplicated locally</li>
-<li><strong>AND</strong> the local constant SHALL carry a comment cross-linking to the publisher's <code>Configuration/Topics.cs</code> source of truth</li>
+<li><strong>AND</strong> the local constant SHALL carry a comment cross-linking to the publisher's <code>Configuration/Topics.cs</code> source of truth (or scenario registry entry for scenario-scoped topics)</li>
 </ul>
 <h4 id="scenario-topic-name-is-a-public-contract">Scenario: Topic name is a public contract<a class="headerlink" href="#scenario-topic-name-is-a-public-contract" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1878,7 +1903,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-06-25T10:29:15Z</span>
+  <span style="display:table-cell;text-align:right">2026-06-28T21:20:00Z</span>
 </div>
 
     </div>

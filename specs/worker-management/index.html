@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/e3e6ddc0eadb3593606ea24740ac7b665d688a9d"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit e3e6ddc">
+       title="View commit 3b2552c">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">e3e6ddc</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/e3e6ddc0eadb3593606ea24740ac7b665d688a9d"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit e3e6ddc">
+       title="View commit 3b2552c">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">e3e6ddc</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
       </svg>
     </a>
 </div>
@@ -3058,6 +3058,7 @@
 
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
 <p>Event-driven worker management system enabling deployment and execution of workers written in multiple languages (Python, C#, .NET DLL) that subscribe to Dapr pub/sub topics, process CloudEvents, and coordinate via distributed locks.</p>
+<p>Topic and state-key naming for worker lifecycle events is defined in <a href="../pubsub-topics/spec.md">pubsub-topics/spec.md</a>. The lifecycle topic is <code>workmanager.lifecycle</code>; finer-grained infra events (heartbeats, grouplock changes) live under <code>workmanager.infra.*</code>.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <h3 id="requirement-worker-lifecycle-management">Requirement: Worker Lifecycle Management<a class="headerlink" href="#requirement-worker-lifecycle-management" title="Permanent link">&para;</a></h3>
 <p>The WorkManager SHALL support creating, starting, stopping, and deleting workers. Workers SHALL persist their configuration and restore automatically on service restart.</p>
@@ -3096,7 +3097,7 @@
 <li><strong>AND</strong> it SHALL NOT call <code>DaprPublishSubscribeClient.SubscribeAsync</code> directly</li>
 </ul>
 <h3 id="requirement-worker-lifecycle-events">Requirement: Worker Lifecycle Events<a class="headerlink" href="#requirement-worker-lifecycle-events" title="Permanent link">&para;</a></h3>
-<p>The WorkManager SHALL publish worker lifecycle events to the <code>workmanager.workerstatus</code> topic on every state transition. Events SHALL be CloudEvents v1.0 envelopes.</p>
+<p>The WorkManager SHALL publish worker lifecycle events to the <code>workmanager.lifecycle</code> topic on every state transition. Topic, ce-type, and state-key conventions are defined in <a href="../pubsub-topics/spec.md">pubsub-topics/spec.md</a>. Events SHALL be CloudEvents v1.0 envelopes with <code>ce-type = com.virtufin.workmanager.lifecycle.&lt;state&gt;</code>.</p>
 <h4 id="scenario-worker-created">Scenario: Worker created<a class="headerlink" href="#scenario-worker-created" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a worker is created</li>
@@ -3593,7 +3594,7 @@ filename based on <code>RuntimeInformation.IsOSPlatform</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-06-25T10:29:15Z</span>
+  <span style="display:table-cell;text-align:right">2026-06-28T21:20:00Z</span>
 </div>
 
     </div>

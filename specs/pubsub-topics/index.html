@@ -1,0 +1,2523 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Specifications for the Virtufin microservices platform">
+      
+      
+      
+        <link rel="canonical" href="https://specs.doc.virtufin.com/specs/pubsub-topics/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Pubsub topics - Virtufin Platform Specifications</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#purpose" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Virtufin Platform Specifications" class="md-header__button md-logo" aria-label="Virtufin Platform Specifications" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Virtufin Platform Specifications
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pubsub topics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <div class="md-source-wrapper">
+  <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec" title="Go to repository" class="md-source-repo-link">
+    <div class="md-source__icon md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    </div>
+    <span class="md-source__repository">virtufin/virtufin-openspec</span>
+  </a>
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
+       class="md-source-commit-badge"
+       target="_blank"
+       rel="noopener"
+       title="View commit 3b2552c">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
+        <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
+      </svg>
+    </a>
+</div>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cross-cutting/" class="md-tabs__link">
+          
+  
+  
+  Specifications
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Virtufin Platform Specifications" class="md-nav__button md-logo" aria-label="Virtufin Platform Specifications" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    Virtufin Platform Specifications
+  </label>
+  
+    <div class="md-nav__source">
+      <div class="md-source-wrapper">
+  <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec" title="Go to repository" class="md-source-repo-link">
+    <div class="md-source__icon md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    </div>
+    <span class="md-source__repository">virtufin/virtufin-openspec</span>
+  </a>
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
+       class="md-source-commit-badge"
+       target="_blank"
+       rel="noopener"
+       title="View commit 3b2552c">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
+        <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
+      </svg>
+    </a>
+</div>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specifications
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specifications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cross-cutting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-cutting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apigateway.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../worker-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worker Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../websocket-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ci-cd-tooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync-async-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sync vs Async Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proto-to-client-mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proto-to-Client Mapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirement-topic-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Topic Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Topic Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-tier-0-infrastructure-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Tier 0 / infrastructure topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-market-data-topic-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Market data topic (real)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-market-data-topic-hypothetical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Market data topic (hypothetical)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-trading-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Trading topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-position-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Position topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-risk-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Risk topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-pl-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: P&amp;L topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-topic-validation-per-service-inline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Topic Validation (Per-Service Inline)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Topic Validation (Per-Service Inline)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-act-topic-with-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: act topic with selector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-hyp-topic-without-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: hyp topic without selector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-sc-topic-with-unknown-scenario-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: sc topic with unknown scenario ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-topic-outside-allowed-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Topic outside allowed patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-cloudevents-envelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: CloudEvents Envelope
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: CloudEvents Envelope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-ce-type-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ce-type format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-ce-source-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: ce-source format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-subject-attribute-per-entity-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: subject attribute (per-entity events)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-common-envelope-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Common Envelope Extensions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Common Envelope Extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-envelope-on-a-production-fill-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Envelope on a production fill event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-envelope-on-a-backtest-fill-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Envelope on a backtest fill event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-clocktype-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: clocktype rationale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-trade-lifecycle-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Trade Lifecycle Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Trade Lifecycle Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-submitted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order submitted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-accepted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order accepted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-rejected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order rejected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-amended-mutation-not-transition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order amended (mutation, not transition)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-cancelled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order cancelled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-expired" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order expired
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-filled-workhorse-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order filled (workhorse event)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-trade-cleared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Trade cleared
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-trade-settled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Trade settled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-position-lifecycle-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Position Lifecycle Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Position Lifecycle Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-position-opened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Position opened
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-position-increased" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Position increased
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-position-decreased" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Position decreased
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-position-flipped-atomic-direction-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Position flipped (atomic direction change)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-position-closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Position closed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-position-liquidated-forced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Position liquidated (forced)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-liquidation-warning-signal-not-transition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Liquidation warning (signal, not transition)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-position-adjustment-corporate-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Position adjustment (corporate action)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-portfolio-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Portfolio snapshot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-market-data-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Market Data Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Market Data Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-book-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order book snapshot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-book-update-delta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order book update (delta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-public-trade-tape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Public trade tape
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-ticker-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Ticker update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-funding-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Funding rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-mark-price" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Mark price
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-ohlcv-candle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: OHLCV candle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-instrument-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Instrument info
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-risk-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Risk Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Risk Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-exposure-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Exposure update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-margin-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Margin update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-drawdown-alert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Drawdown alert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-limit-breach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Limit breach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-scenario-pl-stress-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Scenario P&amp;L (stress test)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-pl-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: P&amp;L Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: P&amp;L Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-realized-pl-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Realized P&amp;L update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-unrealized-pl-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Unrealized P&amp;L update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-tier-0-infrastructure-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Tier 0 / Infrastructure Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Tier 0 / Infrastructure Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-worker-lifecycle-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Worker lifecycle event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-connection-lifecycle-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Connection lifecycle event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-infra-events-connection-worker-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Infra events (connection / worker detail)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-cardinality-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Cardinality Rule
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Cardinality Rule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-per-entity-topic-justified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Per-entity topic justified
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-consolidated-topic-preferred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Consolidated topic preferred
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-asymmetric-segment-counts-are-legitimate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Asymmetric segment counts are legitimate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-nats-permissions-replacing-pubprv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: NATS Permissions (replacing pub/prv)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: NATS Permissions (replacing pub/prv)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-market-data-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Market data permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-scenario-event-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Scenario event permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-tier-0-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Tier 0 permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-state-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: State Keys
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: State Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-state-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order state key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-trade-state-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Trade state key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-position-state-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Position state key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-portfolio-state-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Portfolio state key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-worker-state-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Worker state key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-connection-state-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Connection state key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-order-book-state-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Order book state key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-scenario-registry-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Scenario registry key
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-source-of-truth-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Source-of-Truth Rule
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Source-of-Truth Rule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-single-publisher-per-status-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Single publisher per status field
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-single-owner-per-derived-metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Single owner per derived metric
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-delete-on-deploy-no-deprecation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Delete-on-Deploy (No Deprecation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Delete-on-Deploy (No Deprecation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-rename-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Rename lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-multi-publisher-tier-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Multi-Publisher Tier 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Multi-Publisher Tier 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-multiple-publishers-on-same-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Multiple publishers on same topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-run-id-in-envelope-not-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Run-ID in Envelope, Not Topic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Run-ID in Envelope, Not Topic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-parallel-backtests-share-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Parallel backtests share topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-run-id-dropped-from-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Run-id dropped from topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Pubsub topics</h1>
+
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
+<p>Canonical naming scheme for Dapr pub/sub topics and state keys across all Virtufin services. Defines the routing taxonomy, CloudEvents envelope contract, state-key taxonomy, and scenario-id axis. Subsumes the prior <code>cross-cutting</code> "Per-service Pubsub Topics" requirement.</p>
+<p><strong>Related specs:</strong>
+- <a href="../scenarios/spec.md">Scenarios</a> — scenario registry, triplet definition, <code>LIVE</code> bootstrap.
+- <a href="../cross-cutting/spec.md">Cross-cutting</a> — API-mediated pub/sub (envelope contract travels through the API gRPC).
+- <a href="../worker-management/spec.md">Worker Management</a> — worker + connection lifecycle events (<code>workmanager.lifecycle</code>, <code>websocketmanager.lifecycle</code>).
+- <a href="../proto-to-client-mapping/spec.md">Proto-to-Client Mapping</a> — code-generation conventions for the gRPC types referenced here.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<p>Two orthogonal routing axes plus a scenario-agnostic infrastructure axis:</p>
+<table>
+<thead>
+<tr>
+<th>Axis</th>
+<th>Pattern</th>
+<th>Scope</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Market data lane</strong></td>
+<td><code>act.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code> or <code>hyp.&lt;selector&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code></td>
+<td>data-universe-bound; shared across scenarios</td>
+<td><code>act.exchange.binance.orderbook.update.BTCUSDT</code></td>
+</tr>
+<tr>
+<td><strong>Scenario lane</strong></td>
+<td><code>sc.&lt;scenarioId&gt;.&lt;domain&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code></td>
+<td>triplet-bound (market + portfolio + strategy)</td>
+<td><code>sc.LIVE.trading.order.filled.&lt;order_id&gt;</code></td>
+</tr>
+<tr>
+<td><strong>Tier 0 / infrastructure</strong></td>
+<td><code>&lt;service&gt;.&lt;category&gt;</code></td>
+<td>scenario-agnostic</td>
+<td><code>websocketmanager.lifecycle</code></td>
+</tr>
+</tbody>
+</table>
+<p>Rationale:
+- <strong>Market data is lane-scoped</strong> because it depends on the data universe (live vs hypothetical replay) and is shareable across scenarios. Two paper runs sharing the same Binance feed do not double-publish ticks.
+- <strong>Trading / position / risk / pnl are scenario-scoped</strong> because each depends on the full triplet. P&amp;L in particular is meaningless without knowing all three legs.
+- <strong>Tier 0 is scenario-agnostic</strong> because infra lifecycle (workers up, connections reconnecting) is a deployment concern, not a trading concern.</p>
+<p><code>act</code> is a top-level lane marker (singular reality, no selector). <code>hyp.&lt;selector&gt;</code> carries a selector naming the data universe. The selector lives in the topic, but the <strong>scenario triplet</strong> (market + portfolio + strategy legs) lives in the scenario registry.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<h3 id="requirement-topic-patterns">Requirement: Topic Patterns<a class="headerlink" href="#requirement-topic-patterns" title="Permanent link">&para;</a></h3>
+<p>Services SHALL publish to and subscribe from topics matching one of the following patterns. Topics outside these patterns SHALL be rejected by the publishing service's publisher code (inline or service-local; no cross-service helper).</p>
+<h4 id="scenario-tier-0-infrastructure-topic">Scenario: Tier 0 / infrastructure topic<a class="headerlink" href="#scenario-tier-0-infrastructure-topic" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes a lifecycle / infra event</li>
+<li><strong>THEN</strong> the topic SHALL match <code>&lt;service&gt;.&lt;category&gt;</code> (e.g. <code>websocketmanager.lifecycle</code>, <code>workmanager.lifecycle</code>)</li>
+<li><strong>AND</strong> the <code>&lt;category&gt;</code> SHALL be a domain noun (<code>lifecycle</code>, <code>infra</code>, <code>audit</code>) — not a state name</li>
+</ul>
+<h4 id="scenario-market-data-topic-real">Scenario: Market data topic (real)<a class="headerlink" href="#scenario-market-data-topic-real" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes real (live) market data</li>
+<li><strong>THEN</strong> the topic SHALL match <code>act.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;entity_id&gt;]</code></li>
+<li><strong>AND</strong> it SHALL NOT carry a selector segment (reality is singular)</li>
+</ul>
+<h4 id="scenario-market-data-topic-hypothetical">Scenario: Market data topic (hypothetical)<a class="headerlink" href="#scenario-market-data-topic-hypothetical" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes hypothetical (replay / backtest) market data</li>
+<li><strong>THEN</strong> the topic SHALL match <code>hyp.&lt;selector&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;entity_id&gt;]</code></li>
+<li><strong>AND</strong> <code>&lt;selector&gt;</code> SHALL name the data universe (e.g. <code>EQ_2008_2009</code>, <code>FTX_2022</code>)</li>
+</ul>
+<h4 id="scenario-trading-topic">Scenario: Trading topic<a class="headerlink" href="#scenario-trading-topic" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes a trading-domain event (order lifecycle, trade lifecycle)</li>
+<li><strong>THEN</strong> the topic SHALL match <code>sc.&lt;scenarioId&gt;.trading.&lt;order|trade&gt;.&lt;event&gt;.&lt;id&gt;</code></li>
+<li><strong>AND</strong> <code>&lt;scenarioId&gt;</code> SHALL be either the reserved <code>LIVE</code> or a registered opaque scenario ID</li>
+</ul>
+<h4 id="scenario-position-topic">Scenario: Position topic<a class="headerlink" href="#scenario-position-topic" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes a position-domain event</li>
+<li><strong>THEN</strong> the topic SHALL match <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;.&lt;event&gt;</code> or <code>sc.&lt;scenarioId&gt;.position.portfolio.&lt;event&gt;</code></li>
+</ul>
+<h4 id="scenario-risk-topic">Scenario: Risk topic<a class="headerlink" href="#scenario-risk-topic" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes a risk-domain event</li>
+<li><strong>THEN</strong> the topic SHALL match <code>sc.&lt;scenarioId&gt;.risk.&lt;metric&gt;.&lt;event&gt;</code> (consolidated; per-symbol routing via <code>subject</code>)</li>
+</ul>
+<h4 id="scenario-pl-topic">Scenario: P&amp;L topic<a class="headerlink" href="#scenario-pl-topic" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes a P&amp;L-domain event</li>
+<li><strong>THEN</strong> the topic SHALL match <code>sc.&lt;scenarioId&gt;.pnl.&lt;metric&gt;.&lt;event&gt;</code> (consolidated; per-symbol routing via <code>subject</code>)</li>
+</ul>
+<h3 id="requirement-topic-validation-per-service-inline">Requirement: Topic Validation (Per-Service Inline)<a class="headerlink" href="#requirement-topic-validation-per-service-inline" title="Permanent link">&para;</a></h3>
+<p>Each publishing service SHALL validate every topic against the allowed patterns inline (or in service-local code) before calling <code>Pubsub.PublishEvent</code>. No cross-service helper NuGet, no extension to <code>Virtufin.Worker.DevKit</code>, no logic added to <code>virtufin-api</code>'s <code>Pubsub.PublishEvent</code> handler — <code>virtufin-api</code> is pure infrastructure and SHALL NOT carry domain logic.</p>
+<h4 id="scenario-act-topic-with-selector">Scenario: act topic with selector<a class="headerlink" href="#scenario-act-topic-with-selector" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service attempts to publish to <code>act.&lt;selector&gt;.exchange.*</code></li>
+<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating "act topics MUST NOT carry a selector"</li>
+</ul>
+<h4 id="scenario-hyp-topic-without-selector">Scenario: hyp topic without selector<a class="headerlink" href="#scenario-hyp-topic-without-selector" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service attempts to publish to <code>hyp.exchange.*</code> (bare <code>hyp</code> prefix)</li>
+<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating "hyp topics MUST carry a selector"</li>
+</ul>
+<h4 id="scenario-sc-topic-with-unknown-scenario-id">Scenario: sc topic with unknown scenario ID<a class="headerlink" href="#scenario-sc-topic-with-unknown-scenario-id" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service attempts to publish to <code>sc.&lt;unknown&gt;.trading.*</code> and <code>&lt;unknown&gt;</code> is not in the scenario registry</li>
+<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating the scenario ID is not registered</li>
+<li><strong>AND</strong> <code>LIVE</code> SHALL always be accepted (reserved, pre-seeded at bootstrap)</li>
+</ul>
+<h4 id="scenario-topic-outside-allowed-patterns">Scenario: Topic outside allowed patterns<a class="headerlink" href="#scenario-topic-outside-allowed-patterns" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service attempts to publish to a topic that matches no pattern in this spec</li>
+<li><strong>THEN</strong> the service's publisher code SHALL reject the publish</li>
+</ul>
+<h3 id="requirement-cloudevents-envelope">Requirement: CloudEvents Envelope<a class="headerlink" href="#requirement-cloudevents-envelope" title="Permanent link">&para;</a></h3>
+<p>Every event SHALL be a CloudEvents v1.0 envelope. The CE base attributes (<code>id</code>, <code>source</code>, <code>type</code>, <code>time</code>, <code>subject</code> when applicable, <code>specversion</code>, <code>datacontenttype</code>) SHALL be carried as <code>ce-</code> prefixed metadata; <code>data</code> SHALL be the JSON payload.</p>
+<h4 id="scenario-ce-type-format">Scenario: ce-type format<a class="headerlink" href="#scenario-ce-type-format" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes an event</li>
+<li><strong>THEN</strong> <code>ce-type</code> SHALL match one of:</li>
+<li>Tier 0: <code>com.virtufin.&lt;service&gt;.&lt;category&gt;.&lt;event&gt;</code> (e.g. <code>com.virtufin.websocketmanager.lifecycle.connected</code>)</li>
+<li>Market data: <code>com.virtufin.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;</code> (e.g. <code>com.virtufin.exchange.binance.orderbook.updated</code>)</li>
+<li>Trading: <code>com.virtufin.trading.&lt;order|trade&gt;.&lt;event&gt;</code> (e.g. <code>com.virtufin.trading.order.filled</code>)</li>
+<li>Position: <code>com.virtufin.position.&lt;event&gt;</code> (e.g. <code>com.virtufin.position.flipped</code>)</li>
+<li>Risk: <code>com.virtufin.risk.&lt;event&gt;</code> (e.g. <code>com.virtufin.risk.exposure.updated</code>)</li>
+<li>P&amp;L: <code>com.virtufin.pnl.&lt;event&gt;</code> (e.g. <code>com.virtufin.pnl.realized.updated</code>)</li>
+</ul>
+<h4 id="scenario-ce-source-format">Scenario: ce-source format<a class="headerlink" href="#scenario-ce-source-format" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes an event</li>
+<li><strong>THEN</strong> <code>ce-source</code> SHALL be the publishing service's URN (e.g. <code>urn:com.virtufin.websocketmanager</code>, <code>urn:com.virtufin.trading-engine</code>)</li>
+<li><strong>AND</strong> the URN SHALL be stable per service (not per instance)</li>
+</ul>
+<h4 id="scenario-subject-attribute-per-entity-events">Scenario: subject attribute (per-entity events)<a class="headerlink" href="#scenario-subject-attribute-per-entity-events" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes an event referring to a specific entity (order, trade, position, symbol)</li>
+<li><strong>THEN</strong> <code>ce-subject</code> SHALL be set to <code>&lt;entity_type&gt;/&lt;entity_id&gt;</code> (e.g. <code>order/&lt;order_id&gt;</code>, <code>position/BTCUSDT</code>, <code>currency_pair/BTCUSDT</code>)</li>
+<li><strong>AND</strong> consolidated topics (risk, pnl, portfolio) SHALL also use <code>subject</code> to enable per-entity routing without topic proliferation</li>
+</ul>
+<h3 id="requirement-common-envelope-extensions">Requirement: Common Envelope Extensions<a class="headerlink" href="#requirement-common-envelope-extensions" title="Permanent link">&para;</a></h3>
+<p>Every Tier 1 event SHALL carry the following CloudEvents extensions. Tier 0 events MAY carry <code>correlationid</code> only.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>correlationid</code></td>
+<td>UUID</td>
+<td>Tier 1 yes; Tier 0 no</td>
+<td>Ties fills back to originating order across services</td>
+</tr>
+<tr>
+<td><code>scenarioid</code></td>
+<td>string</td>
+<td>Tier 1 yes</td>
+<td>Opaque registry key; <code>LIVE</code> for production</td>
+</tr>
+<tr>
+<td><code>runid</code></td>
+<td>UUID</td>
+<td>Tier 1 yes when parallel backtests</td>
+<td>Disambiguates concurrent runs sharing a scenario</td>
+</tr>
+<tr>
+<td><code>exchange</code></td>
+<td>string</td>
+<td>Tier 1 yes (when applicable)</td>
+<td>Exchange name (<code>binance</code>, <code>coinbase</code>, …); distinct from <code>ce-source</code></td>
+</tr>
+<tr>
+<td><code>clocktype</code></td>
+<td><code>wall</code> | <code>historical</code></td>
+<td>Tier 1 yes</td>
+<td><code>wall</code> for prod + paper; <code>historical</code> for backtest replay</td>
+</tr>
+<tr>
+<td><code>eventtime</code></td>
+<td>RFC3339</td>
+<td>Tier 1 yes (= <code>ce-time</code>)</td>
+<td>Logical event time matching <code>clocktype</code></td>
+</tr>
+<tr>
+<td><code>walltime</code></td>
+<td>RFC3339</td>
+<td>Tier 1 yes</td>
+<td>Always real clock at publish — for tracing / logging</td>
+</tr>
+<tr>
+<td><code>market.lane</code></td>
+<td><code>act</code> | <code>hyp</code></td>
+<td>Tier 1 yes</td>
+<td>Triplet leg (lane) for market</td>
+</tr>
+<tr>
+<td><code>market.selector</code></td>
+<td>string | null</td>
+<td>Tier 1 yes</td>
+<td>Triplet leg (selector) for market; null when <code>market.lane = act</code></td>
+</tr>
+<tr>
+<td><code>portfolio.lane</code></td>
+<td><code>act</code> | <code>hyp</code></td>
+<td>Tier 1 yes</td>
+<td>Triplet leg for portfolio</td>
+</tr>
+<tr>
+<td><code>strategy.lane</code></td>
+<td><code>act</code> | <code>hyp</code></td>
+<td>Tier 1 yes</td>
+<td>Triplet leg for strategy</td>
+</tr>
+</tbody>
+</table>
+<h4 id="scenario-envelope-on-a-production-fill-event">Scenario: Envelope on a production fill event<a class="headerlink" href="#scenario-envelope-on-a-production-fill-event" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes <code>sc.LIVE.trading.order.filled.&lt;order_id&gt;</code></li>
+<li><strong>THEN</strong> the CloudEvent extensions SHALL include <code>scenarioid=LIVE</code>, <code>runid=&lt;uuid&gt;</code>, <code>correlationid=&lt;uuid&gt;</code>, <code>exchange=binance</code>, <code>clocktype=wall</code>, <code>eventtime=&lt;rfc3339&gt;</code>, <code>walltime=&lt;rfc3339&gt;</code>, <code>market.lane=act</code>, <code>market.selector=null</code>, <code>portfolio.lane=act</code>, <code>strategy.lane=act</code></li>
+</ul>
+<h4 id="scenario-envelope-on-a-backtest-fill-event">Scenario: Envelope on a backtest fill event<a class="headerlink" href="#scenario-envelope-on-a-backtest-fill-event" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a backtest engine publishes <code>sc.S7F3A9B.trading.order.filled.&lt;order_id&gt;</code></li>
+<li><strong>THEN</strong> the envelope SHALL include <code>scenarioid=S7F3A9B</code>, <code>clocktype=historical</code>, <code>eventtime=&lt;historical rfc3339&gt;</code> (the replayed tick's timestamp), <code>walltime=&lt;real rfc3339&gt;</code> (now), <code>market.lane=hyp</code>, <code>market.selector=EQ_2008_2009</code>, <code>portfolio.lane=hyp</code>, <code>strategy.lane=hyp</code></li>
+<li><strong>AND</strong> <code>runid</code> SHALL differ for concurrent backtests against the same scenario</li>
+</ul>
+<h4 id="scenario-clocktype-rationale">Scenario: clocktype rationale<a class="headerlink" href="#scenario-clocktype-rationale" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a strategy computes a time-series indicator (e.g. 20-period moving average) from a backtest stream</li>
+<li><strong>THEN</strong> it SHALL use <code>eventtime</code> (which is <code>historical</code> for backtests) to maintain correct indicator semantics</li>
+<li><strong>AND</strong> it SHALL use <code>walltime</code> only for tracing, logging, and alerting</li>
+</ul>
+<h3 id="requirement-trade-lifecycle-events">Requirement: Trade Lifecycle Events<a class="headerlink" href="#requirement-trade-lifecycle-events" title="Permanent link">&para;</a></h3>
+<p>The trading domain SHALL model the lifecycle: <code>submitted → accepted → (partially_filled →)* filled → cleared → settled</code>. For Binance CEX, <code>cleared</code> and <code>settled</code> collapse to near-instantaneous but the events remain distinct for future DeFi / TradFi integration.</p>
+<h4 id="scenario-order-submitted">Scenario: Order submitted<a class="headerlink" href="#scenario-order-submitted" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service submits an order to an exchange</li>
+<li><strong>THEN</strong> it SHALL publish <code>sc.&lt;scenarioId&gt;.trading.order.submitted.&lt;order_id&gt;</code> with <code>ce-type = com.virtufin.trading.order.submitted</code></li>
+<li><strong>AND</strong> the data payload SHALL include <code>order_id</code>, <code>side</code> (<code>buy</code>|<code>sell</code>), <code>type</code> (<code>market</code>|<code>limit</code>), <code>qty</code>, <code>price?</code>, <code>venue</code>, <code>submitted_at</code></li>
+</ul>
+<h4 id="scenario-order-accepted">Scenario: Order accepted<a class="headerlink" href="#scenario-order-accepted" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the venue acknowledges the order</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.trading.order.accepted.&lt;order_id&gt;</code> with <code>venue_order_id</code>, <code>accepted_at</code></li>
+</ul>
+<h4 id="scenario-order-rejected">Scenario: Order rejected<a class="headerlink" href="#scenario-order-rejected" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> an order is rejected by pre-trade risk or the venue</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.trading.order.rejected.&lt;order_id&gt;</code> with <code>reject_reason</code>, <code>reject_source</code> (<code>risk</code>|<code>venue</code>)</li>
+</ul>
+<h4 id="scenario-order-amended-mutation-not-transition">Scenario: Order amended (mutation, not transition)<a class="headerlink" href="#scenario-order-amended-mutation-not-transition" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> an order's price or quantity is changed in-place</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.trading.order.amended.&lt;order_id&gt;</code> with <code>new_price?</code>, <code>new_qty?</code>, <code>amended_at</code></li>
+<li><strong>AND</strong> the order's status SHALL remain unchanged (<code>pending</code> or <code>partially_filled</code>)</li>
+</ul>
+<h4 id="scenario-order-cancelled">Scenario: Order cancelled<a class="headerlink" href="#scenario-order-cancelled" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> an order is cancelled by the user or system</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.trading.order.cancelled.&lt;order_id&gt;</code> with <code>cancelled_at</code>, <code>cancelled_by</code> (<code>user</code>|<code>system</code>|<code>venue</code>)</li>
+</ul>
+<h4 id="scenario-order-expired">Scenario: Order expired<a class="headerlink" href="#scenario-order-expired" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> an order's time-in-force is reached without a fill</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.trading.order.expired.&lt;order_id&gt;</code> with <code>expired_at</code></li>
+</ul>
+<h4 id="scenario-order-filled-workhorse-event">Scenario: Order filled (workhorse event)<a class="headerlink" href="#scenario-order-filled-workhorse-event" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a partial or full fill is received from the venue (Binance WebSocket fill callback)</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.trading.order.filled.&lt;order_id&gt;</code> with <code>fill_id</code>, <code>qty_filled</code>, <code>price</code>, <code>fee</code>, <code>liquidity</code> (<code>maker</code>|<code>taker</code>), <code>remaining_qty</code>, <code>filled_at</code>, <code>realized_pnl?</code> (optional, included if computed at fill time)</li>
+<li><strong>AND</strong> for partial fills, <code>remaining_qty</code> SHALL be the post-fill remaining quantity (decreasing across events)</li>
+<li><strong>AND</strong> when <code>remaining_qty == 0</code>, the order is implicitly fully filled (no separate <code>order.completed</code> event)</li>
+</ul>
+<h4 id="scenario-trade-cleared">Scenario: Trade cleared<a class="headerlink" href="#scenario-trade-cleared" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> an order is fully filled and counterparty obligations are netted</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.trading.trade.cleared.&lt;trade_id&gt;</code> with <code>trade_id</code>, <code>order_id</code>, <code>cleared_at</code></li>
+<li><strong>AND</strong> this event SHALL fire exactly once per trade (not per fill)</li>
+</ul>
+<h4 id="scenario-trade-settled">Scenario: Trade settled<a class="headerlink" href="#scenario-trade-settled" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> asset transfer for a trade is final</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.trading.trade.settled.&lt;trade_id&gt;</code> with <code>trade_id</code>, <code>order_id</code>, <code>settled_at</code>, <code>tx_hash?</code> (null for CEX, populated for on-chain settlement)</li>
+<li><strong>AND</strong> for Binance CEX, <code>cleared</code> and <code>settled</code> SHALL be emitted back-to-back by the publisher</li>
+<li><strong>AND</strong> for DeFi / TradFi integration, the gap between <code>cleared</code> and <code>settled</code> may span minutes to days</li>
+</ul>
+<h3 id="requirement-position-lifecycle-events">Requirement: Position Lifecycle Events<a class="headerlink" href="#requirement-position-lifecycle-events" title="Permanent link">&para;</a></h3>
+<p>Position state is derived from signed size plus a liquidation sub-state. <code>position.flipped</code> is a first-class atomic event because the risk engine needs direction-change awareness without a flat interval.</p>
+<h4 id="scenario-position-opened">Scenario: Position opened<a class="headerlink" href="#scenario-position-opened" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a new position is established (size transitions from <code>0</code> to non-zero)</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;.opened</code> with <code>side</code> (<code>long</code>|<code>short</code>), <code>qty</code>, <code>avg_price</code>, <code>opened_at</code></li>
+</ul>
+<h4 id="scenario-position-increased">Scenario: Position increased<a class="headerlink" href="#scenario-position-increased" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> an existing position grows in size (same side)</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;.increased</code> with <code>new_qty</code>, <code>new_avg_price</code>, <code>delta_qty</code></li>
+</ul>
+<h4 id="scenario-position-decreased">Scenario: Position decreased<a class="headerlink" href="#scenario-position-decreased" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> an existing position shrinks in size (same side, partial close)</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;.decreased</code> with <code>new_qty</code>, <code>realized_pnl</code>, <code>delta_qty</code></li>
+</ul>
+<h4 id="scenario-position-flipped-atomic-direction-change">Scenario: Position flipped (atomic direction change)<a class="headerlink" href="#scenario-position-flipped-atomic-direction-change" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a position changes from <code>long</code> to <code>short</code> or vice versa in a single fill sequence</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;.flipped</code> with <code>from_side</code>, <code>to_side</code>, <code>qty</code>, <code>price</code>, <code>order_id</code>, <code>realized_pnl</code></li>
+<li><strong>AND</strong> this event SHALL be atomic — no intermediate <code>position.closed</code> + <code>position.opened</code> sequence</li>
+</ul>
+<h4 id="scenario-position-closed">Scenario: Position closed<a class="headerlink" href="#scenario-position-closed" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a position returns to flat (size = 0) via user close</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;.closed</code> with <code>realized_pnl</code>, <code>closed_at</code></li>
+</ul>
+<h4 id="scenario-position-liquidated-forced">Scenario: Position liquidated (forced)<a class="headerlink" href="#scenario-position-liquidated-forced" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a position is force-closed by the venue</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;.liquidated</code> with <code>liquidation_price</code>, <code>realized_pnl</code>, <code>liquidated_at</code></li>
+</ul>
+<h4 id="scenario-liquidation-warning-signal-not-transition">Scenario: Liquidation warning (signal, not transition)<a class="headerlink" href="#scenario-liquidation-warning-signal-not-transition" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> margin ratio crosses a warning threshold</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;.liquidation.warning</code> with <code>margin_ratio</code>, <code>threshold</code></li>
+<li><strong>AND</strong> the position's primary state SHALL NOT change; only the <code>liquidation_status</code> sub-state becomes <code>warning</code></li>
+</ul>
+<h4 id="scenario-position-adjustment-corporate-action">Scenario: Position adjustment (corporate action)<a class="headerlink" href="#scenario-position-adjustment-corporate-action" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a corporate action (split, dividend, symbol change) mutates a position's size or avg_price</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;.adjustment</code> with <code>adjustment_type</code> (<code>split</code>|<code>dividend</code>|<code>symbol_change</code>), <code>new_qty</code>, <code>new_avg_price</code>, <code>corporate_action_id</code></li>
+</ul>
+<h4 id="scenario-portfolio-snapshot">Scenario: Portfolio snapshot<a class="headerlink" href="#scenario-portfolio-snapshot" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a full portfolio snapshot is published (consolidated)</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.portfolio.snapshot</code> with <code>total_value</code>, <code>total_pnl</code>, <code>position_count</code></li>
+</ul>
+<h3 id="requirement-market-data-events">Requirement: Market Data Events<a class="headerlink" href="#requirement-market-data-events" title="Permanent link">&para;</a></h3>
+<p>Market data events SHALL live under the lane-scoped pattern (<code>act.exchange.&lt;venue&gt;.*</code> or <code>hyp.&lt;selector&gt;.exchange.&lt;venue&gt;.*</code>). Per-currency-pair cardinality SHALL be used for <code>orderbook.*</code>, <code>trade.tape</code>, <code>ticker.update</code>, <code>funding.rate</code>, <code>mark.price</code>, <code>ohlcv.candle.*</code>. Consolidated (no per-pair segment) for <code>instrument.info</code>.</p>
+<h4 id="scenario-order-book-snapshot">Scenario: Order book snapshot<a class="headerlink" href="#scenario-order-book-snapshot" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the venue publishes a full order book snapshot at depth N</li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.orderbook.snapshot.&lt;currency_pair&gt;</code> with <code>bids[]</code>, <code>asks[]</code>, <code>last_update_id</code>, <code>snapshot_at</code></li>
+</ul>
+<h4 id="scenario-order-book-update-delta">Scenario: Order book update (delta)<a class="headerlink" href="#scenario-order-book-update-delta" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the venue publishes an L2/L3 order book delta</li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.orderbook.update.&lt;currency_pair&gt;</code> with <code>bids_delta[]</code>, <code>asks_delta[]</code>, <code>first_update_id</code>, <code>last_update_id</code></li>
+</ul>
+<h4 id="scenario-public-trade-tape">Scenario: Public trade tape<a class="headerlink" href="#scenario-public-trade-tape" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a public trade occurs on the venue</li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.trade.tape.&lt;currency_pair&gt;</code> with <code>trade_id</code>, <code>price</code>, <code>qty</code>, <code>side</code>, <code>trade_time</code></li>
+</ul>
+<h4 id="scenario-ticker-update">Scenario: Ticker update<a class="headerlink" href="#scenario-ticker-update" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the venue publishes 24h rolling stats</li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.ticker.update.&lt;currency_pair&gt;</code> with <code>last_price</code>, <code>volume_24h</code>, <code>change_24h_pct</code></li>
+</ul>
+<h4 id="scenario-funding-rate">Scenario: Funding rate<a class="headerlink" href="#scenario-funding-rate" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the venue publishes a perpetual funding rate tick</li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.funding.rate.&lt;currency_pair&gt;</code> with <code>funding_rate</code>, <code>next_funding_time</code></li>
+</ul>
+<h4 id="scenario-mark-price">Scenario: Mark price<a class="headerlink" href="#scenario-mark-price" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the venue publishes a mark price update (derivatives)</li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.mark.price.&lt;currency_pair&gt;</code> with <code>mark_price</code>, <code>index_price</code></li>
+</ul>
+<h4 id="scenario-ohlcv-candle">Scenario: OHLCV candle<a class="headerlink" href="#scenario-ohlcv-candle" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a candle interval closes</li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.ohlcv.candle.&lt;interval&gt;.&lt;currency_pair&gt;</code> with <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>candle_close_time</code></li>
+</ul>
+<h4 id="scenario-instrument-info">Scenario: Instrument info<a class="headerlink" href="#scenario-instrument-info" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> instrument metadata changes (lot size, tick size, status)</li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.instrument.info</code> with <code>symbol</code>, <code>status</code>, <code>base_asset</code>, <code>quote_asset</code>, <code>lot_size</code>, <code>tick_size</code></li>
+</ul>
+<h3 id="requirement-risk-events">Requirement: Risk Events<a class="headerlink" href="#requirement-risk-events" title="Permanent link">&para;</a></h3>
+<p>Risk events SHALL be consolidated (one topic per metric). Per-symbol routing SHALL use <code>ce-subject</code>.</p>
+<h4 id="scenario-exposure-update">Scenario: Exposure update<a class="headerlink" href="#scenario-exposure-update" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> risk greeks (delta / gamma / vega / theta) are recomputed</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.risk.exposure.update</code> with <code>greeks: { delta, gamma, vega, theta }</code>, <code>underlyings[]</code></li>
+</ul>
+<h4 id="scenario-margin-update">Scenario: Margin update<a class="headerlink" href="#scenario-margin-update" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> margin used or available changes</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.risk.margin.update</code> with <code>margin_used</code>, <code>margin_available</code>, <code>margin_ratio</code></li>
+</ul>
+<h4 id="scenario-drawdown-alert">Scenario: Drawdown alert<a class="headerlink" href="#scenario-drawdown-alert" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> drawdown crosses a configured threshold</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.risk.drawdown.alert</code> with <code>drawdown_pct</code>, <code>threshold_pct</code>, <code>peak_value</code>, <code>current_value</code></li>
+</ul>
+<h4 id="scenario-limit-breach">Scenario: Limit breach<a class="headerlink" href="#scenario-limit-breach" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a configured risk limit is breached</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.risk.limit.breach</code> with <code>limit_name</code>, <code>limit_value</code>, <code>actual_value</code>, <code>severity</code></li>
+</ul>
+<h4 id="scenario-scenario-pl-stress-test">Scenario: Scenario P&amp;L (stress test)<a class="headerlink" href="#scenario-scenario-pl-stress-test" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a stress / scenario P&amp;L computation completes</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.risk.scenario.pnl</code> with <code>scenario_name</code>, <code>pnl</code>, <code>scenario_inputs</code></li>
+</ul>
+<h3 id="requirement-pl-events">Requirement: P&amp;L Events<a class="headerlink" href="#requirement-pl-events" title="Permanent link">&para;</a></h3>
+<p>P&amp;L events SHALL be consolidated. The full triplet context is carried in the envelope (not the topic) because P&amp;L is meaningless without it.</p>
+<h4 id="scenario-realized-pl-update">Scenario: Realized P&amp;L update<a class="headerlink" href="#scenario-realized-pl-update" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> realized P&amp;L is recomputed (e.g. on fill or position close)</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.pnl.realized.update</code> with <code>realized_pnl</code>, <code>by_symbol: { &lt;symbol&gt;: &lt;pnl&gt; }</code>, <code>period</code> (<code>daily</code>|<code>session</code>|<code>cumulative</code>)</li>
+</ul>
+<h4 id="scenario-unrealized-pl-update">Scenario: Unrealized P&amp;L update<a class="headerlink" href="#scenario-unrealized-pl-update" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> unrealized P&amp;L is recomputed (mark-to-market)</li>
+<li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.pnl.unrealized.update</code> with <code>unrealized_pnl</code>, <code>by_symbol: { &lt;symbol&gt;: &lt;pnl&gt; }</code>, <code>mark_prices: { &lt;symbol&gt;: &lt;price&gt; }</code></li>
+</ul>
+<h3 id="requirement-tier-0-infrastructure-events">Requirement: Tier 0 / Infrastructure Events<a class="headerlink" href="#requirement-tier-0-infrastructure-events" title="Permanent link">&para;</a></h3>
+<p>Tier 0 events are scenario-agnostic and follow the <code>&lt;service&gt;.&lt;category&gt;</code> pattern. Access control moves to NATS account / subject permissions (no <code>public</code> / <code>internal</code> segment in the topic).</p>
+<h4 id="scenario-worker-lifecycle-event">Scenario: Worker lifecycle event<a class="headerlink" href="#scenario-worker-lifecycle-event" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a worker changes state (created, started, online, degraded, stopping, stopped, failed)</li>
+<li><strong>THEN</strong> the WorkManager SHALL publish to <code>workmanager.lifecycle</code> with <code>ce-type = com.virtufin.workmanager.lifecycle.&lt;state&gt;</code></li>
+<li><strong>AND</strong> the event SHALL carry <code>worker_id</code>, <code>group?</code>, <code>topic</code>, and state-specific fields (<code>error_type?</code>, <code>error_message?</code>)</li>
+</ul>
+<h4 id="scenario-connection-lifecycle-event">Scenario: Connection lifecycle event<a class="headerlink" href="#scenario-connection-lifecycle-event" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a WebSocket connection changes state (registered, connecting, connected, degraded, reconnecting, closed, failed)</li>
+<li><strong>THEN</strong> the WebSocketManager SHALL publish to <code>websocketmanager.lifecycle</code> with <code>ce-type = com.virtufin.websocketmanager.lifecycle.&lt;state&gt;</code></li>
+<li><strong>AND</strong> the event SHALL carry <code>connection_id</code>, <code>url</code>, <code>instance_id</code>, and state-specific fields</li>
+</ul>
+<h4 id="scenario-infra-events-connection-worker-detail">Scenario: Infra events (connection / worker detail)<a class="headerlink" href="#scenario-infra-events-connection-worker-detail" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> finer-grained infra events are needed (heartbeats, grouplock changes)</li>
+<li><strong>THEN</strong> the service SHALL publish to <code>&lt;service&gt;.infra.&lt;sub_category&gt;</code> (e.g. <code>websocketmanager.infra.connection.heartbeat</code>, <code>workmanager.infra.worker.heartbeat</code>, <code>workmanager.infra.grouplock</code>)</li>
+</ul>
+<h3 id="requirement-cardinality-rule">Requirement: Cardinality Rule<a class="headerlink" href="#requirement-cardinality-rule" title="Permanent link">&para;</a></h3>
+<p>Services SHALL prefer consolidated topics (one topic, per-entity routing via <code>ce-subject</code>) over per-entity topics (<code>.&lt;entity_id&gt;</code> segment). Per-entity topics SHALL be used only when subscribers need broker-level per-entity subscription or routing.</p>
+<h4 id="scenario-per-entity-topic-justified">Scenario: Per-entity topic justified<a class="headerlink" href="#scenario-per-entity-topic-justified" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> subscribers need to subscribe at the broker level to a single entity (e.g., fills for one specific order, order book for one specific pair)</li>
+<li><strong>THEN</strong> the topic SHALL carry the entity ID segment (<code>trading.order.filled.&lt;order_id&gt;</code>, <code>exchange.binance.orderbook.update.&lt;currency_pair&gt;</code>)</li>
+</ul>
+<h4 id="scenario-consolidated-topic-preferred">Scenario: Consolidated topic preferred<a class="headerlink" href="#scenario-consolidated-topic-preferred" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> subscribers typically want aggregate views (P&amp;L totals, risk limits, portfolio snapshots)</li>
+<li><strong>THEN</strong> the topic SHALL be consolidated and <code>ce-subject</code> SHALL carry the entity reference (<code>risk.exposure.update</code> with <code>subject=position/BTCUSDT</code>)</li>
+</ul>
+<h4 id="scenario-asymmetric-segment-counts-are-legitimate">Scenario: Asymmetric segment counts are legitimate<a class="headerlink" href="#scenario-asymmetric-segment-counts-are-legitimate" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a topic uses the <code>hyp.&lt;selector&gt;.exchange.&lt;venue&gt;.*</code> pattern</li>
+<li><strong>THEN</strong> it SHALL have one more segment than its <code>act.exchange.&lt;venue&gt;.*</code> counterpart (the selector slot)</li>
+<li><strong>AND</strong> this asymmetry is intentional; brokers and wildcards SHALL match both forms</li>
+</ul>
+<h3 id="requirement-nats-permissions-replacing-pubprv">Requirement: NATS Permissions (replacing pub/prv)<a class="headerlink" href="#requirement-nats-permissions-replacing-pubprv" title="Permanent link">&para;</a></h3>
+<p>Access control SHALL be enforced via NATS account / subject permissions, not via topic naming. <code>pub</code> / <code>prv</code> segments are NOT part of any topic pattern.</p>
+<h4 id="scenario-market-data-permissions">Scenario: Market data permissions<a class="headerlink" href="#scenario-market-data-permissions" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> NATS permissions are configured</li>
+<li><strong>THEN</strong> <code>act.exchange.*</code> SHALL allow publishers = exchange connectors, subscribers = all trading / risk / backtest services</li>
+<li><strong>AND</strong> <code>hyp.*.exchange.*</code> SHALL allow publishers = backtest engines, subscribers = strategy services (no production services)</li>
+</ul>
+<h4 id="scenario-scenario-event-permissions">Scenario: Scenario event permissions<a class="headerlink" href="#scenario-scenario-event-permissions" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> NATS permissions are configured</li>
+<li><strong>THEN</strong> <code>sc.*.trading.*</code> SHALL allow publishers = trading / strategy services, subscribers = risk / position / pnl / dashboards</li>
+<li><strong>AND</strong> <code>sc.*.position.*</code> SHALL allow publishers = trading services, subscribers = risk / pnl</li>
+<li><strong>AND</strong> <code>sc.*.risk.*</code> and <code>sc.*.pnl.*</code> SHALL allow publishers = risk / pnl services, subscribers = dashboards / alerting</li>
+<li><strong>AND</strong> <code>sc.LIVE.*</code> writes SHALL require elevated permissions (production role)</li>
+</ul>
+<h4 id="scenario-tier-0-permissions">Scenario: Tier 0 permissions<a class="headerlink" href="#scenario-tier-0-permissions" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> NATS permissions are configured</li>
+<li><strong>THEN</strong> <code>&lt;service&gt;.lifecycle</code> and <code>&lt;service&gt;.infra.*</code> SHALL allow publishers = owning service, subscribers = all services</li>
+</ul>
+<h3 id="requirement-state-keys">Requirement: State Keys<a class="headerlink" href="#requirement-state-keys" title="Permanent link">&para;</a></h3>
+<p>State keys SHALL share the topic taxonomy. After the <code>&lt;app-name&gt;||</code> prefix:</p>
+<table>
+<thead>
+<tr>
+<th>Namespace</th>
+<th>Pattern</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 0 / infra</td>
+<td><code>&lt;service&gt;.&lt;entity&gt;[.&lt;id&gt;]</code></td>
+<td><code>workmanager.worker.&lt;worker_id&gt;</code></td>
+</tr>
+<tr>
+<td>Market data cache</td>
+<td><code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;[.&lt;id&gt;]</code></td>
+<td><code>act.exchange.binance.orderbook.BTCUSDT</code></td>
+</tr>
+<tr>
+<td>Scenario state</td>
+<td><code>sc.&lt;scenarioId&gt;.&lt;domain&gt;.&lt;entity&gt;[.&lt;id&gt;]</code></td>
+<td><code>sc.LIVE.trading.order.&lt;order_id&gt;</code></td>
+</tr>
+<tr>
+<td>Scenario registry</td>
+<td><code>scenario.&lt;scenarioId&gt;</code></td>
+<td><code>scenario.LIVE</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="scenario-order-state-key">Scenario: Order state key<a class="headerlink" href="#scenario-order-state-key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service writes order state</li>
+<li><strong>THEN</strong> the key SHALL be <code>sc.&lt;scenarioId&gt;.trading.order.&lt;order_id&gt;</code></li>
+<li><strong>AND</strong> the value SHALL be JSON <code>{ status, side, type, qty, remaining_qty, avg_price, venue, created_at, updated_at }</code></li>
+</ul>
+<h4 id="scenario-trade-state-key">Scenario: Trade state key<a class="headerlink" href="#scenario-trade-state-key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service writes trade state</li>
+<li><strong>THEN</strong> the key SHALL be <code>sc.&lt;scenarioId&gt;.trading.trade.&lt;trade_id&gt;</code></li>
+<li><strong>AND</strong> the value SHALL be JSON <code>{ status, order_id, cleared_at?, settled_at?, tx_hash? }</code></li>
+</ul>
+<h4 id="scenario-position-state-key">Scenario: Position state key<a class="headerlink" href="#scenario-position-state-key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service writes position state</li>
+<li><strong>THEN</strong> the key SHALL be <code>sc.&lt;scenarioId&gt;.position.&lt;symbol&gt;</code></li>
+<li><strong>AND</strong> the value SHALL be JSON <code>{ size, avg_price, realized_pnl, liquidation_status, updated_at }</code></li>
+</ul>
+<h4 id="scenario-portfolio-state-key">Scenario: Portfolio state key<a class="headerlink" href="#scenario-portfolio-state-key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service writes portfolio state</li>
+<li><strong>THEN</strong> the key SHALL be <code>sc.&lt;scenarioId&gt;.position.portfolio</code></li>
+<li><strong>AND</strong> the value SHALL be JSON <code>{ total_value, total_pnl, position_count, updated_at }</code></li>
+</ul>
+<h4 id="scenario-worker-state-key">Scenario: Worker state key<a class="headerlink" href="#scenario-worker-state-key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the WorkManager writes worker state</li>
+<li><strong>THEN</strong> the key SHALL be <code>workmanager.worker.&lt;worker_id&gt;</code></li>
+<li><strong>AND</strong> the value SHALL be JSON <code>{ status, last_heartbeat, started_at, ... }</code></li>
+</ul>
+<h4 id="scenario-connection-state-key">Scenario: Connection state key<a class="headerlink" href="#scenario-connection-state-key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the WebSocketManager writes connection state</li>
+<li><strong>THEN</strong> the key SHALL be <code>websocketmanager.connection.&lt;connection_id&gt;</code></li>
+<li><strong>AND</strong> the value SHALL be JSON <code>{ status, last_heartbeat, connected_at, ... }</code></li>
+</ul>
+<h4 id="scenario-order-book-state-key">Scenario: Order book state key<a class="headerlink" href="#scenario-order-book-state-key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the WebSocketManager writes per-pair order book cache</li>
+<li><strong>THEN</strong> the key SHALL be <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.orderbook.&lt;currency_pair&gt;</code></li>
+<li><strong>AND</strong> the value SHALL be JSON <code>{ bids, asks, last_update_id }</code> (consolidated, single source of truth per venue + pair)</li>
+</ul>
+<h4 id="scenario-scenario-registry-key">Scenario: Scenario registry key<a class="headerlink" href="#scenario-scenario-registry-key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service writes scenario metadata</li>
+<li><strong>THEN</strong> the key SHALL be <code>scenario.&lt;scenarioId&gt;</code></li>
+<li><strong>AND</strong> the value SHALL be the scenario triplet definition (see <a href="../scenarios/spec.md">Scenarios spec</a>)</li>
+</ul>
+<h3 id="requirement-source-of-truth-rule">Requirement: Source-of-Truth Rule<a class="headerlink" href="#requirement-source-of-truth-rule" title="Permanent link">&para;</a></h3>
+<h4 id="scenario-single-publisher-per-status-field">Scenario: Single publisher per status field<a class="headerlink" href="#scenario-single-publisher-per-status-field" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> two publishers attempt to write the same status field on the same entity (e.g. both writing <code>order.status</code>)</li>
+<li><strong>THEN</strong> this SHALL be treated as a design bug — the entity has exactly one owner for status transitions</li>
+<li><strong>AND</strong> consumers SHALL treat the status field as monotonically advancing through the state machine</li>
+</ul>
+<h4 id="scenario-single-owner-per-derived-metric">Scenario: Single owner per derived metric<a class="headerlink" href="#scenario-single-owner-per-derived-metric" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> multiple services could compute the same derived metric (e.g. portfolio total value)</li>
+<li><strong>THEN</strong> exactly one aggregator SHALL own the write; other services SHALL subscribe to the topic for read access</li>
+</ul>
+<h3 id="requirement-delete-on-deploy-no-deprecation">Requirement: Delete-on-Deploy (No Deprecation)<a class="headerlink" href="#requirement-delete-on-deploy-no-deprecation" title="Permanent link">&para;</a></h3>
+<p>Topic and state-key renames SHALL NOT carry a deprecation window. Old names SHALL be deleted on the same commit that introduces new names.</p>
+<h4 id="scenario-rename-lifecycle">Scenario: Rename lifecycle<a class="headerlink" href="#scenario-rename-lifecycle" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a topic or state-key name is changed</li>
+<li><strong>THEN</strong> the change SHALL be a single commit per affected repo</li>
+<li><strong>AND</strong> old names SHALL be removed in the same commit (no parallel publishing under both names)</li>
+<li><strong>AND</strong> the <a href="migration.md">migration document</a> SHALL list old → new mappings</li>
+</ul>
+<h3 id="requirement-multi-publisher-tier-2">Requirement: Multi-Publisher Tier 2<a class="headerlink" href="#requirement-multi-publisher-tier-2" title="Permanent link">&para;</a></h3>
+<p>Subscribers of Tier 2 (scenario-scoped) topics SHALL NOT assume single-source. A scenario topic MAY have multiple publishers (e.g., aggregator + per-leg publisher).</p>
+<h4 id="scenario-multiple-publishers-on-same-topic">Scenario: Multiple publishers on same topic<a class="headerlink" href="#scenario-multiple-publishers-on-same-topic" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> two services publish to the same scenario topic (e.g., a strategy publishes <code>order.filled</code> and a replayer also publishes the same event during replay)</li>
+<li><strong>THEN</strong> consumers SHALL handle events from either source</li>
+<li><strong>AND</strong> <code>ce-source</code> SHALL identify the publishing service for filtering / dedup</li>
+</ul>
+<h3 id="requirement-run-id-in-envelope-not-topic">Requirement: Run-ID in Envelope, Not Topic<a class="headerlink" href="#requirement-run-id-in-envelope-not-topic" title="Permanent link">&para;</a></h3>
+<p>Backtest replay and parallel scenarios SHALL NOT introduce run-id segments into topics. Run isolation SHALL be achieved via the <code>runid</code> envelope extension.</p>
+<h4 id="scenario-parallel-backtests-share-topic">Scenario: Parallel backtests share topic<a class="headerlink" href="#scenario-parallel-backtests-share-topic" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> two backtests run concurrently against the same scenario (<code>sc.S7F3A9B</code>)</li>
+<li><strong>THEN</strong> both SHALL publish to <code>sc.S7F3A9B.trading.*</code></li>
+<li><strong>AND</strong> each event SHALL carry a distinct <code>runid</code> extension</li>
+<li><strong>AND</strong> consumers that want a single backtest's events SHALL filter by <code>runid</code></li>
+</ul>
+<h4 id="scenario-run-id-dropped-from-topic">Scenario: Run-id dropped from topic<a class="headerlink" href="#scenario-run-id-dropped-from-topic" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service migrates from <code>binance-depth.&lt;run_id&gt;</code> to the new scheme</li>
+<li><strong>THEN</strong> the topic SHALL become <code>act.exchange.binance.orderbook.update.&lt;currency_pair&gt;</code> (no run-id segment)</li>
+<li><strong>AND</strong> the run-id SHALL travel in the <code>runid</code> envelope extension (or be omitted for production traffic)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <div style="display:table;width:100%">
+  <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
+  <span style="display:table-cell;text-align:right">2026-06-28T21:20:00Z</span>
+</div>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>
