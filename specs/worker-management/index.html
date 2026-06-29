@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/68713326ebec5e8647551a01b7114568b18a2bf4"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3b2552c">
+       title="View commit 6871332">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">6871332</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/68713326ebec5e8647551a01b7114568b18a2bf4"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3b2552c">
+       title="View commit 6871332">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">6871332</text>
       </svg>
     </a>
 </div>
@@ -1248,12 +1248,12 @@
   <a href="#requirement-in-process-dotnet-dll-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: In-Process Dotnet DLL Engine
+        Requirement: In-Process DotNet DLL Engine
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirement: In-Process Dotnet DLL Engine">
+    <nav class="md-nav" aria-label="Requirement: In-Process DotNet DLL Engine">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2593,12 +2593,12 @@
   <a href="#requirement-in-process-dotnet-dll-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: In-Process Dotnet DLL Engine
+        Requirement: In-Process DotNet DLL Engine
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirement: In-Process Dotnet DLL Engine">
+    <nav class="md-nav" aria-label="Requirement: In-Process DotNet DLL Engine">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3119,7 +3119,7 @@
 <li><strong>THEN</strong> the WorkManager SHALL publish a <code>worker.error</code> event with <code>error_type</code> and <code>error_message</code> in the data payload</li>
 </ul>
 <h3 id="requirement-polyglot-worker-engines">Requirement: Polyglot Worker Engines<a class="headerlink" href="#requirement-polyglot-worker-engines" title="Permanent link">&para;</a></h3>
-<p>The WorkManager SHALL support executing worker code in multiple languages via a pluggable engine architecture. Built-in engines SHALL include Python (subprocess), C# (Roslyn runtime compilation), and pre-compiled .NET DLL (in-process, the default <code>DotnetDllEngine</code> via <code>hostfxr</code> + <code>AssemblyLoadContext</code>).</p>
+<p>The WorkManager SHALL support executing worker code in multiple languages via a pluggable engine architecture. Built-in engines SHALL include Python (subprocess), C# (Roslyn runtime compilation), and pre-compiled .NET DLL (in-process, the default <code>DotNetDllEngine</code> via <code>hostfxr</code> + <code>AssemblyLoadContext</code>).</p>
 <h4 id="scenario-python-worker-execution">Scenario: Python worker execution<a class="headerlink" href="#scenario-python-worker-execution" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a worker with a Python engine processes a message</li>
@@ -3296,8 +3296,8 @@
 <li><strong>WHEN</strong> a new value is added to the command enum and the worker's <code>HandleAsync</code> switch expression does not handle it</li>
 <li><strong>THEN</strong> the C# compiler SHALL emit a warning (CS8509 or equivalent) for the unhandled enum value</li>
 </ul>
-<h3 id="requirement-in-process-dotnet-dll-engine">Requirement: In-Process Dotnet DLL Engine<a class="headerlink" href="#requirement-in-process-dotnet-dll-engine" title="Permanent link">&para;</a></h3>
-<p>The WorkManager SHALL support an in-process <code>DotnetDllEngine</code> (default for MIME type <code>application/x-dotnet-dll</code>) that loads pre-compiled .NET worker DLLs directly into the AOT-compiled WorkManager process. The engine SHALL embed the .NET runtime (<code>CoreCLR</code>) into the host process on first use via the <code>hostfxr</code> C API and SHALL load the worker DLL into a per-worker, collectible <code>AssemblyLoadContext</code>. The engine SHALL be AOT-compatible: the engine code itself is compiled with <code>&lt;IsAotCompatible&gt;true&lt;/IsAotCompatible&gt;</code> and SHALL NOT use reflection on its own types; the only reflection SHALL be on the JIT-loaded worker assembly.</p>
+<h3 id="requirement-in-process-dotnet-dll-engine">Requirement: In-Process DotNet DLL Engine<a class="headerlink" href="#requirement-in-process-dotnet-dll-engine" title="Permanent link">&para;</a></h3>
+<p>The WorkManager SHALL support an in-process <code>DotNetDllEngine</code> (default for MIME type <code>application/x-dotnet-dll</code>) that loads pre-compiled .NET worker DLLs directly into the AOT-compiled WorkManager process. The engine SHALL embed the .NET runtime (<code>CoreCLR</code>) into the host process on first use via the <code>hostfxr</code> C API and SHALL load the worker DLL into a per-worker, collectible <code>AssemblyLoadContext</code>. The engine SHALL be AOT-compatible: the engine code itself is compiled with <code>&lt;IsAotCompatible&gt;true&lt;/IsAotCompatible&gt;</code> and SHALL NOT use reflection on its own types; the only reflection SHALL be on the JIT-loaded worker assembly.</p>
 <h4 id="scenario-first-loadcodeasync-initializes-coreclr">Scenario: First LoadCodeAsync initializes CoreCLR<a class="headerlink" href="#scenario-first-loadcodeasync-initializes-coreclr" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> the first <code>LoadCodeAsync</code> is called for MIME type <code>application/x-dotnet-dll</code></li>
@@ -3511,7 +3511,7 @@ characteristics in the engine README and the worker author guide.</p>
   cannot be caught in a way that leaves the .NET runtime in a defined
   state. Workers SHALL be authored under the assumption that a crash
   terminates the entire WorkManager. This caveat is unique to the
-  <code>NativeDllEngine</code>; the Python and DotnetDll engines isolate their
+  <code>NativeDllEngine</code>; the Python and DotNetDll engines isolate their
   workers in subprocesses.</li>
 </ul>
 <h4 id="scenario-unmanaged-timeout-caveat">Scenario: Unmanaged timeout caveat<a class="headerlink" href="#scenario-unmanaged-timeout-caveat" title="Permanent link">&para;</a></h4>
@@ -3594,7 +3594,7 @@ filename based on <code>RuntimeInformation.IsOSPlatform</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-06-28T21:20:00Z</span>
+  <span style="display:table-cell;text-align:right">2026-06-29T08:17:51Z</span>
 </div>
 
     </div>

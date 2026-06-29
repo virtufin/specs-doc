@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/68713326ebec5e8647551a01b7114568b18a2bf4"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3b2552c">
+       title="View commit 6871332">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">6871332</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3b2552c7e7b571ec13d9e73ecdcc679bfa51cd29"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/68713326ebec5e8647551a01b7114568b18a2bf4"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3b2552c">
+       title="View commit 6871332">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3b2552c</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">6871332</text>
       </svg>
     </a>
 </div>
@@ -2248,7 +2248,7 @@ Covers <code>virtufin-api</code>, <code>virtufin-websocketmanager</code>, <code>
 <td>LoadCodeAsync</td>
 <td>Task</td>
 <td><strong>Async contract</strong> (interface)</td>
-<td><code>Task LoadCodeAsync(byte[] code, CancellationToken cancellationToken = default)</code> per <code>IEngine</code> (line 16). B8 resolution in commit <a href="https://git.haenerconsulting.com/virtufin/virtufin-workmanager/commit/4684daa">4684daa</a>. Implementations: PythonEngine is properly async (uses <code>AcceptTcpClientAsync</code>); CSharpSourceEngine and DotnetDllEngine are fake-async (return <code>Task.CompletedTask</code>) but interface-mandated — per user policy, left as-is. Method name corrected from <code>LoadCode</code> to <code>LoadCodeAsync</code> and return type from <code>void</code> to <code>Task</code>.</td>
+<td><code>Task LoadCodeAsync(byte[] code, CancellationToken cancellationToken = default)</code> per <code>IEngine</code> (line 16). B8 resolution in commit <a href="https://git.haenerconsulting.com/virtufin/virtufin-workmanager/commit/4684daa">4684daa</a>. Implementations: PythonEngine is properly async (uses <code>AcceptTcpClientAsync</code>); CSharpSourceEngine and DotNetDllEngine are fake-async (return <code>Task.CompletedTask</code>) but interface-mandated — per user policy, left as-is. Method name corrected from <code>LoadCode</code> to <code>LoadCodeAsync</code> and return type from <code>void</code> to <code>Task</code>.</td>
 <td>✅</td>
 </tr>
 <tr>
@@ -2300,7 +2300,7 @@ Covers <code>virtufin-api</code>, <code>virtufin-websocketmanager</code>, <code>
 <td>✅</td>
 </tr>
 <tr>
-<td>DotnetDllEngine</td>
+<td>DotNetDllEngine</td>
 <td>LoadCode</td>
 <td>void</td>
 <td>Sync (in-memory I/O)</td>
@@ -2308,7 +2308,7 @@ Covers <code>virtufin-api</code>, <code>virtufin-websocketmanager</code>, <code>
 <td>✅</td>
 </tr>
 <tr>
-<td>DotnetDllEngine</td>
+<td>DotNetDllEngine</td>
 <td>ProcessAsync</td>
 <td>Task&lt;CloudEvent?&gt;</td>
 <td>Async (I/O)</td>
@@ -2438,7 +2438,7 @@ Covers <code>virtufin-api</code>, <code>virtufin-websocketmanager</code>, <code>
 <td><code>WorkManager.cs:143</code></td>
 <td>Sync <code>LoadCode</code> called from async method</td>
 <td>🔄</td>
-<td><code>IEngine.LoadCode(byte[])</code> → <code>IEngine.LoadCodeAsync(byte[], CancellationToken)</code>. <code>ProcessAsync</code> also gained <code>CancellationToken</code>. Updated all 3 engine impls (Python, CSharp, DotnetDll) — PythonEngine now does async TCP accept via <code>AcceptTcpClientAsync</code> + <code>await Read/Write</code>. Updated all callers (<code>WorkManager.CreateWorkerAsync</code>/<code>RecoverWorkersAsync</code>/<code>LoadCodeFrom*</code>) and ~18 test sites. Breaking change — we are in alpha.</td>
+<td><code>IEngine.LoadCode(byte[])</code> → <code>IEngine.LoadCodeAsync(byte[], CancellationToken)</code>. <code>ProcessAsync</code> also gained <code>CancellationToken</code>. Updated all 3 engine impls (Python, CSharp, DotNetDll) — PythonEngine now does async TCP accept via <code>AcceptTcpClientAsync</code> + <code>await Read/Write</code>. Updated all callers (<code>WorkManager.CreateWorkerAsync</code>/<code>RecoverWorkersAsync</code>/<code>LoadCodeFrom*</code>) and ~18 test sites. Breaking change — we are in alpha.</td>
 </tr>
 </tbody>
 </table>
@@ -2893,7 +2893,7 @@ Then update <code>SubscribeAsync</code> to check if handler is <code>IAsyncStrea
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-06-28T21:20:00Z</span>
+  <span style="display:table-cell;text-align:right">2026-06-29T08:17:51Z</span>
 </div>
 
     </div>
