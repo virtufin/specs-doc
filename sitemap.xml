@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://specs.doc.virtufin.com/</loc>
+         <loc>https://specs.docs.virtufin.com/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/api-gateway/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/api-gateway/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/ci-cd-tooling/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/ci-cd-tooling/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/client-testing/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/client-testing/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/core-data-types/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/core-data-types/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/cross-cutting/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/cross-cutting/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/deployment/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/deployment/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/multi-sdk/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/multi-sdk/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/proto-to-client-mapping/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/proto-to-client-mapping/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/pubsub-topics/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/pubsub-topics/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/scenarios/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/scenarios/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/sync-async-audit/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/sync-async-audit/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/websocket-proxy/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/websocket-proxy/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
-         <loc>https://specs.doc.virtufin.com/specs/worker-management/</loc>
+         <loc>https://specs.docs.virtufin.com/specs/worker-management/</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
 </urlset>
