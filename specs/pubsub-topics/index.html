@@ -199,14 +199,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/195890d31ee00ad94eecc4396a0b0c3f44bf378d"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/a13ebc73535a3b8b3b8ad1f55ab191cadb12dc0e"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 195890d">
+       title="View commit a13ebc7">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">195890d</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">a13ebc7</text>
       </svg>
     </a>
 </div>
@@ -304,14 +304,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/195890d31ee00ad94eecc4396a0b0c3f44bf378d"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/a13ebc73535a3b8b3b8ad1f55ab191cadb12dc0e"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 195890d">
+       title="View commit a13ebc7">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">195890d</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">a13ebc7</text>
       </svg>
     </a>
 </div>
@@ -1837,6 +1837,117 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#requirement-subscription-implementation-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Subscription Implementation Pattern
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Subscription Implementation Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-multiple-callers-on-one-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Multiple callers on one topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-new-caller-arrives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: New caller arrives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-last-caller-leaves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Last caller leaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-in-process-exception-on-a-subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: In-process exception on a subscriber
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-retry-policy-on-dapr-subscribe-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Retry Policy on Dapr Subscribe Exceptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Retry Policy on Dapr Subscribe Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-worker-throws-on-every-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Worker throws on every message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-explicit-business-logic-skip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Explicit business-logic skip
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-handler-times-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Handler times out
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2459,6 +2570,50 @@
 <li><strong>THEN</strong> the topic SHALL become <code>act.exchange.binance.orderbook.update.&lt;currency_pair&gt;</code> (no run-id segment)</li>
 <li><strong>AND</strong> the run-id SHALL travel in the <code>runid</code> envelope extension (or be omitted for production traffic)</li>
 </ul>
+<h3 id="requirement-subscription-implementation-pattern">Requirement: Subscription Implementation Pattern<a class="headerlink" href="#requirement-subscription-implementation-pattern" title="Permanent link">&para;</a></h3>
+<p>Dapr-based subscribe handlers in any Virtufin service SHALL open <strong>one Dapr subscription per topic per service process</strong> and fan out the resulting event stream in-process to every interested consumer within that process. Per-call Dapr subscriptions (one per gRPC call or one per caller) are PROHIBITED because they cause the same event to be silently load-balanced across callers instead of broadcast to each.</p>
+<h4 id="scenario-multiple-callers-on-one-topic">Scenario: Multiple callers on one topic<a class="headerlink" href="#scenario-multiple-callers-on-one-topic" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> two gRPC clients subscribe to the same topic in the same API process</li>
+<li><strong>THEN</strong> each caller SHALL receive every message on that topic (true 1:many broadcast within the process)</li>
+<li><strong>AND</strong> the Dapr sidecar SHALL see exactly one subscription per topic per process (competing consumers between API replicas is the only competing-consumer layer)</li>
+</ul>
+<h4 id="scenario-new-caller-arrives">Scenario: New caller arrives<a class="headerlink" href="#scenario-new-caller-arrives" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a third gRPC client subscribes to a topic that already has two subscribers in the same process</li>
+<li><strong>THEN</strong> the existing Dapr subscription SHALL be reused; the new caller's in-process handler SHALL be added to the fan-out list; no new Dapr subscription SHALL be opened</li>
+</ul>
+<h4 id="scenario-last-caller-leaves">Scenario: Last caller leaves<a class="headerlink" href="#scenario-last-caller-leaves" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the last gRPC client unsubscribes from a topic</li>
+<li><strong>THEN</strong> the in-process fan-out registration SHALL be removed; the Dapr subscription SHALL be disposed; subsequent callers SHALL open a new Dapr subscription on demand</li>
+</ul>
+<h4 id="scenario-in-process-exception-on-a-subscriber">Scenario: In-process exception on a subscriber<a class="headerlink" href="#scenario-in-process-exception-on-a-subscriber" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> an in-process subscriber's handler throws an exception while processing a fanned-out message</li>
+<li><strong>THEN</strong> the broker SHALL continue delivering to the remaining subscribers (per-subscriber fault isolation)</li>
+<li><strong>AND</strong> the failed subscriber SHALL be logged but SHALL NOT cause the message to be re-delivered to the surviving subscribers</li>
+</ul>
+<h3 id="requirement-retry-policy-on-dapr-subscribe-exceptions">Requirement: Retry Policy on Dapr Subscribe Exceptions<a class="headerlink" href="#requirement-retry-policy-on-dapr-subscribe-exceptions" title="Permanent link">&para;</a></h3>
+<p>Dapr subscribe handlers SHALL return <code>TopicResponseAction.Retry</code> on uncaught exceptions so that Dapr's <code>maxRedeliveryCount</code> and dead-letter topic configuration can take effect. <code>Drop</code> SHALL be reserved for explicit business-logic skips (e.g., "no local worker registered for this topic"). Handlers SHALL NOT silently lose messages via <code>Drop</code> on uncaught exceptions.</p>
+<h4 id="scenario-worker-throws-on-every-message">Scenario: Worker throws on every message<a class="headerlink" href="#scenario-worker-throws-on-every-message" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a Dapr subscribe handler in any Virtufin service throws on every message it receives</li>
+<li><strong>THEN</strong> Dapr SHALL re-deliver the message up to <code>maxRedeliveryCount</code> (default 3) times</li>
+<li><strong>AND</strong> after the redelivery cap is reached the message SHALL be published to the configured dead-letter topic (default <code>&lt;topic&gt;-dead</code>)</li>
+<li><strong>AND</strong> the handler's process SHALL NOT terminate</li>
+</ul>
+<h4 id="scenario-explicit-business-logic-skip">Scenario: Explicit business-logic skip<a class="headerlink" href="#scenario-explicit-business-logic-skip" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a handler determines the message is not relevant (e.g., no local worker on the topic) and explicitly chooses to skip it</li>
+<li><strong>THEN</strong> the handler MAY return <code>TopicResponseAction.Drop</code> and the message SHALL be acked with no redelivery</li>
+</ul>
+<h4 id="scenario-handler-times-out">Scenario: Handler times out<a class="headerlink" href="#scenario-handler-times-out" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a handler does not return within <code>MessageHandlingPolicy</code> timeout (default 30 s)</li>
+<li><strong>THEN</strong> Dapr SHALL re-deliver the message (<code>Retry</code> policy)</li>
+<li><strong>AND</strong> the timed-out handler's process SHALL remain responsive</li>
+</ul>
 
 
 
@@ -2490,7 +2645,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-03T08:45:09Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-09T21:52:08Z</span>
 </div>
 
     </div>
