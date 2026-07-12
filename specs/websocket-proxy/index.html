@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/6cbc846698c24aac799beb51557b03c61904a6e3"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5795ae3fe91f4785ba8f0b8621c1e1de4436a12e"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 6cbc846">
+       title="View commit 5795ae3">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">6cbc846</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5795ae3</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/6cbc846698c24aac799beb51557b03c61904a6e3"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5795ae3fe91f4785ba8f0b8621c1e1de4436a12e"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 6cbc846">
+       title="View commit 5795ae3">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">6cbc846</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5795ae3</text>
       </svg>
     </a>
 </div>
@@ -941,10 +941,38 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-cross-instance-access-denied" class="md-nav__link">
+  <a href="#scenario-cross-instance-access-triggers-forward-or-reclaim" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Cross-instance access denied
+        Scenario: Cross-instance access triggers forward or reclaim
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-instance-heartbeats-and-peer-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Instance Heartbeats and Peer Discovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Instance Heartbeats and Peer Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-heartbeat-publish-and-peer-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Heartbeat publish and peer discovery
       
     </span>
   </a>
@@ -969,10 +997,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-pod-failure-triggers-lazy-re-activation" class="md-nav__link">
+  <a href="#scenario-pod-failure-triggers-lazy-reclamation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Pod failure triggers lazy re-activation
+        Scenario: Pod failure triggers lazy reclamation
       
     </span>
   </a>
@@ -985,22 +1013,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requirement-per-connection-routing-via-dapr-virtual-actors" class="md-nav__link">
+  <a href="#requirement-per-connection-routing-via-heartbeat-based-forwarding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Per-connection routing via Dapr virtual actors
+        Requirement: Per-connection routing via heartbeat-based forwarding
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirement: Per-connection routing via Dapr virtual actors">
+    <nav class="md-nav" aria-label="Requirement: Per-connection routing via heartbeat-based forwarding">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-disconnect-on-wrong-replica-routes-via-actor-proxy" class="md-nav__link">
+  <a href="#scenario-disconnect-on-wrong-replica-forwarded-via-grpc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Disconnect on wrong replica routes via actor proxy
+        Scenario: Disconnect on wrong replica forwarded via gRPC
       
     </span>
   </a>
@@ -1008,10 +1036,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-actor-method-failure-propagates-grpc-status" class="md-nav__link">
+  <a href="#scenario-forward-failure-triggers-reclamation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Actor method failure propagates gRPC status
+        Scenario: Forward failure triggers reclamation
       
     </span>
   </a>
@@ -1616,10 +1644,38 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-cross-instance-access-denied" class="md-nav__link">
+  <a href="#scenario-cross-instance-access-triggers-forward-or-reclaim" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Cross-instance access denied
+        Scenario: Cross-instance access triggers forward or reclaim
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-instance-heartbeats-and-peer-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Instance Heartbeats and Peer Discovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Instance Heartbeats and Peer Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-heartbeat-publish-and-peer-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Heartbeat publish and peer discovery
       
     </span>
   </a>
@@ -1644,10 +1700,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-pod-failure-triggers-lazy-re-activation" class="md-nav__link">
+  <a href="#scenario-pod-failure-triggers-lazy-reclamation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Pod failure triggers lazy re-activation
+        Scenario: Pod failure triggers lazy reclamation
       
     </span>
   </a>
@@ -1660,22 +1716,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requirement-per-connection-routing-via-dapr-virtual-actors" class="md-nav__link">
+  <a href="#requirement-per-connection-routing-via-heartbeat-based-forwarding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Per-connection routing via Dapr virtual actors
+        Requirement: Per-connection routing via heartbeat-based forwarding
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirement: Per-connection routing via Dapr virtual actors">
+    <nav class="md-nav" aria-label="Requirement: Per-connection routing via heartbeat-based forwarding">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-disconnect-on-wrong-replica-routes-via-actor-proxy" class="md-nav__link">
+  <a href="#scenario-disconnect-on-wrong-replica-forwarded-via-grpc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Disconnect on wrong replica routes via actor proxy
+        Scenario: Disconnect on wrong replica forwarded via gRPC
       
     </span>
   </a>
@@ -1683,10 +1739,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-actor-method-failure-propagates-grpc-status" class="md-nav__link">
+  <a href="#scenario-forward-failure-triggers-reclamation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Actor method failure propagates gRPC status
+        Scenario: Forward failure triggers reclamation
       
     </span>
   </a>
@@ -1892,43 +1948,49 @@
 </ul>
 <h3 id="requirement-distributed-ownership">Requirement: Distributed Ownership<a class="headerlink" href="#requirement-distributed-ownership" title="Permanent link">&para;</a></h3>
 <p>Each connection SHALL be owned by exactly one WebSocket Manager instance. Only the owning instance may manipulate a connection.</p>
-<h4 id="scenario-cross-instance-access-denied">Scenario: Cross-instance access denied<a class="headerlink" href="#scenario-cross-instance-access-denied" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-cross-instance-access-triggers-forward-or-reclaim">Scenario: Cross-instance access triggers forward or reclaim<a class="headerlink" href="#scenario-cross-instance-access-triggers-forward-or-reclaim" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a request targets a connection owned by a different instance</li>
-<li><strong>THEN</strong> the request SHALL fail with an ownership error</li>
+<li><strong>WHEN</strong> a request targets a connection not found locally</li>
+<li><strong>THEN</strong> the handler SHALL read the connection's <c>InstanceId</c> from the state store</li>
+<li><strong>AND</strong> if the owner is a live peer (per heartbeat), SHALL forward via direct gRPC</li>
+<li><strong>AND</strong> if the owner is dead or unreachable, SHALL reclaim the connection (re-stamp <c>InstanceId</c>) and retry locally</li>
+</ul>
+<h3 id="requirement-instance-heartbeats-and-peer-discovery">Requirement: Instance Heartbeats and Peer Discovery<a class="headerlink" href="#requirement-instance-heartbeats-and-peer-discovery" title="Permanent link">&para;</a></h3>
+<p>Each WSM instance SHALL periodically publish its identity to the Dapr state store with a TTL. The key SHALL be <c>websocketmanager/heartbeats/{instanceId}</c>. A peer index at <c>websocketmanager/heartbeats/_peers</c> (keyed <c>HashSet&lt;string&gt;</c>) SHALL list all alive instance IDs, maintained via optimistic concurrency.</p>
+<h4 id="scenario-heartbeat-publish-and-peer-discovery">Scenario: Heartbeat publish and peer discovery<a class="headerlink" href="#scenario-heartbeat-publish-and-peer-discovery" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> an instance starts</li>
+<li><strong>THEN</strong> it SHALL publish a heartbeat every <c>WSM_HEARTBEAT_INTERVAL_SECONDS</c> (default 10) with TTL of 3× that interval</li>
+<li><strong>AND</strong> every <c>WSM_DISCOVERY_INTERVAL_SECONDS</c> (default 30) it SHALL read the peer index and each peer's heartbeat</li>
+<li><strong>AND</strong> peers with a heartbeat age below <c>WSM_STALE_THRESHOLD_SECONDS</c> SHALL be registered in the local <c>PeerRegistry</c></li>
 </ul>
 <h3 id="requirement-orphaned-connection-reclamation">Requirement: Orphaned Connection Reclamation<a class="headerlink" href="#requirement-orphaned-connection-reclamation" title="Permanent link">&para;</a></h3>
-<p>When an owning instance dies, Dapr's actor placement service SHALL
-lazily re-activate the connection actor on a surviving instance on
-the next invocation. The surviving instance SHALL then create a fresh
-<see langword="ClientWebSocket" /> and, if <c>auto_reconnect</c> is
-set, re-attempt the upstream connection.</p>
-<h4 id="scenario-pod-failure-triggers-lazy-re-activation">Scenario: Pod failure triggers lazy re-activation<a class="headerlink" href="#scenario-pod-failure-triggers-lazy-re-activation" title="Permanent link">&para;</a></h4>
+<p>When an owning instance dies, the next RPC targeting an orphaned connection SHALL trigger lazy reclamation: the forward fails (gRPC Unavailable), the forwarder re-stamps the state-store record with its own instance ID, and retries the operation locally.</p>
+<h4 id="scenario-pod-failure-triggers-lazy-reclamation">Scenario: Pod failure triggers lazy reclamation<a class="headerlink" href="#scenario-pod-failure-triggers-lazy-reclamation" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a WSM replica dies mid-connection</li>
-<li><strong>AND</strong> the next RPC targets the connection actor</li>
-<li><strong>THEN</strong> Dapr's placement service SHALL re-activate the actor on a healthy replica</li>
+<li><strong>AND</strong> the next RPC targets the connection</li>
+<li><strong>THEN</strong> the forwarding handler SHALL attempt a direct gRPC call to the dead peer</li>
+<li><strong>AND</strong> on <c>Unavailable</c>, SHALL re-stamp the connection record's <c>InstanceId</c> in the state store</li>
+<li><strong>AND</strong> SHALL retry the operation locally</li>
 <li><strong>AND</strong> the surviving replica SHALL mark the connection as Disconnected and, if <c>auto_reconnect=true</c>, attempt a fresh WebSocket</li>
 </ul>
-<h3 id="requirement-per-connection-routing-via-dapr-virtual-actors">Requirement: Per-connection routing via Dapr virtual actors<a class="headerlink" href="#requirement-per-connection-routing-via-dapr-virtual-actors" title="Permanent link">&para;</a></h3>
-<p>Each WebSocket connection is a Dapr virtual actor
-(<see langword="IWebSocketConnectionActor"/>, actor type <c>WebSocketConnectionActor</c>)
-keyed by connection id. The Dapr placement service SHALL route
-any actor-method invocation (<c>StopAsync</c>) to the single replica
-that hosts the actor, regardless of which replica originally
-received the gRPC request.</p>
-<h4 id="scenario-disconnect-on-wrong-replica-routes-via-actor-proxy">Scenario: Disconnect on wrong replica routes via actor proxy<a class="headerlink" href="#scenario-disconnect-on-wrong-replica-routes-via-actor-proxy" title="Permanent link">&para;</a></h4>
+<h3 id="requirement-per-connection-routing-via-heartbeat-based-forwarding">Requirement: Per-connection routing via heartbeat-based forwarding<a class="headerlink" href="#requirement-per-connection-routing-via-heartbeat-based-forwarding" title="Permanent link">&para;</a></h3>
+<p>Each connection SHALL be owned by the instance whose <c>IInstanceIdProvider.GetInstanceId()</c> matches the connection record's <c>InstanceId</c> field in the Dapr state store. Connection-specific RPCs (<c>Disconnect</c>, <c>StartPublish</c>, <c>StopPublish</c>, <c>Send</c>, <c>SendRaw</c>) SHALL be routed to the owning instance via direct gRPC forwarding when they land on a different replica.</p>
+<h4 id="scenario-disconnect-on-wrong-replica-forwarded-via-grpc">Scenario: Disconnect on wrong replica forwarded via gRPC<a class="headerlink" href="#scenario-disconnect-on-wrong-replica-forwarded-via-grpc" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> replica A receives a <c>Disconnect</c> for a connection owned by replica B</li>
-<li><strong>THEN</strong> replica A SHALL create an <c>ActorProxy&lt;IWebSocketConnectionActor&gt;</c> for the connection id</li>
-<li><strong>AND</strong> the actor proxy SHALL invoke <c>StopAsync</c> through Dapr's placement service</li>
-<li><strong>AND</strong> placement SHALL route the call to replica B, where the actor is hosted</li>
+<li><strong>THEN</strong> replica A's handler SHALL catch <c>ConnectionNotFoundException</c></li>
+<li><strong>AND</strong> SHALL read the connection's <c>InstanceId</c> from the state store</li>
+<li><strong>AND</strong> SHALL resolve replica B's gRPC endpoint from the <c>PeerRegistry</c></li>
+<li><strong>AND</strong> SHALL forward the <c>Disconnect</c> call via <c>PeerChannelCache&lt;WebSocketManagerClient&gt;</c></li>
+<li><strong>AND</strong> replica B SHALL execute the disconnect and return the result</li>
 </ul>
-<h4 id="scenario-actor-method-failure-propagates-grpc-status">Scenario: Actor method failure propagates gRPC status<a class="headerlink" href="#scenario-actor-method-failure-propagates-grpc-status" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-forward-failure-triggers-reclamation">Scenario: Forward failure triggers reclamation<a class="headerlink" href="#scenario-forward-failure-triggers-reclamation" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> <c>StopAsync</c> on the owning replica throws a domain exception</li>
-<li><strong>THEN</strong> <see langword="WebSocketManagerService.MapException"/> SHALL translate it to an <c>RpcException</c> with the appropriate status code</li>
-<li><strong>AND</strong> the caller's <c>ActorProxy</c> SHALL surface the same <c>RpcException</c></li>
+<li><strong>WHEN</strong> forward to the owner fails with <c>StatusCode.Unavailable</c></li>
+<li><strong>THEN</strong> the handler SHALL reclaim the connection record</li>
+<li><strong>AND</strong> SHALL retry the operation locally</li>
 </ul>
 <h3 id="requirement-ownership-error-instrumentation">Requirement: Ownership-error instrumentation<a class="headerlink" href="#requirement-ownership-error-instrumentation" title="Permanent link">&para;</a></h3>
 <p>The WSM SHALL expose the following OpenTelemetry counters, registered under meter name <code>Virtufin.WebSocketManager</code>:</p>
@@ -1979,7 +2041,7 @@ received the gRPC request.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-11T19:03:42Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-12T10:04:11Z</span>
 </div>
 
     </div>

@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/6cbc846698c24aac799beb51557b03c61904a6e3"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5795ae3fe91f4785ba8f0b8621c1e1de4436a12e"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 6cbc846">
+       title="View commit 5795ae3">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">6cbc846</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5795ae3</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/6cbc846698c24aac799beb51557b03c61904a6e3"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5795ae3fe91f4785ba8f0b8621c1e1de4436a12e"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 6cbc846">
+       title="View commit 5795ae3">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">6cbc846</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5795ae3</text>
       </svg>
     </a>
 </div>
@@ -1749,22 +1749,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requirement-per-worker-routing-via-dapr-virtual-actors" class="md-nav__link">
+  <a href="#requirement-per-worker-routing-via-heartbeat-based-forwarding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Per-worker routing via Dapr virtual actors
+        Requirement: Per-worker routing via heartbeat-based forwarding
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirement: Per-worker routing via Dapr virtual actors">
+    <nav class="md-nav" aria-label="Requirement: Per-worker routing via heartbeat-based forwarding">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-stopworker-reaches-the-owning-replica" class="md-nav__link">
+  <a href="#scenario-stopworker-reaches-the-owning-replica-via-forward" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: StopWorker reaches the owning replica
+        Scenario: StopWorker reaches the owning replica via forward
       
     </span>
   </a>
@@ -3183,22 +3183,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requirement-per-worker-routing-via-dapr-virtual-actors" class="md-nav__link">
+  <a href="#requirement-per-worker-routing-via-heartbeat-based-forwarding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Per-worker routing via Dapr virtual actors
+        Requirement: Per-worker routing via heartbeat-based forwarding
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirement: Per-worker routing via Dapr virtual actors">
+    <nav class="md-nav" aria-label="Requirement: Per-worker routing via heartbeat-based forwarding">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-stopworker-reaches-the-owning-replica" class="md-nav__link">
+  <a href="#scenario-stopworker-reaches-the-owning-replica-via-forward" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: StopWorker reaches the owning replica
+        Scenario: StopWorker reaches the owning replica via forward
       
     </span>
   </a>
@@ -3769,15 +3769,18 @@ filename based on <code>RuntimeInformation.IsOSPlatform</code>.</p>
 <li><strong>THEN</strong> they SHALL check whether another WM replica is winning the Dapr competition for that topic</li>
 <li><strong>AND</strong> the <code>workmanager.lifecycle</code> topic SHALL include <code>worker_id</code>, <code>replica_id</code>, and <code>topic</code> fields so operators can correlate</li>
 </ul>
-<h3 id="requirement-per-worker-routing-via-dapr-virtual-actors">Requirement: Per-worker routing via Dapr virtual actors<a class="headerlink" href="#requirement-per-worker-routing-via-dapr-virtual-actors" title="Permanent link">&para;</a></h3>
-<p>Each worker is a Dapr virtual actor (<c>IWorkerActor</c>, actor type <c>WorkerActor</c>) keyed by worker id. The Dapr placement service SHALL route actor-method invocations (<c>StartAsync</c>, <c>StopAsync</c>, <c>DeleteAsync</c>) to the single replica that hosts the actor. This SHALL be the mechanism by which a worker's lifecycle is managed across replicas, independent of the pubsub-based work distribution.</p>
-<h4 id="scenario-stopworker-reaches-the-owning-replica">Scenario: StopWorker reaches the owning replica<a class="headerlink" href="#scenario-stopworker-reaches-the-owning-replica" title="Permanent link">&para;</a></h4>
+<h3 id="requirement-per-worker-routing-via-heartbeat-based-forwarding">Requirement: Per-worker routing via heartbeat-based forwarding<a class="headerlink" href="#requirement-per-worker-routing-via-heartbeat-based-forwarding" title="Permanent link">&para;</a></h3>
+<p>Each worker SHALL be owned by the instance whose <c>IInstanceIdProvider.GetInstanceId()</c> matches the worker's <c>WorkerConfig.InstanceId</c> field in the Dapr state store (key: <c>workers/{workerId}</c>). Worker lifecycle RPCs (<c>StartWorker</c>, <c>StopWorker</c>, <c>DeleteWorker</c>, <c>LoadCode</c>, <c>SetEnvironmentVariable</c>, <c>SetTag</c>) SHALL be routed to the owning instance via direct gRPC forwarding when they land on a different replica. Peer endpoints SHALL be resolved from the heartbeat-driven <c>PeerRegistry</c>.</p>
+<h4 id="scenario-stopworker-reaches-the-owning-replica-via-forward">Scenario: StopWorker reaches the owning replica via forward<a class="headerlink" href="#scenario-stopworker-reaches-the-owning-replica-via-forward" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a <c>StopWorker(id: 21)</c> RPC lands on replica A</li>
 <li><strong>AND</strong> worker 21 was created on replica B</li>
-<li><strong>THEN</strong> the gRPC handler SHALL create an <c>ActorProxy&lt;IWorkerActor&gt;</c> for worker 21</li>
-<li><strong>AND</strong> Dapr's placement service SHALL route the <c>StopAsync</c> call to replica B</li>
-<li><strong>AND</strong> replica B's agent SHALL stop the worker and update its state</li>
+<li><strong>THEN</strong> replica A's handler SHALL catch <c>WorkerNotFoundException</c></li>
+<li><strong>AND</strong> SHALL read <c>WorkerConfig.InstanceId</c> from the state store</li>
+<li><strong>AND</strong> SHALL resolve replica B's gRPC endpoint from the <c>PeerRegistry</c></li>
+<li><strong>AND</strong> SHALL forward the <c>StopWorker</c> call via <c>PeerChannelCache&lt;WorkManagerClient&gt;</c></li>
+<li><strong>AND</strong> replica B SHALL stop the worker and update its state</li>
+<li><strong>AND</strong> on forward failure (<c>Unavailable</c>), replica A SHALL reclaim the worker (re-stamp <c>InstanceId</c>, re-create locally) and retry</li>
 </ul>
 
 
@@ -3810,7 +3813,7 @@ filename based on <code>RuntimeInformation.IsOSPlatform</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-11T19:03:42Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-12T10:04:11Z</span>
 </div>
 
     </div>
