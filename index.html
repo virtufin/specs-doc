@@ -201,14 +201,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/c1054d22218472cca9dfa64d35df83a14f15bb7b"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/035f4e4267ad8fe713d4a41d21d4d0cd0f0f8fc7"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit c1054d2">
+       title="View commit 035f4e4">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">c1054d2</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">035f4e4</text>
       </svg>
     </a>
 </div>
@@ -308,14 +308,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/c1054d22218472cca9dfa64d35df83a14f15bb7b"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/035f4e4267ad8fe713d4a41d21d4d0cd0f0f8fc7"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit c1054d2">
+       title="View commit 035f4e4">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">c1054d2</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">035f4e4</text>
       </svg>
     </a>
 </div>
@@ -915,6 +915,13 @@
     DEP --&gt; WM
     DEP --&gt; WSP
     CICD --&gt; SDK</code></pre>
+<blockquote>
+<p><strong>Note:</strong> NATS in the diagram above refers to <code>NatsObservable&lt;T&gt;</code> in
+<code>Virtufin.Data</code> — a library-level reactive data source, not a platform
+infrastructure component. Workers running under the WorkManager use the
+API gateway's <code>Pubsub.Subscribe</code> RPC for pub/sub, not a direct NATS
+connection.</p>
+</blockquote>
 <h2 id="specifications">Specifications<a class="headerlink" href="#specifications" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -934,42 +941,48 @@
 </tr>
 <tr>
 <td>2</td>
+<td><a href="specs/pubsub-topics/">Pub/Sub Topics</a></td>
+<td>10+</td>
+<td>Topic naming taxonomy, market/scenario/infra lanes, state-key conventions</td>
+</tr>
+<tr>
+<td>3</td>
 <td><a href="specs/core-data-types/">Core Data Types</a></td>
 <td>5</td>
 <td>EAV framework, Variant, FlatBuffers, reactive observables</td>
 </tr>
 <tr>
-<td>3</td>
+<td>4</td>
 <td><a href="specs/apigateway.md">API Gateway</a></td>
 <td>7</td>
 <td>Dynamic gRPC discovery, JSON transcoding, state, pub/sub</td>
 </tr>
 <tr>
-<td>4</td>
+<td>5</td>
 <td><a href="specs/worker-management/">Worker Management</a></td>
 <td>6</td>
-<td>Polyglot worker lifecycle, event-driven processing, locking</td>
+<td>Polyglot worker lifecycle, event-driven processing, competing consumers</td>
 </tr>
 <tr>
-<td>5</td>
+<td>6</td>
 <td><a href="specs/websocket-proxy/">WebSocket Proxy</a></td>
 <td>6</td>
 <td>External WS connections, pub/sub routing, auto-reconnect</td>
 </tr>
 <tr>
-<td>6</td>
+<td>7</td>
 <td><a href="specs/multi-sdk/">Multi-SDK</a></td>
 <td>7</td>
 <td>C#/Python/TypeScript client SDKs from proto contracts</td>
 </tr>
 <tr>
-<td>7</td>
+<td>8</td>
 <td><a href="specs/deployment/">Deployment</a></td>
 <td>8</td>
 <td>Helm chart, Dapr components, per-service versioning</td>
 </tr>
 <tr>
-<td>8</td>
+<td>9</td>
 <td><a href="specs/ci-cd-tooling/">CI/CD Tooling</a></td>
 <td>6</td>
 <td>Doc generation, gRPC client publishing, reusable workflows</td>
@@ -1008,7 +1021,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-15T08:03:05Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-15T08:16:39Z</span>
 </div>
 
     </div>
