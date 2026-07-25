@@ -199,14 +199,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3f86ff2c749748c9cdb69b42df3323802070426b"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3f86ff2">
+       title="View commit 387ec6e">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3f86ff2</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
       </svg>
     </a>
 </div>
@@ -304,14 +304,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3f86ff2c749748c9cdb69b42df3323802070426b"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3f86ff2">
+       title="View commit 387ec6e">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3f86ff2</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
       </svg>
     </a>
 </div>
@@ -1052,10 +1052,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requirement-pubsub-correlation-id-propagation" class="md-nav__link">
+  <a href="#requirement-pubsub-cloudevent-propagation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: PubSub Correlation ID Propagation
+        Requirement: PubSub CloudEvent Propagation
       
     </span>
   </a>
@@ -1097,10 +1097,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-publish-with-correlation-id" class="md-nav__link">
+  <a href="#scenario-publish-with-correlation-id-request-reply" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Publish with correlation ID
+        Scenario: Publish with correlation ID (request-reply)
       
     </span>
   </a>
@@ -1304,24 +1304,25 @@
 <li><strong>WHEN</strong> a developer navigates to <code>/swagger</code></li>
 <li><strong>THEN</strong> the interactive API documentation SHALL be served</li>
 </ul>
-<h3 id="requirement-pubsub-correlation-id-propagation">Requirement: PubSub Correlation ID Propagation<a class="headerlink" href="#requirement-pubsub-correlation-id-propagation" title="Permanent link">&para;</a></h3>
-<p>PublishEvent SHALL embed gRPC request metadata as CloudEvent extension attributes. The <code>correlationid</code> metadata key SHALL be included in the Dapr publish metadata to enable request-reply correlation across the pub/sub bridge.</p>
+<h3 id="requirement-pubsub-cloudevent-propagation">Requirement: PubSub CloudEvent Propagation<a class="headerlink" href="#requirement-pubsub-cloudevent-propagation" title="Permanent link">&para;</a></h3>
+<p>PublishEvent SHALL receive a complete <code>io.cloudevents.v1.CloudEvent</code> proto from the caller and publish it as-is to Dapr. The caller is responsible for constructing the CloudEvent with all desired attributes (<code>id</code>, <code>source</code>, <code>type</code>, <code>time</code>, etc.). The gateway SHALL NOT add, remove, or modify CloudEvent attributes — it is a pure passthrough. Request-reply clients (PublishWithResult) SHALL set <code>correlationid</code> and <code>replytopic</code> as CloudEvent attributes before calling PublishEvent.</p>
 <h3 id="requirement-cloudevent-time-attribute">Requirement: CloudEvent Time Attribute<a class="headerlink" href="#requirement-cloudevent-time-attribute" title="Permanent link">&para;</a></h3>
-<p>PublishEvent SHALL set the CloudEvent <code>time</code> attribute (RFC 3339). If the caller supplies a <code>"time"</code> key in <code>PublishRequest.metadata</code> with a valid RFC 3339 timestamp, that value SHALL be used. Otherwise, the gateway SHALL default to <code>DateTimeOffset.UtcNow</code>. This enables simulation time passthrough for backtesting and event replay scenarios without modifying the proto contract.</p>
+<p>The CloudEvent <code>time</code> attribute (RFC 3339) is a standard CloudEvent attribute carried in the proto's <code>attributes</code> map with type <code>ce_timestamp</code>. The caller sets it directly on the <code>io.cloudevents.v1.CloudEvent</code> proto. No metadata indirection — the <code>time</code> attribute flows from publisher through Dapr to subscriber as part of the standard CloudEvent payload.</p>
 <h4 id="scenario-caller-supplied-time">Scenario: Caller-supplied time<a class="headerlink" href="#scenario-caller-supplied-time" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a client publishes with <code>metadata["time"] = "2025-01-01T12:00:00Z"</code></li>
-<li><strong>THEN</strong> the CloudEvent <code>time</code> attribute SHALL be <code>2025-01-01T12:00:00Z</code></li>
+<li><strong>WHEN</strong> a client publishes a CloudEvent with <code>attributes["time"]</code> set to a <code>ce_timestamp</code> value</li>
+<li><strong>THEN</strong> the CloudEvent <code>time</code> attribute SHALL be preserved in the published event</li>
 </ul>
 <h4 id="scenario-default-time">Scenario: Default time<a class="headerlink" href="#scenario-default-time" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a client publishes without a <code>time</code> metadata key</li>
-<li><strong>THEN</strong> the CloudEvent <code>time</code> attribute SHALL default to the current UTC time</li>
+<li><strong>WHEN</strong> a client publishes a CloudEvent without a <code>time</code> attribute</li>
+<li><strong>THEN</strong> the gateway SHALL NOT add a default — the caller owns the CloudEvent entirely</li>
 </ul>
-<h4 id="scenario-publish-with-correlation-id">Scenario: Publish with correlation ID<a class="headerlink" href="#scenario-publish-with-correlation-id" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-publish-with-correlation-id-request-reply">Scenario: Publish with correlation ID (request-reply)<a class="headerlink" href="#scenario-publish-with-correlation-id-request-reply" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a client publishes an event with <code>correlationid</code> in the gRPC metadata</li>
-<li><strong>THEN</strong> the gateway SHALL include <code>correlationid</code> as both a CloudEvent extension attribute and as a Dapr publish metadata entry</li>
+<li><strong>WHEN</strong> a client calls PublishWithResult with a CloudEvent</li>
+<li><strong>THEN</strong> the client library SHALL set <code>correlationid</code> and <code>replytopic</code> as CloudEvent string attributes before passing to PublishEvent</li>
+<li><strong>AND</strong> the Subscribe handler SHALL extract the correlation ID from <code>SubscribeResponse.Cloudevent.Attributes["correlationid"]</code></li>
 </ul>
 <h4 id="scenario-publish-without-correlation-id">Scenario: Publish without correlation ID<a class="headerlink" href="#scenario-publish-without-correlation-id" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1373,7 +1374,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-25T09:38:46Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-25T17:32:17Z</span>
 </div>
 
     </div>
