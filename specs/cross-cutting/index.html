@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3d3baa83daa674d906618b7f7ba8fbc12f4b0375"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5a0dff4a9ba90a27850cb77042261b9a58849631"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3d3baa8">
+       title="View commit 5a0dff4">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3d3baa8</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5a0dff4</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3d3baa83daa674d906618b7f7ba8fbc12f4b0375"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5a0dff4a9ba90a27850cb77042261b9a58849631"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3d3baa8">
+       title="View commit 5a0dff4">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3d3baa8</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5a0dff4</text>
       </svg>
     </a>
 </div>
@@ -1747,8 +1747,8 @@
 <h3 id="requirement-api-mediated-pubsub-and-state">Requirement: API-Mediated Pub/Sub and State<a class="headerlink" href="#requirement-api-mediated-pubsub-and-state" title="Permanent link">&para;</a></h3>
 <p>Services MUST NOT call <code>DaprClient.PublishEventAsync</code>, <code>DaprClient.GetStateAsync</code>, <code>DaprClient.SaveStateAsync</code>, <code>DaprClient.DeleteStateAsync</code>, <code>GetBulkStateAsync</code>, or any other Dapr pubsub or state API directly. Services MUST use the virtufin-api's <code>Pubsub</code> and <code>State</code> gRPC services for all pubsub and state operations.</p>
 <p>The virtufin-api is the only service that talks to Dapr pubsub/state on behalf of other services. This gives the API a single place to enforce topic naming, access control, observability, and state ownership.</p>
-<p>The virtufin-api also exposes scenario-registry RPCs (create / pause / archive / delete) that read and write <code>scenario.&lt;scenarioId&gt;</code> state keys per <a href="../scenarios/spec.md">scenarios/spec.md</a>.</p>
-<p><strong>Inline topic validation</strong> (clarification): Services that publish directly to Dapr for any reason (e.g., the WebSocketManager's per-frame user-data publish path, which is high-volume and low-value-for-mediation) MUST validate the topic name inline against the patterns in <a href="../pubsub-topics/spec.md#requirement-topic-patterns">Pub/Sub Topics spec §Topic Patterns</a> before calling <code>DaprClient.PublishEventAsync</code>. Direct-to-Dapr publish is an explicit exception to the API-mediated rule, and the inline validation requirement is the price of admission. Valid topics are: <code>&lt;service&gt;.&lt;category&gt;</code> (Tier 0), <code>act.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code>, <code>hyp.&lt;selector&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code>, <code>sc.&lt;scenarioId&gt;.&lt;domain&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code>. Topics outside these patterns SHALL be rejected with <code>RpcException(InvalidArgument)</code>.</p>
+<p>Scenario registry management (create / pause / archive / delete) uses the same generic <code>State.SaveState</code> / <code>State.GetState</code> / <code>State.DeleteState</code> / <code>State.QueryState</code> RPCs above, not dedicated scenario RPCs -- per <a href="../scenarios/spec.md">scenarios/spec.md</a>, "No new RPCs SHALL be added to virtufin-api for scenario management"; virtufin-api stays pure infrastructure with no domain logic.</p>
+<p><strong>Inline topic validation</strong> (clarification): Services that publish directly to Dapr for any reason (e.g., the WebSocketManager's per-frame user-data publish path, which is high-volume and low-value-for-mediation) MUST validate the topic name inline against the patterns in <a href="../pubsub-topics/spec.md#requirement-topic-patterns">Pub/Sub Topics spec §Topic Patterns</a> before calling <code>DaprClient.PublishEventAsync</code>. Direct-to-Dapr publish is an explicit exception to the API-mediated rule, and the inline validation requirement is the price of admission. Valid topics are: <code>&lt;service&gt;.&lt;category&gt;</code> (Tier 0), <code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code>, <code>hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code>, <code>sc.&lt;scenarioId&gt;.&lt;domain&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code>. Topics outside these patterns SHALL be rejected with <code>RpcException(InvalidArgument)</code>.</p>
 <h4 id="scenario-service-publishes-an-event">Scenario: Service publishes an event<a class="headerlink" href="#scenario-service-publishes-an-event" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service needs to publish an event</li>
@@ -1777,7 +1777,7 @@
 <p>Topic patterns, CloudEvents envelope contract, scenario ID conventions, NATS permissions, state-key taxonomy, and migration rules are defined in <a href="../pubsub-topics/spec.md">pubsub-topics/spec.md</a>. This spec does NOT duplicate those rules; services SHALL conform to the patterns in that spec.</p>
 <h4 id="scenario-service-publishes-a-domain-event">Scenario: Service publishes a domain event<a class="headerlink" href="#scenario-service-publishes-a-domain-event" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a service publishes an event under any of the namespaces defined in <a href="../pubsub-topics/spec.md">pubsub-topics/spec.md</a> (Tier 0 infrastructure, market data lane, scenario lane)</li>
+<li><strong>WHEN</strong> a service publishes an event under any of the namespaces defined in <a href="../pubsub-topics/spec.md">pubsub-topics/spec.md</a> (Tier 0 infrastructure, market data world, scenario world)</li>
 <li><strong>THEN</strong> it SHALL call <code>Pubsub.PublishEvent</code> with the topic matching the pattern for that namespace</li>
 <li><strong>AND</strong> the API SHALL reject publishes that violate the topic validation rules in the spec</li>
 </ul>
@@ -1932,7 +1932,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-26T04:23:09Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-26T14:13:23Z</span>
 </div>
 
     </div>

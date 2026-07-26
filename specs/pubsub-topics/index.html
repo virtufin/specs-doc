@@ -199,14 +199,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3d3baa83daa674d906618b7f7ba8fbc12f4b0375"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5a0dff4a9ba90a27850cb77042261b9a58849631"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3d3baa8">
+       title="View commit 5a0dff4">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3d3baa8</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5a0dff4</text>
       </svg>
     </a>
 </div>
@@ -304,14 +304,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/3d3baa83daa674d906618b7f7ba8fbc12f4b0375"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5a0dff4a9ba90a27850cb77042261b9a58849631"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 3d3baa8">
+       title="View commit 5a0dff4">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">3d3baa8</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5a0dff4</text>
       </svg>
     </a>
 </div>
@@ -852,10 +852,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-act-topic-with-selector" class="md-nav__link">
+  <a href="#scenario-act-topic-without-universe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: act topic with selector
+        Scenario: act topic without universe
       
     </span>
   </a>
@@ -863,10 +863,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-hyp-topic-without-selector" class="md-nav__link">
+  <a href="#scenario-hyp-topic-without-universe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: hyp topic without selector
+        Scenario: hyp topic without universe
       
     </span>
   </a>
@@ -1533,10 +1533,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-asymmetric-segment-counts-are-legitimate" class="md-nav__link">
+  <a href="#scenario-act-and-hyp-topics-have-matching-segment-counts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: Asymmetric segment counts are legitimate
+        Scenario: act and hyp topics have matching segment counts
       
     </span>
   </a>
@@ -1992,13 +1992,13 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Market data lane</strong></td>
-<td><code>act.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code> or <code>hyp.&lt;selector&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code></td>
+<td><strong>Market data world</strong></td>
+<td><code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code> or <code>hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code></td>
 <td>data-universe-bound; shared across scenarios</td>
-<td><code>act.exchange.binance.orderbook.update.BTCUSDT</code></td>
+<td><code>act.ALL.exchange.binance.orderbook.update.BTCUSDT</code></td>
 </tr>
 <tr>
-<td><strong>Scenario lane</strong></td>
+<td><strong>Scenario world</strong></td>
 <td><code>sc.&lt;scenarioId&gt;.&lt;domain&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code></td>
 <td>triplet-bound (market + portfolio + strategy)</td>
 <td><code>sc.LIVE.trading.order.filled.&lt;order_id&gt;</code></td>
@@ -2012,10 +2012,10 @@
 </tbody>
 </table>
 <p>Rationale:
-- <strong>Market data is lane-scoped</strong> because it depends on the data universe (live vs hypothetical replay) and is shareable across scenarios. Two paper runs sharing the same Binance feed do not double-publish ticks.
+- <strong>Market data is world-scoped</strong> because it depends on the data universe (live vs hypothetical replay) and is shareable across scenarios. Two paper runs sharing the same Binance feed do not double-publish ticks.
 - <strong>Trading / position / risk / pnl are scenario-scoped</strong> because each depends on the full triplet. P&amp;L in particular is meaningless without knowing all three legs.
 - <strong>Tier 0 is scenario-agnostic</strong> because infra lifecycle (workers up, connections reconnecting) is a deployment concern, not a trading concern.</p>
-<p><code>act</code> is a top-level lane marker (singular reality, no selector). <code>hyp.&lt;selector&gt;</code> carries a selector naming the data universe. The selector lives in the topic, but the <strong>scenario triplet</strong> (market + portfolio + strategy legs) lives in the scenario registry.</p>
+<p><code>act</code> and <code>hyp</code> are both top-level world markers, symmetric in shape: both carry a <code>&lt;universe&gt;</code> segment naming the data universe (<code>act.ALL.exchange.*</code> for "no restriction", <code>act.EQ_EUROPE.exchange.*</code> for a live subset, <code>hyp.EQ_2008_2009.exchange.*</code> for a replay universe). The universe lives in the topic, but the <strong>scenario triplet</strong> (market + portfolio + strategy legs) lives in the scenario registry.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <h3 id="requirement-topic-patterns">Requirement: Topic Patterns<a class="headerlink" href="#requirement-topic-patterns" title="Permanent link">&para;</a></h3>
 <p>Services SHALL publish to and subscribe from topics matching one of the following patterns. Topics outside these patterns SHALL be rejected by the publishing service's publisher code (inline or service-local; no cross-service helper).</p>
@@ -2028,14 +2028,14 @@
 <h4 id="scenario-market-data-topic-real">Scenario: Market data topic (real)<a class="headerlink" href="#scenario-market-data-topic-real" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service publishes real (live) market data</li>
-<li><strong>THEN</strong> the topic SHALL match <code>act.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;entity_id&gt;]</code></li>
-<li><strong>AND</strong> it SHALL NOT carry a selector segment (reality is singular)</li>
+<li><strong>THEN</strong> the topic SHALL match <code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;entity_id&gt;]</code></li>
+<li><strong>AND</strong> <code>&lt;universe&gt;</code> SHALL name the data universe (e.g. <code>ALL</code> for unrestricted, <code>EQ_EUROPE</code> for a live subset) — symmetric with <code>hyp</code>, <code>act</code> carries no implicit "everything" meaning of its own</li>
 </ul>
 <h4 id="scenario-market-data-topic-hypothetical">Scenario: Market data topic (hypothetical)<a class="headerlink" href="#scenario-market-data-topic-hypothetical" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service publishes hypothetical (replay / backtest) market data</li>
-<li><strong>THEN</strong> the topic SHALL match <code>hyp.&lt;selector&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;entity_id&gt;]</code></li>
-<li><strong>AND</strong> <code>&lt;selector&gt;</code> SHALL name the data universe (e.g. <code>EQ_2008_2009</code>, <code>FTX_2022</code>)</li>
+<li><strong>THEN</strong> the topic SHALL match <code>hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;entity_id&gt;]</code></li>
+<li><strong>AND</strong> <code>&lt;universe&gt;</code> SHALL name the data universe (e.g. <code>EQ_2008_2009</code>, <code>FTX_2022</code>)</li>
 </ul>
 <h4 id="scenario-trading-topic">Scenario: Trading topic<a class="headerlink" href="#scenario-trading-topic" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2060,15 +2060,15 @@
 </ul>
 <h3 id="requirement-topic-validation-per-service-inline">Requirement: Topic Validation (Per-Service Inline)<a class="headerlink" href="#requirement-topic-validation-per-service-inline" title="Permanent link">&para;</a></h3>
 <p>Each publishing service SHALL validate every topic against the allowed patterns inline (or in service-local code) before calling <code>Pubsub.PublishEvent</code>. No cross-service helper NuGet, no extension to <code>Virtufin.Worker.DevKit</code>, no logic added to <code>virtufin-api</code>'s <code>Pubsub.PublishEvent</code> handler — <code>virtufin-api</code> is pure infrastructure and SHALL NOT carry domain logic.</p>
-<h4 id="scenario-act-topic-with-selector">Scenario: act topic with selector<a class="headerlink" href="#scenario-act-topic-with-selector" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-act-topic-without-universe">Scenario: act topic without universe<a class="headerlink" href="#scenario-act-topic-without-universe" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a service attempts to publish to <code>act.&lt;selector&gt;.exchange.*</code></li>
-<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating "act topics MUST NOT carry a selector"</li>
+<li><strong>WHEN</strong> a service attempts to publish to <code>act.exchange.*</code> (bare <code>act</code> prefix, no universe segment)</li>
+<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating "act topics MUST carry a universe" (use <code>act.ALL.exchange.*</code> for unrestricted)</li>
 </ul>
-<h4 id="scenario-hyp-topic-without-selector">Scenario: hyp topic without selector<a class="headerlink" href="#scenario-hyp-topic-without-selector" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-hyp-topic-without-universe">Scenario: hyp topic without universe<a class="headerlink" href="#scenario-hyp-topic-without-universe" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service attempts to publish to <code>hyp.exchange.*</code> (bare <code>hyp</code> prefix)</li>
-<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating "hyp topics MUST carry a selector"</li>
+<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating "hyp topics MUST carry a universe"</li>
 </ul>
 <h4 id="scenario-sc-topic-with-unknown-scenario-id">Scenario: sc topic with unknown scenario ID<a class="headerlink" href="#scenario-sc-topic-with-unknown-scenario-id" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2161,25 +2161,25 @@
 <td>Always real clock at publish — for tracing / logging</td>
 </tr>
 <tr>
-<td><code>market.lane</code></td>
+<td><code>market.world</code></td>
 <td><code>act</code> | <code>hyp</code></td>
 <td>Tier 1 yes</td>
-<td>Triplet leg (lane) for market</td>
+<td>Triplet leg (world) for market</td>
 </tr>
 <tr>
-<td><code>market.selector</code></td>
-<td>string | null</td>
+<td><code>market.universe</code></td>
+<td>string</td>
 <td>Tier 1 yes</td>
-<td>Triplet leg (selector) for market; null when <code>market.lane = act</code></td>
+<td>Triplet leg (universe) for market; present for both <code>act</code> and <code>hyp</code> (use <code>"ALL"</code> for unrestricted)</td>
 </tr>
 <tr>
-<td><code>portfolio.lane</code></td>
+<td><code>portfolio.world</code></td>
 <td><code>act</code> | <code>hyp</code></td>
 <td>Tier 1 yes</td>
 <td>Triplet leg for portfolio</td>
 </tr>
 <tr>
-<td><code>strategy.lane</code></td>
+<td><code>strategy.world</code></td>
 <td><code>act</code> | <code>hyp</code></td>
 <td>Tier 1 yes</td>
 <td>Triplet leg for strategy</td>
@@ -2189,12 +2189,12 @@
 <h4 id="scenario-envelope-on-a-production-fill-event">Scenario: Envelope on a production fill event<a class="headerlink" href="#scenario-envelope-on-a-production-fill-event" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service publishes <code>sc.LIVE.trading.order.filled.&lt;order_id&gt;</code></li>
-<li><strong>THEN</strong> the CloudEvent extensions SHALL include <code>scenarioid=LIVE</code>, <code>runid=&lt;uuid&gt;</code>, <code>correlationid=&lt;uuid&gt;</code>, <code>exchange=binance</code>, <code>clocktype=wall</code>, <code>eventtime=&lt;rfc3339&gt;</code>, <code>walltime=&lt;rfc3339&gt;</code>, <code>market.lane=act</code>, <code>market.selector=null</code>, <code>portfolio.lane=act</code>, <code>strategy.lane=act</code></li>
+<li><strong>THEN</strong> the CloudEvent extensions SHALL include <code>scenarioid=LIVE</code>, <code>runid=&lt;uuid&gt;</code>, <code>correlationid=&lt;uuid&gt;</code>, <code>exchange=binance</code>, <code>clocktype=wall</code>, <code>eventtime=&lt;rfc3339&gt;</code>, <code>walltime=&lt;rfc3339&gt;</code>, <code>market.world=act</code>, <code>market.universe=ALL</code>, <code>portfolio.world=act</code>, <code>strategy.world=act</code></li>
 </ul>
 <h4 id="scenario-envelope-on-a-backtest-fill-event">Scenario: Envelope on a backtest fill event<a class="headerlink" href="#scenario-envelope-on-a-backtest-fill-event" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a backtest engine publishes <code>sc.S7F3A9B.trading.order.filled.&lt;order_id&gt;</code></li>
-<li><strong>THEN</strong> the envelope SHALL include <code>scenarioid=S7F3A9B</code>, <code>clocktype=historical</code>, <code>eventtime=&lt;historical rfc3339&gt;</code> (the replayed tick's timestamp), <code>walltime=&lt;real rfc3339&gt;</code> (now), <code>market.lane=hyp</code>, <code>market.selector=EQ_2008_2009</code>, <code>portfolio.lane=hyp</code>, <code>strategy.lane=hyp</code></li>
+<li><strong>THEN</strong> the envelope SHALL include <code>scenarioid=S7F3A9B</code>, <code>clocktype=historical</code>, <code>eventtime=&lt;historical rfc3339&gt;</code> (the replayed tick's timestamp), <code>walltime=&lt;real rfc3339&gt;</code> (now), <code>market.world=hyp</code>, <code>market.universe=EQ_2008_2009</code>, <code>portfolio.world=hyp</code>, <code>strategy.world=hyp</code></li>
 <li><strong>AND</strong> <code>runid</code> SHALL differ for concurrent backtests against the same scenario</li>
 </ul>
 <h4 id="scenario-clocktype-rationale">Scenario: clocktype rationale<a class="headerlink" href="#scenario-clocktype-rationale" title="Permanent link">&para;</a></h4>
@@ -2307,46 +2307,46 @@
 <li><strong>THEN</strong> the service SHALL publish <code>sc.&lt;scenarioId&gt;.position.portfolio.snapshot</code> with <code>total_value</code>, <code>total_pnl</code>, <code>position_count</code></li>
 </ul>
 <h3 id="requirement-market-data-events">Requirement: Market Data Events<a class="headerlink" href="#requirement-market-data-events" title="Permanent link">&para;</a></h3>
-<p>Market data events SHALL live under the lane-scoped pattern (<code>act.exchange.&lt;venue&gt;.*</code> or <code>hyp.&lt;selector&gt;.exchange.&lt;venue&gt;.*</code>). Per-currency-pair cardinality SHALL be used for <code>orderbook.*</code>, <code>trade.tape</code>, <code>ticker.update</code>, <code>funding.rate</code>, <code>mark.price</code>, <code>ohlcv.candle.*</code>. Consolidated (no per-pair segment) for <code>instrument.info</code>.</p>
+<p>Market data events SHALL live under the world-scoped pattern (<code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> or <code>hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code>) — both forms always carry a universe segment. Per-currency-pair cardinality SHALL be used for <code>orderbook.*</code>, <code>trade.tape</code>, <code>ticker.update</code>, <code>funding.rate</code>, <code>mark.price</code>, <code>ohlcv.candle.*</code>. Consolidated (no per-pair segment) for <code>instrument.info</code>.</p>
 <h4 id="scenario-order-book-snapshot">Scenario: Order book snapshot<a class="headerlink" href="#scenario-order-book-snapshot" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> the venue publishes a full order book snapshot at depth N</li>
-<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.orderbook.snapshot.&lt;currency_pair&gt;</code> with <code>bids[]</code>, <code>asks[]</code>, <code>last_update_id</code>, <code>snapshot_at</code></li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.orderbook.snapshot.&lt;currency_pair&gt;</code> with <code>bids[]</code>, <code>asks[]</code>, <code>last_update_id</code>, <code>snapshot_at</code></li>
 </ul>
 <h4 id="scenario-order-book-update-delta">Scenario: Order book update (delta)<a class="headerlink" href="#scenario-order-book-update-delta" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> the venue publishes an L2/L3 order book delta</li>
-<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.orderbook.update.&lt;currency_pair&gt;</code> with <code>bids_delta[]</code>, <code>asks_delta[]</code>, <code>first_update_id</code>, <code>last_update_id</code></li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.orderbook.update.&lt;currency_pair&gt;</code> with <code>bids_delta[]</code>, <code>asks_delta[]</code>, <code>first_update_id</code>, <code>last_update_id</code></li>
 </ul>
 <h4 id="scenario-public-trade-tape">Scenario: Public trade tape<a class="headerlink" href="#scenario-public-trade-tape" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a public trade occurs on the venue</li>
-<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.trade.tape.&lt;currency_pair&gt;</code> with <code>trade_id</code>, <code>price</code>, <code>qty</code>, <code>side</code>, <code>trade_time</code></li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.trade.tape.&lt;currency_pair&gt;</code> with <code>trade_id</code>, <code>price</code>, <code>qty</code>, <code>side</code>, <code>trade_time</code></li>
 </ul>
 <h4 id="scenario-ticker-update">Scenario: Ticker update<a class="headerlink" href="#scenario-ticker-update" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> the venue publishes 24h rolling stats</li>
-<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.ticker.update.&lt;currency_pair&gt;</code> with <code>last_price</code>, <code>volume_24h</code>, <code>change_24h_pct</code></li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.ticker.update.&lt;currency_pair&gt;</code> with <code>last_price</code>, <code>volume_24h</code>, <code>change_24h_pct</code></li>
 </ul>
 <h4 id="scenario-funding-rate">Scenario: Funding rate<a class="headerlink" href="#scenario-funding-rate" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> the venue publishes a perpetual funding rate tick</li>
-<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.funding.rate.&lt;currency_pair&gt;</code> with <code>funding_rate</code>, <code>next_funding_time</code></li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.funding.rate.&lt;currency_pair&gt;</code> with <code>funding_rate</code>, <code>next_funding_time</code></li>
 </ul>
 <h4 id="scenario-mark-price">Scenario: Mark price<a class="headerlink" href="#scenario-mark-price" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> the venue publishes a mark price update (derivatives)</li>
-<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.mark.price.&lt;currency_pair&gt;</code> with <code>mark_price</code>, <code>index_price</code></li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.mark.price.&lt;currency_pair&gt;</code> with <code>mark_price</code>, <code>index_price</code></li>
 </ul>
 <h4 id="scenario-ohlcv-candle">Scenario: OHLCV candle<a class="headerlink" href="#scenario-ohlcv-candle" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a candle interval closes</li>
-<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.ohlcv.candle.&lt;interval&gt;.&lt;currency_pair&gt;</code> with <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>candle_close_time</code></li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.ohlcv.candle.&lt;interval&gt;.&lt;currency_pair&gt;</code> with <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>candle_close_time</code></li>
 </ul>
 <h4 id="scenario-instrument-info">Scenario: Instrument info<a class="headerlink" href="#scenario-instrument-info" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> instrument metadata changes (lot size, tick size, status)</li>
-<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.instrument.info</code> with <code>symbol</code>, <code>status</code>, <code>base_asset</code>, <code>quote_asset</code>, <code>lot_size</code>, <code>tick_size</code></li>
+<li><strong>THEN</strong> the service SHALL publish <code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.instrument.info</code> with <code>symbol</code>, <code>status</code>, <code>base_asset</code>, <code>quote_asset</code>, <code>lot_size</code>, <code>tick_size</code></li>
 </ul>
 <h3 id="requirement-risk-events">Requirement: Risk Events<a class="headerlink" href="#requirement-risk-events" title="Permanent link">&para;</a></h3>
 <p>Risk events SHALL be consolidated (one topic per metric). Per-symbol routing SHALL use <code>ce-subject</code>.</p>
@@ -2418,18 +2418,18 @@
 <li><strong>WHEN</strong> subscribers typically want aggregate views (P&amp;L totals, risk limits, portfolio snapshots)</li>
 <li><strong>THEN</strong> the topic SHALL be consolidated and <code>ce-subject</code> SHALL carry the entity reference (<code>risk.exposure.update</code> with <code>subject=position/BTCUSDT</code>)</li>
 </ul>
-<h4 id="scenario-asymmetric-segment-counts-are-legitimate">Scenario: Asymmetric segment counts are legitimate<a class="headerlink" href="#scenario-asymmetric-segment-counts-are-legitimate" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-act-and-hyp-topics-have-matching-segment-counts">Scenario: act and hyp topics have matching segment counts<a class="headerlink" href="#scenario-act-and-hyp-topics-have-matching-segment-counts" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a topic uses the <code>hyp.&lt;selector&gt;.exchange.&lt;venue&gt;.*</code> pattern</li>
-<li><strong>THEN</strong> it SHALL have one more segment than its <code>act.exchange.&lt;venue&gt;.*</code> counterpart (the selector slot)</li>
-<li><strong>AND</strong> this asymmetry is intentional; brokers and wildcards SHALL match both forms</li>
+<li><strong>WHEN</strong> a topic uses the <code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> or <code>hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> pattern</li>
+<li><strong>THEN</strong> both forms SHALL have the same number of segments (the universe slot is present in both)</li>
+<li><strong>AND</strong> brokers and wildcards SHALL match both forms identically</li>
 </ul>
 <h3 id="requirement-nats-permissions-replacing-pubprv">Requirement: NATS Permissions (replacing pub/prv)<a class="headerlink" href="#requirement-nats-permissions-replacing-pubprv" title="Permanent link">&para;</a></h3>
 <p>Access control SHALL be enforced via NATS account / subject permissions, not via topic naming. <code>pub</code> / <code>prv</code> segments are NOT part of any topic pattern.</p>
 <h4 id="scenario-market-data-permissions">Scenario: Market data permissions<a class="headerlink" href="#scenario-market-data-permissions" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> NATS permissions are configured</li>
-<li><strong>THEN</strong> <code>act.exchange.*</code> SHALL allow publishers = exchange connectors, subscribers = all trading / risk / backtest services</li>
+<li><strong>THEN</strong> <code>act.*.exchange.*</code> SHALL allow publishers = exchange connectors, subscribers = all trading / risk / backtest services</li>
 <li><strong>AND</strong> <code>hyp.*.exchange.*</code> SHALL allow publishers = backtest engines, subscribers = strategy services (no production services)</li>
 </ul>
 <h4 id="scenario-scenario-event-permissions">Scenario: Scenario event permissions<a class="headerlink" href="#scenario-scenario-event-permissions" title="Permanent link">&para;</a></h4>
@@ -2463,8 +2463,8 @@
 </tr>
 <tr>
 <td>Market data cache</td>
-<td><code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;[.&lt;id&gt;]</code></td>
-<td><code>act.exchange.binance.orderbook.BTCUSDT</code></td>
+<td><code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;[.&lt;id&gt;]</code></td>
+<td><code>act.ALL.exchange.binance.orderbook.BTCUSDT</code></td>
 </tr>
 <tr>
 <td>Scenario state</td>
@@ -2517,7 +2517,7 @@
 <h4 id="scenario-order-book-state-key">Scenario: Order book state key<a class="headerlink" href="#scenario-order-book-state-key" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> the WebSocketManager writes per-pair order book cache</li>
-<li><strong>THEN</strong> the key SHALL be <code>act\|hyp.&lt;selector?&gt;.exchange.&lt;venue&gt;.orderbook.&lt;currency_pair&gt;</code></li>
+<li><strong>THEN</strong> the key SHALL be <code>act\|hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.orderbook.&lt;currency_pair&gt;</code></li>
 <li><strong>AND</strong> the value SHALL be JSON <code>{ bids, asks, last_update_id }</code> (consolidated, single source of truth per venue + pair)</li>
 </ul>
 <h4 id="scenario-scenario-registry-key">Scenario: Scenario registry key<a class="headerlink" href="#scenario-scenario-registry-key" title="Permanent link">&para;</a></h4>
@@ -2645,7 +2645,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-26T04:23:09Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-26T14:13:23Z</span>
 </div>
 
     </div>
