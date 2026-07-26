@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/1e819b596ceff4149b1622256bc853e553134173"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 387ec6e">
+       title="View commit 1e819b5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">1e819b5</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/1e819b596ceff4149b1622256bc853e553134173"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 387ec6e">
+       title="View commit 1e819b5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">1e819b5</text>
       </svg>
     </a>
 </div>
@@ -1099,6 +1099,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Requirement: Connection record freshness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-send-refreshes-ttl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Send refreshes TTL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-idle-connection-expires-from-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Idle connection expires from state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1802,6 +1830,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Requirement: Connection record freshness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-send-refreshes-ttl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Send refreshes TTL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-idle-connection-expires-from-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Idle connection expires from state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1904,7 +1960,7 @@
 <h4 id="scenario-service-publishes-user-data-event">Scenario: Service publishes user-data event<a class="headerlink" href="#scenario-service-publishes-user-data-event" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> the WSM forwards a received WebSocket message to a user-specified topic</li>
-<li><strong>THEN</strong> it SHALL call <code>Pubsub.PublishEvent</code> on the virtufin-api (regular, not the system variant)</li>
+<li><strong>THEN</strong> it SHALL call <code>Pubsub.PublishEvent</code> on the virtufin-api</li>
 <li><strong>AND</strong> it SHALL NOT call <code>DaprClient.PublishEventAsync</code> directly</li>
 </ul>
 <h4 id="scenario-service-persists-connection-state">Scenario: Service persists connection state<a class="headerlink" href="#scenario-service-persists-connection-state" title="Permanent link">&para;</a></h4>
@@ -1914,7 +1970,7 @@
 <li><strong>AND</strong> it SHALL NOT call any Dapr state API directly</li>
 </ul>
 <h3 id="requirement-connection-lifecycle-events">Requirement: Connection Lifecycle Events<a class="headerlink" href="#requirement-connection-lifecycle-events" title="Permanent link">&para;</a></h3>
-<p>The WSM SHALL publish connection lifecycle events to the <code>websocketmanager.connectionstatus</code> topic on every state transition. Events SHALL be CloudEvents v1.0 envelopes.</p>
+<p>The WSM SHALL publish connection lifecycle events to the <code>websocketmanager.lifecycle</code> topic on every state transition. Events SHALL be CloudEvents v1.0 envelopes.</p>
 <h4 id="scenario-initial-connect">Scenario: Initial connect<a class="headerlink" href="#scenario-initial-connect" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a user successfully connects to an upstream WebSocket server</li>
@@ -1956,13 +2012,13 @@
 <li><strong>AND</strong> if the owner is dead or unreachable, SHALL reclaim the connection (re-stamp <c>InstanceId</c>) and retry locally</li>
 </ul>
 <h3 id="requirement-instance-heartbeats-and-peer-discovery">Requirement: Instance Heartbeats and Peer Discovery<a class="headerlink" href="#requirement-instance-heartbeats-and-peer-discovery" title="Permanent link">&para;</a></h3>
-<p>Each WSM instance SHALL periodically publish its identity to the Dapr state store with a TTL. The key SHALL be <c>websocketmanager/heartbeats/{instanceId}</c>. A peer index at <c>websocketmanager/heartbeats/_peers</c> (keyed <c>HashSet&lt;string&gt;</c>) SHALL list all alive instance IDs, maintained via optimistic concurrency.</p>
+<p>Each WSM instance SHALL periodically publish its identity to the Dapr state store with a TTL. The key SHALL be <c>websocketmanager.heartbeat.{instanceId}</c>. A peer index at <c>websocketmanager.heartbeat.peers</c> (keyed <c>HashSet&lt;string&gt;</c>) SHALL list all alive instance IDs, maintained via optimistic concurrency. This mechanism is implemented in the shared <code>Virtufin.Service</code> library (<code>InstanceHeartbeatService</code>/<code>InstanceHeartbeatOptions</code>), not duplicated per-service.</p>
 <h4 id="scenario-heartbeat-publish-and-peer-discovery">Scenario: Heartbeat publish and peer discovery<a class="headerlink" href="#scenario-heartbeat-publish-and-peer-discovery" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> an instance starts</li>
-<li><strong>THEN</strong> it SHALL publish a heartbeat every <c>WSM_HEARTBEAT_INTERVAL_SECONDS</c> (default 10) with TTL of 3× that interval</li>
-<li><strong>AND</strong> every <c>WSM_DISCOVERY_INTERVAL_SECONDS</c> (default 30) it SHALL read the peer index and each peer's heartbeat</li>
-<li><strong>AND</strong> peers with a heartbeat age below <c>WSM_STALE_THRESHOLD_SECONDS</c> SHALL be registered in the local <c>PeerRegistry</c></li>
+<li><strong>THEN</strong> it SHALL publish a heartbeat every <c>WEBSOCKETMANAGER_HEARTBEAT_INTERVAL_SECONDS</c> (default 10) with TTL of 3× that interval</li>
+<li><strong>AND</strong> every <c>WEBSOCKETMANAGER_DISCOVERY_INTERVAL_SECONDS</c> (default 30) it SHALL read the peer index and each peer's heartbeat</li>
+<li><strong>AND</strong> peers with a heartbeat age below <c>WEBSOCKETMANAGER_STALE_THRESHOLD_SECONDS</c> SHALL be registered in the local <c>PeerRegistry</c></li>
 </ul>
 <h3 id="requirement-orphaned-connection-reclamation">Requirement: Orphaned Connection Reclamation<a class="headerlink" href="#requirement-orphaned-connection-reclamation" title="Permanent link">&para;</a></h3>
 <p>When an owning instance dies, the next RPC targeting an orphaned connection SHALL trigger lazy reclamation: the forward fails (gRPC Unavailable), the forwarder re-stamps the state-store record with its own instance ID, and retries the operation locally.</p>
@@ -2010,6 +2066,17 @@
 <li><strong>THEN</strong> the WSM SHALL increment <code>websocketmanager.disconnect_ownership_miss_total{reason=lapsed}</code> and the reclaimer SHALL re-stamp the connection to the handling instance</li>
 </ul>
 <h3 id="requirement-connection-record-freshness">Requirement: Connection record freshness<a class="headerlink" href="#requirement-connection-record-freshness" title="Permanent link">&para;</a></h3>
+<p>Connection records SHALL carry a Dapr state TTL (<code>CONNECTION_RECORD_TTL_SECONDS</code>, default 300). The TTL SHALL be refreshed on every successful <code>Send</code> or <code>SendRaw</code> call. Records whose TTL elapses with no traffic SHALL be removed by the state store without explicit reclaimer intervention.</p>
+<h4 id="scenario-send-refreshes-ttl">Scenario: Send refreshes TTL<a class="headerlink" href="#scenario-send-refreshes-ttl" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a <code>Send</code> or <code>SendRaw</code> call succeeds against an open connection</li>
+<li><strong>THEN</strong> the WSM SHALL re-write the connection record with a refreshed TTL</li>
+</ul>
+<h4 id="scenario-idle-connection-expires-from-state">Scenario: Idle connection expires from state<a class="headerlink" href="#scenario-idle-connection-expires-from-state" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a connection record's TTL elapses without any <code>Send</code> traffic</li>
+<li><strong>THEN</strong> the next reclaimer sweep SHALL observe the absence without raising an error</li>
+</ul>
 
 
 
@@ -2041,7 +2108,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-25T17:32:17Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-26T03:04:27Z</span>
 </div>
 
     </div>

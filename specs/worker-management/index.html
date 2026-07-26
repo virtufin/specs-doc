@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/1e819b596ceff4149b1622256bc853e553134173"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 387ec6e">
+       title="View commit 1e819b5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">1e819b5</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/1e819b596ceff4149b1622256bc853e553134173"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 387ec6e">
+       title="View commit 1e819b5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">1e819b5</text>
       </svg>
     </a>
 </div>
@@ -3171,7 +3171,7 @@
 <h4 id="scenario-service-subscribes-to-a-worker-topic">Scenario: Service subscribes to a worker topic<a class="headerlink" href="#scenario-service-subscribes-to-a-worker-topic" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> the WorkManager subscribes to a worker's input topic</li>
-<li><strong>THEN</strong> it SHALL call <code>Pubsub.Subscribe</code> on the virtufin-api (regular, not the system variant)</li>
+<li><strong>THEN</strong> it SHALL call <code>Pubsub.Subscribe</code> on the virtufin-api</li>
 <li><strong>AND</strong> it SHALL NOT call <code>DaprPublishSubscribeClient.SubscribeAsync</code> directly</li>
 </ul>
 <h3 id="requirement-worker-lifecycle-events">Requirement: Worker Lifecycle Events<a class="headerlink" href="#requirement-worker-lifecycle-events" title="Permanent link">&para;</a></h3>
@@ -3197,7 +3197,7 @@
 <li><strong>THEN</strong> the WorkManager SHALL publish a <code>worker.error</code> event with <code>error_type</code> and <code>error_message</code> in the data payload</li>
 </ul>
 <h3 id="requirement-polyglot-worker-engines">Requirement: Polyglot Worker Engines<a class="headerlink" href="#requirement-polyglot-worker-engines" title="Permanent link">&para;</a></h3>
-<p>The WorkManager SHALL support executing worker code in multiple languages via a pluggable engine architecture. Built-in engines SHALL include Python (subprocess), C# (Roslyn runtime compilation), and pre-compiled .NET DLL (in-process, the default <code>DotNetDllEngine</code> via <code>hostfxr</code> + <code>AssemblyLoadContext</code>).</p>
+<p>The WorkManager SHALL support executing worker code in multiple languages via a pluggable engine architecture. Built-in engines SHALL include Python (subprocess), C# (Roslyn runtime compilation), pre-compiled .NET DLL (in-process, the default <code>DotNetDllEngine</code> via <code>hostfxr</code> + <code>AssemblyLoadContext</code>), and a native DLL engine (in-process, <code>NativeDllEngine</code>, see the Native DLL Engine / Native Worker ABI requirements below).</p>
 <h4 id="scenario-python-worker-execution">Scenario: Python worker execution<a class="headerlink" href="#scenario-python-worker-execution" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a worker with a Python engine processes a message</li>
@@ -3263,10 +3263,10 @@
 <li><strong>THEN</strong> the import SHALL fail with an error</li>
 </ul>
 <h3 id="requirement-worker-contract-iworker">Requirement: Worker Contract (IWorker)<a class="headerlink" href="#requirement-worker-contract-iworker" title="Permanent link">&para;</a></h3>
-<p>The <code>IWorker</code> interface SHALL define an asynchronous Process method returning <code>Task&lt;CloudEvent?&gt;</code>. WorkerBase SHALL accept constructor parameters <code>(responseType, source)</code> instead of abstract property overrides for CloudEvent routing.</p>
+<p>The <code>IWorker</code> interface SHALL define an asynchronous <code>ProcessAsync</code> method returning <code>Task&lt;CloudEvent?&gt;</code>. WorkerBase SHALL accept constructor parameters <code>(responseType, source)</code> instead of abstract property overrides for CloudEvent routing.</p>
 <h4 id="scenario-async-worker-process">Scenario: Async worker process<a class="headerlink" href="#scenario-async-worker-process" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> the WorkManager invokes a worker's Process method</li>
+<li><strong>WHEN</strong> the WorkManager invokes a worker's <code>ProcessAsync</code> method</li>
 <li><strong>THEN</strong> the call SHALL be awaited asynchronously without blocking threads</li>
 </ul>
 <h4 id="scenario-constructor-based-configuration">Scenario: Constructor-based configuration<a class="headerlink" href="#scenario-constructor-based-configuration" title="Permanent link">&para;</a></h4>
@@ -3277,7 +3277,7 @@
 <h4 id="scenario-apiworker-with-pre-configured-apiclient">Scenario: ApiWorker with pre-configured ApiClient<a class="headerlink" href="#scenario-apiworker-with-pre-configured-apiclient" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a worker extends ApiWorker with <code>apiHost</code>, <code>apiPort</code>, <code>responseEventType</code>, and <code>source</code></li>
-<li><strong>THEN</strong> the base class SHALL create an <code>ApiClient</code> at the configured host/port and provide it to <code>ProcessAsync(CloudEvent, ApiClient)</code></li>
+<li><strong>THEN</strong> the base class SHALL create an <code>ApiClient</code> at the configured host/port and provide it to the abstract <code>HandleAsync(CloudEvent, JsonNode, ApiClient)</code> method (ApiWorker's <code>ProcessAsync(CloudEvent, JsonNode)</code> override dispatches to it)</li>
 </ul>
 <h4 id="scenario-apicommandworker-with-pre-configured-apiclient">Scenario: ApiCommandWorker with pre-configured ApiClient<a class="headerlink" href="#scenario-apicommandworker-with-pre-configured-apiclient" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3693,7 +3693,7 @@ filename based on <code>RuntimeInformation.IsOSPlatform</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-25T17:32:17Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-26T03:04:27Z</span>
 </div>
 
     </div>

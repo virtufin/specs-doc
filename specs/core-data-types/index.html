@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/1e819b596ceff4149b1622256bc853e553134173"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 387ec6e">
+       title="View commit 1e819b5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">1e819b5</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/1e819b596ceff4149b1622256bc853e553134173"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 387ec6e">
+       title="View commit 1e819b5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">1e819b5</text>
       </svg>
     </a>
 </div>
@@ -1266,7 +1266,7 @@
 <li><strong>THEN</strong> value providers SHALL notify subscribers reactively</li>
 </ul>
 <h3 id="requirement-variant-discriminated-union">Requirement: Variant Discriminated Union<a class="headerlink" href="#requirement-variant-discriminated-union" title="Permanent link">&para;</a></h3>
-<p>The library SHALL provide a sealed <code>Variant</code> type representing a value that is exactly one of: None, Bool, Int32, String, Dictionary, or nested array. It SHALL support FlatBuffers serialization and implicit conversions from C# primitives.</p>
+<p>The library SHALL provide a sealed <code>Variant</code> type representing a value that is exactly one of: None, Bool, Byte, Int16, Int32, Int64, Float, Double, String, a typed array of any of the preceding primitive kinds, a nested array of <code>Variant</code> (<code>ArrayVariant</code>), or Dictionary. It SHALL support FlatBuffers serialization and implicit conversions from C# primitives.</p>
 <h4 id="scenario-type-safe-construction">Scenario: Type-safe construction<a class="headerlink" href="#scenario-type-safe-construction" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a Variant is constructed from a C# primitive (int, string, bool, etc.)</li>
@@ -1295,7 +1295,10 @@
 <li><strong>THEN</strong> the observable SHALL reconnect automatically and resume message delivery</li>
 </ul>
 <h3 id="requirement-financial-domain-types">Requirement: Financial Domain Types<a class="headerlink" href="#requirement-financial-domain-types" title="Permanent link">&para;</a></h3>
-<p>The library SHALL provide financial domain primitives including <code>Currency</code> (EUR, USD) and <code>Cash</code>. Operations on mismatched currencies SHALL be rejected.</p>
+<p>The library SHALL provide financial domain primitives including <code>Currency</code> (the full ISO 4217 currency code set, not limited to any subset) and <code>Cash</code>. Operations on mismatched currencies SHALL be rejected.</p>
+<blockquote>
+<p><strong>Note (2026-07-26):</strong> <code>Cash</code> currently has no arithmetic operators at all (<code>+</code>, <code>-</code>, equality) — the mismatch-rejection behavior described by "Operations on mismatched currencies SHALL be rejected" has no implementation yet to test against. This requirement describes the intended contract, not current behavior.</p>
+</blockquote>
 <h4 id="scenario-cash-arithmetic">Scenario: Cash arithmetic<a class="headerlink" href="#scenario-cash-arithmetic" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> two Cash values with the same currency are added</li>
@@ -1349,7 +1352,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-25T17:32:17Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-26T03:04:27Z</span>
 </div>
 
     </div>

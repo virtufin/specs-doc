@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/1e819b596ceff4149b1622256bc853e553134173"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 387ec6e">
+       title="View commit 1e819b5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">1e819b5</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/387ec6e04ab609984ad95b8bb1186e0ebe199ed6"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/1e819b596ceff4149b1622256bc853e553134173"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 387ec6e">
+       title="View commit 1e819b5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">387ec6e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">1e819b5</text>
       </svg>
     </a>
 </div>
@@ -2085,7 +2085,7 @@ Covers <code>virtufin-api</code>, <code>virtufin-websocketmanager</code>, <code>
 </tr>
 <tr>
 <td>WorkManager</td>
-<td>LoadCodeFromContent / LoadCodeFromUrl</td>
+<td>LoadCode (consolidates the former LoadCodeFromContent / LoadCodeFromUrl into one RPC with a <code>CodeSource</code> oneof)</td>
 <td>Task</td>
 <td>Async (I/O)</td>
 <td>Dapr save + HTTP fetch</td>
@@ -2849,10 +2849,10 @@ Then update <code>SubscribeAsync</code> to check if handler is <code>IAsyncStrea
 <p>All 3 repos build with <strong>0 errors</strong> on local machine. The <code>virtufin-workmanager</code> service build was not directly testable locally due to <code>Virtufin.Api.Client 0.0.38</code> not being in the local NuGet cache (CI will have credentials), but <code>PythonEngine</code> and <code>CSharpSourceEngine</code> projects (which use the new async interface) build clean.</p>
 <h3 id="recommended-follow-up">Recommended follow-up<a class="headerlink" href="#recommended-follow-up" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Push the 32 commits across 5 repos (<code>virtufin-common</code>, <code>virtufin-api</code>, <code>virtufin-websocketmanager</code>, <code>virtufin-workmanager</code>, <code>virtufin-examples</code>).</li>
-<li>Configure <code>VIRTUFIN_PACKAGES_USER</code>/<code>VIRTUFIN_PACKAGES_TOKEN</code> as Gitea Actions secrets in the 5 caller repos (<code>virtufin-api</code>, <code>virtufin-websocketmanager</code>, <code>virtufin-workmanager</code>, <code>virtufin-examples</code>, <code>docker-compose</code>).</li>
-<li>Stress-test the <code>SubscriptionHealthSweeper</code> (D10) before revisiting.</li>
-<li>Out of audit scope: rotate the plaintext <code>HARBOR_TOKEN</code> in <code>virtufin-dotnet/.env</code> (flagged in earlier sessions, never edited).</li>
+<li>~~Push the 32 commits across 5 repos~~ — <strong>done.</strong> Verified 2026-07-26: all 9 checked repos (<code>virtufin-api</code>, <code>virtufin-app</code>, <code>virtufin-common</code>, <code>virtufin-dotnet</code>, <code>virtufin-workers</code>, <code>virtufin-workmanager</code>, <code>virtufin-websocketmanager</code>, <code>virtufin-tui</code>, <code>virtufin-examples</code>) have 0 unpushed commits and clean working trees; the specific commit hashes cited here were confirmed as ancestors of <code>origin/master</code>.</li>
+<li>Configure <code>VIRTUFIN_PACKAGES_USER</code>/<code>VIRTUFIN_PACKAGES_TOKEN</code> as Gitea Actions secrets in the 5 caller repos (<code>virtufin-api</code>, <code>virtufin-websocketmanager</code>, <code>virtufin-workmanager</code>, <code>virtufin-examples</code>, <code>docker-compose</code>). <em>(Not re-verified in the 2026-07-26 pass.)</em></li>
+<li>Stress-test the <code>SubscriptionHealthSweeper</code> (D10) before revisiting. <em>(Not re-verified in the 2026-07-26 pass.)</em></li>
+<li>Out of audit scope: rotate the plaintext <code>HARBOR_TOKEN</code> in <code>virtufin-dotnet/.env</code>. <strong>Partially stale as written</strong> — verified 2026-07-26: the file <em>was</em> edited (2026-06-20, renamed to placeholder values) and is no longer tracked (<code>git rm --cached</code>, 2026-07-26). However, an earlier commit predating that cleanup still contains a real-looking token value, and that commit remains an ancestor of <code>origin/master</code> — the underlying credential still needs rotation at the source (Harbor/registry side); a history rewrite to purge the old commit is a separate decision for the repo owner.</li>
 </ol>
 <h2 id="tracking">Tracking<a class="headerlink" href="#tracking" title="Permanent link">&para;</a></h2>
 <p>Per-repo resolution tracking issues (all closed, since items are already resolved on local <code>master</code>):</p>
@@ -2893,7 +2893,7 @@ Then update <code>SubscribeAsync</code> to check if handler is <code>IAsyncStrea
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-25T17:32:17Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-26T03:04:27Z</span>
 </div>
 
     </div>
