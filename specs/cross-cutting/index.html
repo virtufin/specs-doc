@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5a0dff4a9ba90a27850cb77042261b9a58849631"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/8683bc22b8a88afe6af9d99fbfe868a93de2be3c"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 5a0dff4">
+       title="View commit 8683bc2">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5a0dff4</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">8683bc2</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5a0dff4a9ba90a27850cb77042261b9a58849631"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/8683bc22b8a88afe6af9d99fbfe868a93de2be3c"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 5a0dff4">
+       title="View commit 8683bc2">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5a0dff4</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">8683bc2</text>
       </svg>
     </a>
 </div>
@@ -1748,7 +1748,7 @@
 <p>Services MUST NOT call <code>DaprClient.PublishEventAsync</code>, <code>DaprClient.GetStateAsync</code>, <code>DaprClient.SaveStateAsync</code>, <code>DaprClient.DeleteStateAsync</code>, <code>GetBulkStateAsync</code>, or any other Dapr pubsub or state API directly. Services MUST use the virtufin-api's <code>Pubsub</code> and <code>State</code> gRPC services for all pubsub and state operations.</p>
 <p>The virtufin-api is the only service that talks to Dapr pubsub/state on behalf of other services. This gives the API a single place to enforce topic naming, access control, observability, and state ownership.</p>
 <p>Scenario registry management (create / pause / archive / delete) uses the same generic <code>State.SaveState</code> / <code>State.GetState</code> / <code>State.DeleteState</code> / <code>State.QueryState</code> RPCs above, not dedicated scenario RPCs -- per <a href="../scenarios/spec.md">scenarios/spec.md</a>, "No new RPCs SHALL be added to virtufin-api for scenario management"; virtufin-api stays pure infrastructure with no domain logic.</p>
-<p><strong>Inline topic validation</strong> (clarification): Services that publish directly to Dapr for any reason (e.g., the WebSocketManager's per-frame user-data publish path, which is high-volume and low-value-for-mediation) MUST validate the topic name inline against the patterns in <a href="../pubsub-topics/spec.md#requirement-topic-patterns">Pub/Sub Topics spec §Topic Patterns</a> before calling <code>DaprClient.PublishEventAsync</code>. Direct-to-Dapr publish is an explicit exception to the API-mediated rule, and the inline validation requirement is the price of admission. Valid topics are: <code>&lt;service&gt;.&lt;category&gt;</code> (Tier 0), <code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code>, <code>hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code>, <code>sc.&lt;scenarioId&gt;.&lt;domain&gt;.&lt;entity&gt;.&lt;event&gt;[.&lt;id&gt;]</code>. Topics outside these patterns SHALL be rejected with <code>RpcException(InvalidArgument)</code>.</p>
+<p><strong>No inline topic-shape validation</strong> (clarification): Services that publish directly to Dapr for any reason (e.g., the WebSocketManager's per-frame user-data publish path, which is high-volume and low-value-for-mediation) SHALL NOT validate the topic name against the patterns in <a href="../pubsub-topics/spec.md#requirement-topic-patterns">Pub/Sub Topics spec §Topic Patterns</a> before calling <code>DaprClient.PublishEventAsync</code>. Topic-pattern shape (universe, scenario ID, venue, entity, event) is Virtufin domain vocabulary; a direct-publish service is pure infrastructure and SHALL NOT encode or enforce it. Any topic Dapr/NATS itself accepts as legal SHALL be passed through unvalidated. This was previously a MUST (see <code>pubsub-topics/migration.md</code> for the superseded rule); reversed because inline pattern-matching duplicated domain knowledge into a service (<code>virtufin-websocketmanager</code>) whose charter is explicitly "no business logic."</p>
 <h4 id="scenario-service-publishes-an-event">Scenario: Service publishes an event<a class="headerlink" href="#scenario-service-publishes-an-event" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service needs to publish an event</li>
@@ -1758,8 +1758,8 @@
 <h4 id="scenario-service-publishes-a-high-volume-per-frame-event-eg-websocketmanager-market-data">Scenario: Service publishes a high-volume per-frame event (e.g., WebSocketManager market data)<a class="headerlink" href="#scenario-service-publishes-a-high-volume-per-frame-event-eg-websocketmanager-market-data" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service publishes per-frame user-data events directly to Dapr (high volume, low mediation value)</li>
-<li><strong>THEN</strong> it SHALL validate the topic name inline against the patterns in <a href="../pubsub-topics/spec.md#requirement-topic-patterns">Pub/Sub Topics spec §Topic Patterns</a></li>
-<li><strong>AND</strong> reject invalid topics with <code>RpcException(InvalidArgument)</code> before calling <code>DaprClient.PublishEventAsync</code></li>
+<li><strong>THEN</strong> it SHALL NOT validate the topic name against <a href="../pubsub-topics/spec.md#requirement-topic-patterns">Pub/Sub Topics spec §Topic Patterns</a> -- that is domain vocabulary, not this service's concern</li>
+<li><strong>AND</strong> any topic Dapr/NATS itself accepts as legal SHALL be passed through to <code>DaprClient.PublishEventAsync</code> unvalidated</li>
 </ul>
 <h4 id="scenario-service-reads-or-writes-state">Scenario: Service reads or writes state<a class="headerlink" href="#scenario-service-reads-or-writes-state" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1932,7 +1932,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-26T14:13:23Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-26T20:52:49Z</span>
 </div>
 
     </div>
