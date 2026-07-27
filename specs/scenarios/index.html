@@ -199,14 +199,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/8683bc22b8a88afe6af9d99fbfe868a93de2be3c"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/043c86118a4aaf21230c91bb305357d59e439e46"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 8683bc2">
+       title="View commit 043c861">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">8683bc2</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">043c861</text>
       </svg>
     </a>
 </div>
@@ -304,14 +304,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/8683bc22b8a88afe6af9d99fbfe868a93de2be3c"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/043c86118a4aaf21230c91bb305357d59e439e46"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 8683bc2">
+       title="View commit 043c861">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">8683bc2</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">043c861</text>
       </svg>
     </a>
 </div>
@@ -957,17 +957,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#scenario-topic-validation-lookup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Topic-validation lookup
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1035,41 +1024,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requirement-per-service-scenario-validation-no-shared-helper" class="md-nav__link">
+  <a href="#requirement-no-pre-publish-scenario-state-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Per-Service Scenario Validation (No Shared Helper)
+        Requirement: No Pre-Publish Scenario-State Validation
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Requirement: Per-Service Scenario Validation (No Shared Helper)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-service-validates-its-own-publishes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Service validates its own publishes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-service-looks-up-scenario-before-publishing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Service looks up scenario before publishing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1282,13 +1243,6 @@
 <li><strong>THEN</strong> it SHALL read <code>scenario.&lt;scenarioId&gt;</code> from the state store</li>
 <li><strong>AND</strong> cache the result in-process (TTL ≤ 60 s; refresh on cache miss)</li>
 </ul>
-<h4 id="scenario-topic-validation-lookup">Scenario: Topic-validation lookup<a class="headerlink" href="#scenario-topic-validation-lookup" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a publishing service validates an <code>sc.&lt;scenarioId&gt;.trading.*</code> topic inline</li>
-<li><strong>THEN</strong> it SHALL check <code>scenario.&lt;scenarioId&gt;</code> exists and <code>status = active</code></li>
-<li><strong>AND</strong> if the scenario is <code>paused</code> / <code>archived</code> / <code>deleted</code>, it SHALL reject the publish</li>
-<li><strong>AND</strong> for <code>scenarioId = LIVE</code>, validation SHALL bypass the registry check</li>
-</ul>
 <h3 id="requirement-scenario-lifecycle-via-existing-state-rpcs">Requirement: Scenario Lifecycle via Existing State RPCs<a class="headerlink" href="#requirement-scenario-lifecycle-via-existing-state-rpcs" title="Permanent link">&para;</a></h3>
 <p>Scenario CRUD SHALL use the existing virtufin-api <code>State.SaveState</code> /
 <code>State.GetState</code> / <code>State.DeleteState</code> / <code>State.QueryState</code> RPCs. No new
@@ -1311,7 +1265,7 @@ is pure infrastructure and SHALL NOT carry domain logic.</p>
 <ul>
 <li><strong>WHEN</strong> a scenario's status changes (active / paused / archived)</li>
 <li><strong>THEN</strong> the caller SHALL call <code>State.SaveState(scenario.&lt;scenarioId&gt;, new_status_json)</code></li>
-<li><strong>AND</strong> in-flight publishers SHALL see the next publish rejected on cache miss + re-read</li>
+<li><strong>AND</strong> consumers caching the triplet (Scenario Lookup, TTL ≤ 60 s) SHALL observe the new status on their next refresh -- this does not gate publishes, which are not validated against scenario status (see below)</li>
 </ul>
 <h4 id="scenario-delete-scenario-irreversible">Scenario: Delete scenario (irreversible)<a class="headerlink" href="#scenario-delete-scenario-irreversible" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1324,24 +1278,8 @@ is pure infrastructure and SHALL NOT carry domain logic.</p>
 <li><strong>AND</strong> log at WARN level; this operation is irreversible</li>
 <li><strong>AND</strong> step 3 depends on the deployed Dapr state-store component supporting the query API — if unsupported, the caller SHALL fall back to tracking <code>sc.&lt;scenarioId&gt;.*</code> keys via its own index rather than assuming <code>QueryState</code> succeeds</li>
 </ul>
-<h3 id="requirement-per-service-scenario-validation-no-shared-helper">Requirement: Per-Service Scenario Validation (No Shared Helper)<a class="headerlink" href="#requirement-per-service-scenario-validation-no-shared-helper" title="Permanent link">&para;</a></h3>
-<p>Topic pattern validation and scenario registration lookup SHALL live in each
-publishing service's publisher code (inline or service-local). No cross-service
-helper NuGet, no extension to <code>Virtufin.Worker.DevKit</code>, no logic added to
-<code>virtufin-api</code>'s <code>Pubsub.PublishEvent</code> handler.</p>
-<h4 id="scenario-service-validates-its-own-publishes">Scenario: Service validates its own publishes<a class="headerlink" href="#scenario-service-validates-its-own-publishes" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a publishing service (WSM, WM, future trading/risk/P&amp;L) is about to publish</li>
-<li><strong>THEN</strong> it SHALL validate the topic pattern inline before calling <code>Pubsub.PublishEvent</code></li>
-<li><strong>AND</strong> reject malformed topics with a clear error</li>
-</ul>
-<h4 id="scenario-service-looks-up-scenario-before-publishing">Scenario: Service looks up scenario before publishing<a class="headerlink" href="#scenario-service-looks-up-scenario-before-publishing" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a service publishes to <code>sc.&lt;scenarioId&gt;.*</code></li>
-<li><strong>THEN</strong> it SHALL read <code>scenario.&lt;scenarioId&gt;</code> from the state store (cache TTL ≤ 60 s)</li>
-<li><strong>AND</strong> allow the publish only if status = active OR scenarioId = LIVE</li>
-<li><strong>AND</strong> reject publishes to unknown / paused / archived / deleted scenarios</li>
-</ul>
+<h3 id="requirement-no-pre-publish-scenario-state-validation">Requirement: No Pre-Publish Scenario-State Validation<a class="headerlink" href="#requirement-no-pre-publish-scenario-state-validation" title="Permanent link">&para;</a></h3>
+<p>See <a href="../pubsub-topics/spec.md#requirement-no-topic-or-scenario-state-validation-anywhere">Pub/Sub Topics spec §No Topic or Scenario-State Validation Anywhere</a>: no service validates topic shape or scenario registration/lifecycle status before publish. <code>scenario.&lt;scenarioId&gt;</code> lookups (see Scenario Lookup above) are for consumers resolving a triplet's meaning, not a pre-publish gate.</p>
 <h3 id="requirement-universe-naming">Requirement: Universe Naming<a class="headerlink" href="#requirement-universe-naming" title="Permanent link">&para;</a></h3>
 <p>Universes name data universes for market data, whether <code>act</code> or <code>hyp</code>. They
 appear in <code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> / <code>hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code>
@@ -1390,7 +1328,7 @@ topics AND in the <code>market.universe</code> envelope extension.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-26T20:52:49Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-27T02:23:40Z</span>
 </div>
 
     </div>

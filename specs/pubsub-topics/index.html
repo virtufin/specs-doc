@@ -199,14 +199,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/8683bc22b8a88afe6af9d99fbfe868a93de2be3c"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/043c86118a4aaf21230c91bb305357d59e439e46"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 8683bc2">
+       title="View commit 043c861">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">8683bc2</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">043c861</text>
       </svg>
     </a>
 </div>
@@ -304,14 +304,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/8683bc22b8a88afe6af9d99fbfe868a93de2be3c"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/043c86118a4aaf21230c91bb305357d59e439e46"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 8683bc2">
+       title="View commit 043c861">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">8683bc2</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">043c861</text>
       </svg>
     </a>
 </div>
@@ -840,55 +840,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#requirement-topic-validation-per-service-inline" class="md-nav__link">
+  <a href="#requirement-no-topic-or-scenario-state-validation-anywhere" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirement: Topic Validation (Per-Service Inline)
+        Requirement: No Topic or Scenario-State Validation Anywhere
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Requirement: Topic Validation (Per-Service Inline)">
+    <nav class="md-nav" aria-label="Requirement: No Topic or Scenario-State Validation Anywhere">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-act-topic-without-universe" class="md-nav__link">
+  <a href="#scenario-malformed-or-unregistered-topic-is-published-anyway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario: act topic without universe
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-hyp-topic-without-universe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: hyp topic without universe
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-sc-topic-with-unknown-scenario-id" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: sc topic with unknown scenario ID
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-topic-outside-allowed-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario: Topic outside allowed patterns
+        Scenario: Malformed or unregistered topic is published anyway
       
     </span>
   </a>
@@ -2018,7 +1985,7 @@
 <p><code>act</code> and <code>hyp</code> are both top-level world markers, symmetric in shape: both carry a <code>&lt;universe&gt;</code> segment naming the data universe (<code>act.ALL.exchange.*</code> for "no restriction", <code>act.EQ_EUROPE.exchange.*</code> for a live subset, <code>hyp.EQ_2008_2009.exchange.*</code> for a replay universe). The universe lives in the topic, but the <strong>scenario triplet</strong> (market + portfolio + strategy legs) lives in the scenario registry.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <h3 id="requirement-topic-patterns">Requirement: Topic Patterns<a class="headerlink" href="#requirement-topic-patterns" title="Permanent link">&para;</a></h3>
-<p>Services SHALL publish to and subscribe from topics matching one of the following patterns. Topics outside these patterns SHALL be rejected by the publishing service's publisher code (inline or service-local; no cross-service helper).</p>
+<p>Services SHALL publish to and subscribe from topics matching one of the following patterns, to keep the taxonomy consistent and routable across the platform. This is a naming convention, not an enforced contract: no service (publisher, subscriber, or <code>virtufin-api</code> itself) validates or rejects topics against these patterns before publish -- see <a href="../cross-cutting/spec.md">cross-cutting spec</a> for why no enforcement point owns this check.</p>
 <h4 id="scenario-tier-0-infrastructure-topic">Scenario: Tier 0 / infrastructure topic<a class="headerlink" href="#scenario-tier-0-infrastructure-topic" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service publishes a lifecycle / infra event</li>
@@ -2058,28 +2025,13 @@
 <li><strong>WHEN</strong> a service publishes a P&amp;L-domain event</li>
 <li><strong>THEN</strong> the topic SHALL match <code>sc.&lt;scenarioId&gt;.pnl.&lt;metric&gt;.&lt;event&gt;</code> (consolidated; per-symbol routing via <code>subject</code>)</li>
 </ul>
-<h3 id="requirement-topic-validation-per-service-inline">Requirement: Topic Validation (Per-Service Inline)<a class="headerlink" href="#requirement-topic-validation-per-service-inline" title="Permanent link">&para;</a></h3>
-<p>Each publishing service SHALL validate every topic against the allowed patterns inline (or in service-local code) before calling <code>Pubsub.PublishEvent</code>. No cross-service helper NuGet, no extension to <code>Virtufin.Worker.DevKit</code>, no logic added to <code>virtufin-api</code>'s <code>Pubsub.PublishEvent</code> handler — <code>virtufin-api</code> is pure infrastructure and SHALL NOT carry domain logic.</p>
-<h4 id="scenario-act-topic-without-universe">Scenario: act topic without universe<a class="headerlink" href="#scenario-act-topic-without-universe" title="Permanent link">&para;</a></h4>
+<h3 id="requirement-no-topic-or-scenario-state-validation-anywhere">Requirement: No Topic or Scenario-State Validation Anywhere<a class="headerlink" href="#requirement-no-topic-or-scenario-state-validation-anywhere" title="Permanent link">&para;</a></h3>
+<p>No service — publisher, subscriber, <code>virtufin-api</code>'s <code>Pubsub.PublishEvent</code> handler, or any shared helper — SHALL validate a topic's shape against the patterns above, or a scenario ID's registration/lifecycle status, before publish. This was previously a per-service inline requirement (added by the <a href="../../changes/archive/2026-07-09-pubsub-pattern-fixes/">2026-07-09 pubsub-pattern-fixes change</a>); reversed because it duplicated Virtufin domain vocabulary (universes, scenario IDs, lifecycle status) into every publishing service's own code, including services whose charter is explicitly "pure infrastructure, no domain logic" (WebSocketManager, WorkManager). <code>virtufin-websocketmanager</code>'s <code>TopicValidator</code> was the one place this was actually implemented; it has been removed in full.</p>
+<h4 id="scenario-malformed-or-unregistered-topic-is-published-anyway">Scenario: Malformed or unregistered topic is published anyway<a class="headerlink" href="#scenario-malformed-or-unregistered-topic-is-published-anyway" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a service attempts to publish to <code>act.exchange.*</code> (bare <code>act</code> prefix, no universe segment)</li>
-<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating "act topics MUST carry a universe" (use <code>act.ALL.exchange.*</code> for unrestricted)</li>
-</ul>
-<h4 id="scenario-hyp-topic-without-universe">Scenario: hyp topic without universe<a class="headerlink" href="#scenario-hyp-topic-without-universe" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a service attempts to publish to <code>hyp.exchange.*</code> (bare <code>hyp</code> prefix)</li>
-<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating "hyp topics MUST carry a universe"</li>
-</ul>
-<h4 id="scenario-sc-topic-with-unknown-scenario-id">Scenario: sc topic with unknown scenario ID<a class="headerlink" href="#scenario-sc-topic-with-unknown-scenario-id" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a service attempts to publish to <code>sc.&lt;unknown&gt;.trading.*</code> and <code>&lt;unknown&gt;</code> is not in the scenario registry</li>
-<li><strong>THEN</strong> the service's publisher code SHALL reject the publish with an error stating the scenario ID is not registered</li>
-<li><strong>AND</strong> <code>LIVE</code> SHALL always be accepted (reserved, pre-seeded at bootstrap)</li>
-</ul>
-<h4 id="scenario-topic-outside-allowed-patterns">Scenario: Topic outside allowed patterns<a class="headerlink" href="#scenario-topic-outside-allowed-patterns" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>WHEN</strong> a service attempts to publish to a topic that matches no pattern in this spec</li>
-<li><strong>THEN</strong> the service's publisher code SHALL reject the publish</li>
+<li><strong>WHEN</strong> a service publishes to a topic that matches no pattern in this spec, or to an <code>sc.&lt;scenarioId&gt;.*</code> topic whose <code>scenarioId</code> is not registered (or is <code>paused</code>/<code>archived</code>/<code>deleted</code>)</li>
+<li><strong>THEN</strong> the publish SHALL proceed; Dapr/NATS is the only enforcement point, accepting whatever it considers a legal topic string</li>
+<li><strong>AND</strong> detecting and correcting a bad topic or stale scenario reference is a monitoring/observability concern (dead-letter, consumer-side logging), not a publish-time rejection</li>
 </ul>
 <h3 id="requirement-cloudevents-envelope">Requirement: CloudEvents Envelope<a class="headerlink" href="#requirement-cloudevents-envelope" title="Permanent link">&para;</a></h3>
 <p>Every event SHALL be a CloudEvents v1.0 envelope. The CE base attributes (<code>id</code>, <code>source</code>, <code>type</code>, <code>time</code>, <code>subject</code> when applicable, <code>specversion</code>, <code>datacontenttype</code>) SHALL be carried as <code>ce-</code> prefixed metadata; <code>data</code> SHALL be the JSON payload.</p>
@@ -2645,7 +2597,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-26T20:52:49Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-27T02:23:40Z</span>
 </div>
 
     </div>
