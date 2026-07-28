@@ -199,14 +199,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/043c86118a4aaf21230c91bb305357d59e439e46"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/25ac8b929c1ba5b04cef52d831c4d58954b41889"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 043c861">
+       title="View commit 25ac8b9">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">043c861</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">25ac8b9</text>
       </svg>
     </a>
 </div>
@@ -304,14 +304,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/043c86118a4aaf21230c91bb305357d59e439e46"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/25ac8b929c1ba5b04cef52d831c4d58954b41889"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 043c861">
+       title="View commit 25ac8b9">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">043c861</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">25ac8b9</text>
       </svg>
     </a>
 </div>
@@ -1032,6 +1032,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Requirement: No Pre-Publish Scenario-State Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-publish-to-an-unregistered-or-non-active-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Publish to an unregistered or non-active scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1062,6 +1079,45 @@
     <span class="md-ellipsis">
       
         Scenario: Universe vs scenario ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-named-hypothetical-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Named Hypothetical Worlds
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Named Hypothetical Worlds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-naming-a-stress-test-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Naming a stress-test world
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-bare-hyp-is-rejected-as-a-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Bare hyp is rejected as a value
       
     </span>
   </a>
@@ -1115,22 +1171,22 @@
 <tbody>
 <tr>
 <td><code>market</code></td>
-<td><code>{ world: "act" \| "hyp", universe: string }</code></td>
-<td><code>universe</code> names the data universe and SHALL be present for both <code>act</code> and <code>hyp</code> (symmetric — e.g. <code>act EQ_EUROPE</code>, <code>act ALL</code>, <code>hyp EQ_2008_2009</code>); use <code>"ALL"</code> for "no restriction"</td>
+<td><code>{ world: "act" \| "hyp.&lt;name&gt;", universe: string }</code></td>
+<td><code>universe</code> names the data universe and SHALL be present for both <code>act</code> and <code>hyp.&lt;name&gt;</code> (symmetric — e.g. <code>act EQ_EUROPE</code>, <code>act ALL</code>, <code>hyp.STRESS EQ_2008_2009</code>); use <code>"ALL"</code> for "no restriction". <code>&lt;name&gt;</code> identifies a specific hypothetical reality (see Requirement: Named Hypothetical Worlds) — bare <code>hyp</code> is never a valid value here.</td>
 </tr>
 <tr>
 <td><code>portfolio</code></td>
-<td><code>{ world: "act" \| "hyp" }</code></td>
+<td><code>{ world: "act" \| "hyp.&lt;name&gt;" }</code></td>
 <td>Which portfolio state backs this scenario</td>
 </tr>
 <tr>
 <td><code>strategy</code></td>
-<td><code>{ world: "act" \| "hyp", id?: string }</code></td>
+<td><code>{ world: "act" \| "hyp.&lt;name&gt;", id?: string }</code></td>
 <td>Which strategy code drives this scenario</td>
 </tr>
 </tbody>
 </table>
-<p>Any combination of legs is permitted (e.g., all-act, all-hyp, act-market + hyp-portfolio + hyp-strategy for shadow mode).</p>
+<p>Any combination of legs is permitted (e.g., all-act, all-hyp, act-market + hyp-portfolio + hyp-strategy for shadow mode) — legs need not share the same <code>hyp.&lt;name&gt;</code> world.</p>
 <h4 id="scenario-production-scenario">Scenario: Production scenario<a class="headerlink" href="#scenario-production-scenario" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> <code>scenario.LIVE</code> is bootstrapped at service start</li>
@@ -1139,25 +1195,26 @@
 <h4 id="scenario-paper-trading-scenario">Scenario: Paper trading scenario<a class="headerlink" href="#scenario-paper-trading-scenario" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a paper-trading scenario is registered</li>
-<li><strong>THEN</strong> the triplet MAY be <code>{ market: { world: "act", universe: "ALL" }, portfolio: { world: "hyp" }, strategy: { world: "hyp", id: "strategy_v1" } }</code></li>
+<li><strong>THEN</strong> the triplet MAY be <code>{ market: { world: "act", universe: "ALL" }, portfolio: { world: "hyp.PAPER" }, strategy: { world: "hyp.PAPER", id: "strategy_v1" } }</code></li>
 <li><strong>AND</strong> the strategy's <code>id</code> SHALL name the strategy code under test</li>
 </ul>
 <h4 id="scenario-backtest-scenario">Scenario: Backtest scenario<a class="headerlink" href="#scenario-backtest-scenario" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a backtest scenario is registered</li>
-<li><strong>THEN</strong> the triplet MAY be <code>{ market: { world: "hyp", universe: "EQ_2008_2009" }, portfolio: { world: "hyp" }, strategy: { world: "hyp", id: "strategy_v10" } }</code></li>
+<li><strong>THEN</strong> the triplet MAY be <code>{ market: { world: "hyp.BACKTEST", universe: "EQ_2008_2009" }, portfolio: { world: "hyp.BACKTEST" }, strategy: { world: "hyp.BACKTEST", id: "strategy_v10" } }</code></li>
 <li><strong>AND</strong> the market <code>universe</code> SHALL name the data universe being replayed</li>
+<li><strong>AND</strong> the world name (<code>BACKTEST</code> here) identifies the hypothetical reality independently of which universe or strategy it's paired with — a different backtest campaign would use a different name (e.g. <code>hyp.BACKTEST_2022</code>), not the same name with a different universe</li>
 </ul>
 <h4 id="scenario-live-scenario-scoped-to-a-market-subset">Scenario: Live scenario scoped to a market subset<a class="headerlink" href="#scenario-live-scenario-scoped-to-a-market-subset" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a scenario needs live data restricted to a named subset (e.g. European equities only)</li>
 <li><strong>THEN</strong> the triplet MAY be <code>{ market: { world: "act", universe: "EQ_EUROPE" }, portfolio: { world: "act" }, strategy: { world: "act" } }</code></li>
-<li><strong>AND</strong> <code>act</code> triplets SHALL name a <code>universe</code> exactly like <code>hyp</code> ones do — <code>act</code> carries no implicit "everything" meaning on its own; use <code>universe: "ALL"</code> to say so explicitly</li>
+<li><strong>AND</strong> <code>act</code> triplets SHALL name a <code>universe</code> exactly like <code>hyp.&lt;name&gt;</code> ones do — <code>act</code> carries no implicit "everything" meaning on its own; use <code>universe: "ALL"</code> to say so explicitly</li>
 </ul>
 <h4 id="scenario-shadow-mode-scenario">Scenario: Shadow mode scenario<a class="headerlink" href="#scenario-shadow-mode-scenario" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a shadow-mode scenario is registered (real market, real portfolio, experimental strategy)</li>
-<li><strong>THEN</strong> the triplet MAY be <code>{ market: { world: "act", universe: "ALL" }, portfolio: { world: "act" }, strategy: { world: "hyp", id: "strategy_v_candidate" } }</code></li>
+<li><strong>THEN</strong> the triplet MAY be <code>{ market: { world: "act", universe: "ALL" }, portfolio: { world: "act" }, strategy: { world: "hyp.SHADOW", id: "strategy_v_candidate" } }</code></li>
 </ul>
 <h3 id="requirement-scenario-lifecycle">Requirement: Scenario Lifecycle<a class="headerlink" href="#requirement-scenario-lifecycle" title="Permanent link">&para;</a></h3>
 <p>Scenarios SHALL have one of four statuses: <code>active</code>, <code>paused</code>, <code>archived</code>, <code>deleted</code>.</p>
@@ -1186,6 +1243,7 @@
 <li><strong>AND</strong> the deletion SHALL be confirmed via an explicit second confirmation (no accidental drops)</li>
 </ul>
 <h3 id="requirement-scenario-id-constraints">Requirement: Scenario ID Constraints<a class="headerlink" href="#requirement-scenario-id-constraints" title="Permanent link">&para;</a></h3>
+<p>Scenario IDs SHALL be constrained as follows.</p>
 <h4 id="scenario-live-is-reserved">Scenario: LIVE is reserved<a class="headerlink" href="#scenario-live-is-reserved" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service attempts to register a scenario with <code>scenarioId = "LIVE"</code></li>
@@ -1215,9 +1273,9 @@
   <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;scenarioName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;human-readable&gt;&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;paused&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;archived&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;deleted&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;market&quot;</span><span class="p">:</span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;world&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;act&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;hyp&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;universe&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;portfolio&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;world&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;act&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;hyp&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;strategy&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;world&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;act&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;hyp&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string?&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;market&quot;</span><span class="p">:</span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;world&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;act&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;hyp.&lt;name&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;universe&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;portfolio&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;world&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;act&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;hyp.&lt;name&gt;&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;strategy&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;world&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;act&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;hyp.&lt;name&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string?&quot;</span><span class="w"> </span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;rfc3339&gt;&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;updatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;rfc3339&gt;&quot;</span>
 <span class="p">}</span>
@@ -1237,6 +1295,7 @@
 <li><strong>AND</strong> if present, it SHALL NOT modify the entry (LIVE is reserved; updates require elevated role)</li>
 </ul>
 <h3 id="requirement-scenario-lookup">Requirement: Scenario Lookup<a class="headerlink" href="#requirement-scenario-lookup" title="Permanent link">&para;</a></h3>
+<p>Consumers SHALL resolve a scenario ID to its triplet via the registry, not by any other means.</p>
 <h4 id="scenario-resolve-scenario-id-to-triplet">Scenario: Resolve scenario ID to triplet<a class="headerlink" href="#scenario-resolve-scenario-id-to-triplet" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a consumer needs the triplet for a <code>scenarioId</code></li>
@@ -1279,11 +1338,14 @@ is pure infrastructure and SHALL NOT carry domain logic.</p>
 <li><strong>AND</strong> step 3 depends on the deployed Dapr state-store component supporting the query API — if unsupported, the caller SHALL fall back to tracking <code>sc.&lt;scenarioId&gt;.*</code> keys via its own index rather than assuming <code>QueryState</code> succeeds</li>
 </ul>
 <h3 id="requirement-no-pre-publish-scenario-state-validation">Requirement: No Pre-Publish Scenario-State Validation<a class="headerlink" href="#requirement-no-pre-publish-scenario-state-validation" title="Permanent link">&para;</a></h3>
-<p>See <a href="../pubsub-topics/spec.md#requirement-no-topic-or-scenario-state-validation-anywhere">Pub/Sub Topics spec §No Topic or Scenario-State Validation Anywhere</a>: no service validates topic shape or scenario registration/lifecycle status before publish. <code>scenario.&lt;scenarioId&gt;</code> lookups (see Scenario Lookup above) are for consumers resolving a triplet's meaning, not a pre-publish gate.</p>
+<p>No service SHALL validate a scenario's registration or lifecycle status before publishing to its <code>sc.&lt;scenarioId&gt;.*</code> topics — see <a href="../pubsub-topics/spec.md#requirement-no-topic-or-scenario-state-validation-anywhere">Pub/Sub Topics spec §No Topic or Scenario-State Validation Anywhere</a>. <code>scenario.&lt;scenarioId&gt;</code> lookups (see Scenario Lookup above) are for consumers resolving a triplet's meaning, not a pre-publish gate.</p>
+<h4 id="scenario-publish-to-an-unregistered-or-non-active-scenario">Scenario: Publish to an unregistered or non-active scenario<a class="headerlink" href="#scenario-publish-to-an-unregistered-or-non-active-scenario" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service publishes to <code>sc.&lt;scenarioId&gt;.*</code> for a <code>scenarioId</code> that is unregistered, paused, archived, or deleted</li>
+<li><strong>THEN</strong> the publish SHALL proceed unconditionally — the registry is a lookup for consumers, not a publish-time gate</li>
+</ul>
 <h3 id="requirement-universe-naming">Requirement: Universe Naming<a class="headerlink" href="#requirement-universe-naming" title="Permanent link">&para;</a></h3>
-<p>Universes name data universes for market data, whether <code>act</code> or <code>hyp</code>. They
-appear in <code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> / <code>hyp.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code>
-topics AND in the <code>market.universe</code> envelope extension.</p>
+<p>Universes SHALL name data universes for market data, whether <code>act</code> or <code>hyp.&lt;name&gt;</code>. They appear in <code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> / <code>hyp.&lt;name&gt;.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> topics AND in the <code>market.universe</code> envelope extension.</p>
 <h4 id="scenario-universe-format">Scenario: Universe format<a class="headerlink" href="#scenario-universe-format" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service defines a new data universe</li>
@@ -1296,6 +1358,20 @@ topics AND in the <code>market.universe</code> envelope extension.</p>
 <li><strong>THEN</strong> the universe SHALL identify the data universe (in <code>market.universe</code>)</li>
 <li><strong>AND</strong> the scenario ID SHALL identify the scenario (in <code>scenarioid</code>)</li>
 <li><strong>AND</strong> one universe MAY back many scenario IDs (e.g., <code>EQ_2008_2009</code> for backtests with different strategies, or <code>ALL</code> for every LIVE-derived scenario)</li>
+</ul>
+<h3 id="requirement-named-hypothetical-worlds">Requirement: Named Hypothetical Worlds<a class="headerlink" href="#requirement-named-hypothetical-worlds" title="Permanent link">&para;</a></h3>
+<p>A hypothetical <code>world</code> value SHALL always name a specific hypothetical reality: <code>hyp.&lt;name&gt;</code>, where <code>&lt;name&gt;</code> matches <code>^[A-Z0-9_]{1,32}$</code> (same format as scenario IDs and universes). Bare <code>"hyp"</code> SHALL NOT be assigned as a <code>world</code> value anywhere — not a triplet leg, not a topic segment, not an envelope extension. Bare <code>hyp</code> denotes the <em>category</em> of all hypothetical worlds (every <code>world</code> starting with <code>hyp.</code>), useful only for documentation and wildcard subscriptions, never a concrete value.</p>
+<p><code>&lt;name&gt;</code> is independent of <code>universe</code> and of <code>scenarioId</code>: it does not need to be registered anywhere, is not looked up via the scenario registry, and carries no implicit relationship to any specific scenario. One <code>hyp.&lt;name&gt;</code> world MAY pair with many different universes and back many different scenario IDs, exactly as one <code>universe</code> already MAY back many scenario IDs (see Requirement: Universe Naming).</p>
+<h4 id="scenario-naming-a-stress-test-world">Scenario: Naming a stress-test world<a class="headerlink" href="#scenario-naming-a-stress-test-world" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service defines a hypothetical world for a stress-testing campaign</li>
+<li><strong>THEN</strong> the world SHALL be named e.g. <code>hyp.STRESS</code></li>
+<li><strong>AND</strong> it MAY be paired with any universe, e.g. <code>{ world: "hyp.STRESS", universe: "EQUITY" }</code> or <code>{ world: "hyp.STRESS", universe: "FX" }</code> — both are valid, distinct market legs sharing the same named world</li>
+</ul>
+<h4 id="scenario-bare-hyp-is-rejected-as-a-value">Scenario: Bare hyp is rejected as a value<a class="headerlink" href="#scenario-bare-hyp-is-rejected-as-a-value" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a service attempts to register a scenario or publish a topic with a bare <code>world: "hyp"</code> (no name)</li>
+<li><strong>THEN</strong> this SHALL be treated as a spec violation — <code>hyp</code> alone identifies a category, not a world</li>
 </ul>
 
 
@@ -1328,7 +1404,7 @@ topics AND in the <code>market.universe</code> envelope extension.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-27T02:23:40Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-28T11:21:09Z</span>
 </div>
 
     </div>
