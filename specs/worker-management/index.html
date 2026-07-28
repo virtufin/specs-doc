@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/25ac8b929c1ba5b04cef52d831c4d58954b41889"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/f52854f6ec97ba128b01613348f639136fb3f538"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 25ac8b9">
+       title="View commit f52854f">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">25ac8b9</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">f52854f</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/25ac8b929c1ba5b04cef52d831c4d58954b41889"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/f52854f6ec97ba128b01613348f639136fb3f538"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 25ac8b9">
+       title="View commit f52854f">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">25ac8b9</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">f52854f</text>
       </svg>
     </a>
 </div>
@@ -847,6 +847,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Cross-Instance Coordination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-message-lands-on-a-replica-with-no-matching-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Message lands on a replica with no matching worker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2232,6 +2249,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Requirement: Cross-Instance Coordination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-message-lands-on-a-replica-with-no-matching-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Message lands on a replica with no matching worker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3231,8 +3265,14 @@
 <li><strong>THEN</strong> they SHALL be processed concurrently (the engine's <code>ProcessAsync</code> is re-entrant; the worker author is responsible for internal synchronization)</li>
 </ul>
 <h3 id="requirement-cross-instance-coordination">Requirement: Cross-Instance Coordination<a class="headerlink" href="#requirement-cross-instance-coordination" title="Permanent link">&para;</a></h3>
-<p>For topics with multiple WorkManager instances, Dapr competing consumers SHALL be used as the coordination primitive. When multiple replicas share a Dapr app-id, Dapr's consumer group semantics deliver each published message to exactly one instance — the instances compete, they do not load-share. Messages delivered to an instance that has no matching worker registered for the topic SHALL be dropped (<code>TopicResponseAction.Drop</code>).</p>
+<p>For topics with multiple WorkManager instances, Dapr competing consumers SHALL be used as the coordination primitive. When multiple replicas share a Dapr app-id, Dapr's consumer group semantics deliver each published message to exactly one instance — the instances compete, they do not load-share. Messages delivered to an instance that has no matching worker registered for the topic SHALL be dropped, acked with no redelivery (an explicit business-logic skip per the Pub/Sub Topics spec's "Retry Policy on Dapr Subscribe Exceptions" requirement, not a processing failure).</p>
 <p>This model replaces the prior distributed-lock approach (removed in LIBRARY_VERSION 0.2.5). The lock-based group coordination (<code>GroupLockOptions</code>, <code>LockContentionException</code>, <code>AcquireGroupLockAsync</code>, <code>ReleaseGroupLockAsync</code>, <code>VIRTUFIN_WORKER_GROUP</code>) is no longer supported. Operators MUST NOT deploy multiple WM replicas expecting throughput scaling on a single topic — the competing-consumer model ensures exactly-once delivery at the process level, not thread-pool parallelism.</p>
+<h4 id="scenario-message-lands-on-a-replica-with-no-matching-worker">Scenario: Message lands on a replica with no matching worker<a class="headerlink" href="#scenario-message-lands-on-a-replica-with-no-matching-worker" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> Dapr's competing-consumer delivery routes a message to a WorkManager instance that has no worker registered for that topic</li>
+<li><strong>THEN</strong> the message SHALL be dropped and acked with no redelivery (an explicit business-logic skip, not a processing failure)</li>
+<li><strong>AND</strong> no automatic re-routing to a replica that does have a matching worker SHALL occur</li>
+</ul>
 <h3 id="requirement-worker-code-sources">Requirement: Worker Code Sources<a class="headerlink" href="#requirement-worker-code-sources" title="Permanent link">&para;</a></h3>
 <p>Workers SHALL accept code from inline Base64-encoded content or from HTTP(S) URLs. URL-based sources SHALL be validated against SSRF and host allowlist constraints as defined in the cross-cutting security requirements.</p>
 <h4 id="scenario-inline-code-worker">Scenario: Inline code worker<a class="headerlink" href="#scenario-inline-code-worker" title="Permanent link">&para;</a></h4>
@@ -3628,7 +3668,7 @@ filename based on <code>RuntimeInformation.IsOSPlatform</code>.</p>
 <li><strong>WHEN</strong> two WorkManager replicas both run a worker for topic <code>orders</code></li>
 <li><strong>THEN</strong> each message published to <code>orders</code> is delivered to exactly one of the two replicas (competing consumers at the Dapr layer)</li>
 <li><strong>AND</strong> the worker that wins the message processes it; the worker on the other replica receives nothing for that message</li>
-<li><strong>AND</strong> there is NO automatic re-routing — a message that lands on a replica with no matching local worker is <strong>dropped</strong> at the WM layer (<code>TopicResponseAction.Drop</code>)</li>
+<li><strong>AND</strong> there is NO automatic re-routing — a message that lands on a replica with no matching local worker is <strong>dropped</strong> at the WM layer, acked with no redelivery (an explicit business-logic skip, not a processing failure)</li>
 </ul>
 <h4 id="scenario-hot-swap-within-a-topic">Scenario: Hot-swap within a topic<a class="headerlink" href="#scenario-hot-swap-within-a-topic" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3693,7 +3733,7 @@ filename based on <code>RuntimeInformation.IsOSPlatform</code>.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-28T11:21:09Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-28T20:24:45Z</span>
 </div>
 
     </div>
