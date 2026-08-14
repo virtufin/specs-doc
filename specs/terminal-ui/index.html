@@ -1,0 +1,2624 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Specifications for the Virtufin microservices platform">
+      
+      
+      
+        <link rel="canonical" href="https://specs.docs.virtufin.com/specs/terminal-ui/">
+      
+      
+        <link rel="prev" href="../client-testing/">
+      
+      
+        <link rel="next" href="../deployment/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Terminal UI - Virtufin Platform Specifications</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#purpose" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Virtufin Platform Specifications" class="md-header__button md-logo" aria-label="Virtufin Platform Specifications" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Virtufin Platform Specifications
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Terminal UI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <div class="md-source-wrapper">
+  <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec" title="Go to repository" class="md-source-repo-link">
+    <div class="md-source__icon md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    </div>
+    <span class="md-source__repository">virtufin/virtufin-openspec</span>
+  </a>
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/f551e2b4f5d06950897ef5612c3130e6e5f79b88"
+       class="md-source-commit-badge"
+       target="_blank"
+       rel="noopener"
+       title="View commit f551e2b">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
+        <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">f551e2b</text>
+      </svg>
+    </a>
+</div>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cross-cutting/" class="md-tabs__link">
+          
+  
+  
+  Specifications
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Virtufin Platform Specifications" class="md-nav__button md-logo" aria-label="Virtufin Platform Specifications" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    Virtufin Platform Specifications
+  </label>
+  
+    <div class="md-nav__source">
+      <div class="md-source-wrapper">
+  <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec" title="Go to repository" class="md-source-repo-link">
+    <div class="md-source__icon md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    </div>
+    <span class="md-source__repository">virtufin/virtufin-openspec</span>
+  </a>
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/f551e2b4f5d06950897ef5612c3130e6e5f79b88"
+       class="md-source-commit-badge"
+       target="_blank"
+       rel="noopener"
+       title="View commit f551e2b">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
+        <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">f551e2b</text>
+      </svg>
+    </a>
+</div>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specifications
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specifications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cross-cutting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-cutting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pubsub-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pub/Sub Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../worker-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worker Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../websocket-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Client Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal UI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal UI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirement-multi-context-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Multi-Context Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Multi-Context Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-first-run-with-no-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: First-run with no config file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-env-var-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Env var override
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-switch-context-mid-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Switch context mid-session
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-client-access-via-grpc-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Client Access via gRPC Reflection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Client Access via gRPC Reflection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-list-workers-via-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: List workers via reflection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-one-descriptor-pool-per-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: One descriptor pool per service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-worker-operations-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Worker Operations Surface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Worker Operations Surface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-create-a-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Create a worker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-set-a-tag-with-undo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Set a tag with undo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-delete-with-confirmation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Delete with confirmation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-worker-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Worker detail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-websocket-connection-operations-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: WebSocket Connection Operations Surface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: WebSocket Connection Operations Surface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-connect-to-a-new-websocket-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Connect to a new WebSocket URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-send-a-raw-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Send a raw message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-start-and-stop-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Start and stop publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-disconnect-is-not-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Disconnect is not delete
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-live-cloudevent-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Live CloudEvent Streaming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Live CloudEvent Streaming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-events-flow-into-the-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Events flow into the log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-change-subscribed-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Change subscribed topics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-reconnect-on-grpc-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Reconnect on gRPC failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-world-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: World Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: World Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-connect-a-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Connect a world
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-compose-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Compose worlds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-replay-handshake-on-reconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Replay handshake on reconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-strategy-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Strategy Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Strategy Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-create-an-atomic-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Create an atomic strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-compose-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Compose strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-scenario-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Scenario Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Scenario Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-add-a-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Add a scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-set-the-active-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Set the active scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-delete-a-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Delete a scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-state-and-service-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: State and Service Browser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: State and Service Browser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-browse-services-and-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Browse services and methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-worker-registry-and-schema-driven-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Worker Registry and Schema-Driven Creation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Worker Registry and Schema-Driven Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-create-a-worker-from-the-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Create a worker from the registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-inline-or-versioned-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Inline or versioned source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-trigger-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Trigger Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Trigger Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-schedule-a-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Schedule a trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-ai-assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: AI Assistant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: AI Assistant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-provider-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Provider resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-tool-execution-never-raises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Tool execution never raises
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-custom-pane-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Custom Pane Extension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Custom Pane Extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-discover-panes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Discover panes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-dashboard-and-pane-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Dashboard and Pane Layout
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Dashboard and Pane Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-default-pane-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Default pane order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-pane-migration-preserves-user-edits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Pane migration preserves user edits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-keyboard-dispatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Keyboard Dispatch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Keyboard Dispatch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-page-conditional-bindings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Page-conditional bindings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-distribution-as-a-single-python-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Distribution as a Single Python Package
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Distribution as a Single Python Package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-uvx-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: uvx run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-pinned-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Pinned version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ci-cd-tooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirement-multi-context-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Multi-Context Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Multi-Context Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-first-run-with-no-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: First-run with no config file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-env-var-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Env var override
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-switch-context-mid-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Switch context mid-session
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-client-access-via-grpc-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Client Access via gRPC Reflection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Client Access via gRPC Reflection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-list-workers-via-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: List workers via reflection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-one-descriptor-pool-per-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: One descriptor pool per service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-worker-operations-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Worker Operations Surface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Worker Operations Surface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-create-a-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Create a worker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-set-a-tag-with-undo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Set a tag with undo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-delete-with-confirmation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Delete with confirmation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-worker-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Worker detail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-websocket-connection-operations-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: WebSocket Connection Operations Surface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: WebSocket Connection Operations Surface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-connect-to-a-new-websocket-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Connect to a new WebSocket URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-send-a-raw-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Send a raw message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-start-and-stop-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Start and stop publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-disconnect-is-not-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Disconnect is not delete
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-live-cloudevent-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Live CloudEvent Streaming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Live CloudEvent Streaming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-events-flow-into-the-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Events flow into the log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-change-subscribed-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Change subscribed topics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-reconnect-on-grpc-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Reconnect on gRPC failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-world-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: World Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: World Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-connect-a-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Connect a world
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-compose-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Compose worlds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-replay-handshake-on-reconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Replay handshake on reconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-strategy-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Strategy Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Strategy Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-create-an-atomic-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Create an atomic strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-compose-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Compose strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-scenario-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Scenario Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Scenario Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-add-a-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Add a scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-set-the-active-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Set the active scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-delete-a-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Delete a scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-state-and-service-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: State and Service Browser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: State and Service Browser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-browse-services-and-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Browse services and methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-worker-registry-and-schema-driven-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Worker Registry and Schema-Driven Creation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Worker Registry and Schema-Driven Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-create-a-worker-from-the-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Create a worker from the registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-inline-or-versioned-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Inline or versioned source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-trigger-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Trigger Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Trigger Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-schedule-a-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Schedule a trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-ai-assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: AI Assistant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: AI Assistant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-provider-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Provider resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-tool-execution-never-raises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Tool execution never raises
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-custom-pane-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Custom Pane Extension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Custom Pane Extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-discover-panes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Discover panes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-dashboard-and-pane-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Dashboard and Pane Layout
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Dashboard and Pane Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-default-pane-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Default pane order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-pane-migration-preserves-user-edits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Pane migration preserves user edits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-keyboard-dispatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Keyboard Dispatch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Keyboard Dispatch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-page-conditional-bindings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Page-conditional bindings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirement-distribution-as-a-single-python-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirement: Distribution as a Single Python Package
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirement: Distribution as a Single Python Package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-uvx-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: uvx run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-pinned-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Pinned version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Terminal UI</h1>
+
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
+<p>The Terminal UI (<code>virtufin-tui</code>) is a Textual-based Python operator dashboard for the Virtufin control plane. It is a <strong>pure consumer</strong> of the existing <code>virtufin-api</code> gRPC surface — it runs no service-side code, adds no proto messages, and requires no service changes. It fills the operator role that <code>kubectl</code> plays for Kubernetes: interactive worker / connection / state / event management over a remote <code>virtufin-api</code> endpoint, with live CloudEvent streaming, multi-context switching, and an AI assistant.</p>
+<p><strong>Related specs:</strong>
+- <a href="../cross-cutting/spec.md">Cross-cutting</a> — API-mediated pub/sub rule (the TUI talks only to <code>virtufin-api</code>, never Dapr directly).
+- <a href="../pubsub-topics/spec.md">Pub/Sub Topics</a> — the CloudEvent envelope and topic taxonomy the TUI's event log renders.
+- <a href="../scenarios/spec.md">Scenarios</a> — the scenario registry triplet the TUI's scenario page edits.
+- <a href="../worker-management/spec.md">Worker Management</a> — worker lifecycle, tags, and creation-time config the TUI drives.
+- <a href="../websocket-proxy/spec.md">WebSocket Proxy</a> — connection lifecycle, tags, and publishing the TUI drives.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<h3 id="requirement-multi-context-configuration">Requirement: Multi-Context Configuration<a class="headerlink" href="#requirement-multi-context-configuration" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL read its endpoint configuration from a TOML file under the
+XDG config directory (<code>~/.config/virtufin/api/contexts.toml</code> on Linux/macOS,
+<code>%APPDATA%\virtufin\api\contexts.toml</code> on Windows). The file SHALL contain a
+<code>[[contexts]]</code> array; each entry MUST have <code>name</code>, <code>api_host</code>, <code>api_port</code>
+fields and MAY have <code>tls</code> (bool), <code>api_key</code>, <code>default_worker_topic</code>,
+<code>worker_api_host</code>, <code>worker_api_port</code>, <code>description</code>, and <code>event_topics</code>
+(default <code>["state.change"]</code>).</p>
+<p>The <strong>active context is state, not config</strong>: it SHALL be persisted separately
+at <code>~/.local/state/virtufin/api/state.toml</code> (mode <code>0600</code>). The TUI SHALL keep
+the catalog-of-contexts vs. active-selection split for every user setting it
+persists (contexts, LLM providers, themes, event topics). Active-context
+resolution order SHALL be: CLI <code>--context</code> flag → <code>$VIRTUFIN_TUI_CONTEXT</code>
+env var → persisted state file → first entry in the file.</p>
+<p>Environment variables <code>VIRTUFIN_TUI_API_HOST</code> and <code>VIRTUFIN_TUI_API_PORT</code>
+SHALL override the active context's host/port in memory when set.</p>
+<h4 id="scenario-first-run-with-no-config-file">Scenario: First-run with no config file<a class="headerlink" href="#scenario-first-run-with-no-config-file" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user runs <code>virtufin-tui</code> and no <code>contexts.toml</code> exists</li>
+<li><strong>THEN</strong> the TUI SHALL seed shipped default configs into <code>~/.config/virtufin/</code></li>
+<li><strong>AND</strong> SHALL NOT overwrite existing files (seeded files are mode <code>0600</code>)</li>
+</ul>
+<h4 id="scenario-env-var-override">Scenario: Env var override<a class="headerlink" href="#scenario-env-var-override" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> <code>VIRTUFIN_TUI_API_HOST=staging.virtufin.com</code> and <code>VIRTUFIN_TUI_API_PORT=5002</code> are exported</li>
+<li><strong>THEN</strong> the TUI SHALL use those values for the active context, regardless of what is in <code>contexts.toml</code></li>
+</ul>
+<h4 id="scenario-switch-context-mid-session">Scenario: Switch context mid-session<a class="headerlink" href="#scenario-switch-context-mid-session" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user selects a different context from the config page</li>
+<li><strong>THEN</strong> the TUI SHALL tear down the existing gRPC channel, DataPump tasks, and event subscription</li>
+<li><strong>AND</strong> SHALL rebuild the client and restart polling/subscription against the new context</li>
+</ul>
+<h3 id="requirement-client-access-via-grpc-reflection">Requirement: Client Access via gRPC Reflection<a class="headerlink" href="#requirement-client-access-via-grpc-reflection" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL invoke control-plane RPCs without vendored proto stubs, using
+the API gateway's reflection RPCs (<code>get_file_descriptor_protos_async</code>) to load
+message descriptors at runtime. Each backend service SHALL get its own
+<code>DescriptorPool</code> (pools SHALL NOT be shared — <code>workmanager.proto</code> and
+<code>websocketmanager.proto</code> both declare <code>package virtufin</code> with identically-
+named messages). Repeated-message RPCs (<code>ListWorkers</code>, <code>List</code>, etc.) SHALL be
+invoked via the raw reflection path, since grpc-gateway's JSON transcode does
+not cover them.</p>
+<h4 id="scenario-list-workers-via-reflection">Scenario: List workers via reflection<a class="headerlink" href="#scenario-list-workers-via-reflection" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the TUI polls the workers table</li>
+<li><strong>THEN</strong> it SHALL call <code>WorkManager.ListWorkers</code> through the reflection pipeline (<code>invoke_raw_async</code>), decoding the response from the dynamically-loaded message class</li>
+</ul>
+<h4 id="scenario-one-descriptor-pool-per-service">Scenario: One descriptor pool per service<a class="headerlink" href="#scenario-one-descriptor-pool-per-service" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the TUI loads descriptors for <code>workmanager</code> and <code>websocketmanager</code></li>
+<li><strong>THEN</strong> it SHALL build a separate <code>DescriptorPool</code> per service</li>
+<li><strong>AND</strong> SHALL NOT share pools between services with colliding <code>package virtufin</code> symbols</li>
+</ul>
+<h3 id="requirement-worker-operations-surface">Requirement: Worker Operations Surface<a class="headerlink" href="#requirement-worker-operations-surface" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL expose worker CRUD, tagging, and lifecycle operations through
+the keyboard. List/detail/create/tag/start/stop/delete SHALL be backed by the
+WorkManager RPCs (<code>ListWorkers</code>, <code>GetTags</code>, <code>GetWorkerHistory</code>, <code>CreateWorker</code>,
+<code>SetTag</code>, <code>StartWorker</code>, <code>StopWorker</code>, <code>DeleteWorker</code>). Destructive actions
+(delete) SHALL require a confirmation modal. Tag changes SHALL be undoable for
+2 seconds after the change.</p>
+<h4 id="scenario-create-a-worker">Scenario: Create a worker<a class="headerlink" href="#scenario-create-a-worker" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user invokes the new-worker flow and submits a worker with MIME type, topic, code source, and tags</li>
+<li><strong>THEN</strong> the TUI SHALL call <code>CreateWorker</code> and the new worker SHALL appear in the workers table on the next poll</li>
+</ul>
+<h4 id="scenario-set-a-tag-with-undo">Scenario: Set a tag with undo<a class="headerlink" href="#scenario-set-a-tag-with-undo" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user sets a tag on a worker</li>
+<li><strong>THEN</strong> the TUI SHALL call <code>SetTag</code>, display an undo hint for 2 seconds, and undoing SHALL restore the prior value via <code>SetTag</code></li>
+</ul>
+<h4 id="scenario-delete-with-confirmation">Scenario: Delete with confirmation<a class="headerlink" href="#scenario-delete-with-confirmation" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user invokes the delete action on a worker</li>
+<li><strong>THEN</strong> the TUI SHALL show a confirmation modal; on confirm it SHALL call <code>DeleteWorker</code>; on cancel no action is taken</li>
+</ul>
+<h4 id="scenario-worker-detail">Scenario: Worker detail<a class="headerlink" href="#scenario-worker-detail" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user opens a worker's detail popover</li>
+<li><strong>THEN</strong> the TUI SHALL aggregate <code>GetTags</code> + <code>GetWorkerHistory</code> + the creation-time config from the latest <code>ListWorkers</code> pass (config is immutable after creation; there is no dedicated get-config RPC)</li>
+</ul>
+<h3 id="requirement-websocket-connection-operations-surface">Requirement: WebSocket Connection Operations Surface<a class="headerlink" href="#requirement-websocket-connection-operations-surface" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL expose WebSocket connection management through the keyboard,
+backed by the WebSocketManager RPCs (<code>List</code>, <code>GetTags</code>, <code>SetTag</code>, <code>Connect</code>,
+<code>Disconnect</code>, <code>SendRaw</code>, <code>StartPublish</code>, <code>StopPublish</code>). <code>SendRaw</code> SHALL
+base64-encode the message body (the proto <code>bytes</code> field requires base64 in the
+JSON mapping). Tag changes SHALL be undoable for 2 seconds.</p>
+<h4 id="scenario-connect-to-a-new-websocket-url">Scenario: Connect to a new WebSocket URL<a class="headerlink" href="#scenario-connect-to-a-new-websocket-url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user invokes the connect action with a URL and auto-reconnect preference</li>
+<li><strong>THEN</strong> the TUI SHALL call <code>Connect</code> and the new connection SHALL appear in the connections table on the next poll</li>
+</ul>
+<h4 id="scenario-send-a-raw-message">Scenario: Send a raw message<a class="headerlink" href="#scenario-send-a-raw-message" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user sends a JSON message to a connection</li>
+<li><strong>THEN</strong> the TUI SHALL base64-encode the body and call <code>SendRaw(conn_id, message, content_type)</code></li>
+</ul>
+<h4 id="scenario-start-and-stop-publishing">Scenario: Start and stop publishing<a class="headerlink" href="#scenario-start-and-stop-publishing" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user starts or stops publishing on a connection</li>
+<li><strong>THEN</strong> the TUI SHALL call <code>StartPublish(conn_id, topic)</code> or <code>StopPublish(conn_id)</code></li>
+<li><strong>AND</strong> the server-side <code>topic</code> field is the authoritative publishing signal</li>
+</ul>
+<h4 id="scenario-disconnect-is-not-delete">Scenario: Disconnect is not delete<a class="headerlink" href="#scenario-disconnect-is-not-delete" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user disconnects a connection</li>
+<li><strong>THEN</strong> the TUI SHALL call <code>Disconnect</code> (the socket closes, but the record MAY reappear if auto-reconnect is enabled — there is no true delete in the websocket service)</li>
+</ul>
+<h3 id="requirement-live-cloudevent-streaming">Requirement: Live CloudEvent Streaming<a class="headerlink" href="#requirement-live-cloudevent-streaming" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL subscribe to <code>Pubsub.Subscribe</code> (the sole subscribe RPC) and
+append incoming CloudEvents to the events log. The subscription SHALL be
+parameterized by the context's <code>event_topics</code> (user-editable, persisted to TUI
+state). On subscription failure the TUI SHALL retry with exponential backoff
+(1s → 30s cap) and SHALL NOT replay missed events on reconnect. The event log
+SHALL be a bounded append-only buffer (500 events) with a running total counter.</p>
+<h4 id="scenario-events-flow-into-the-log">Scenario: Events flow into the log<a class="headerlink" href="#scenario-events-flow-into-the-log" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the TUI is connected and a CloudEvent is received on a subscribed topic</li>
+<li><strong>THEN</strong> the event SHALL appear at the bottom of the events log, pretty-printed (type/source/id/topic/time + decoded payload)</li>
+</ul>
+<h4 id="scenario-change-subscribed-topics">Scenario: Change subscribed topics<a class="headerlink" href="#scenario-change-subscribed-topics" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user adds or removes topics via the events page</li>
+<li><strong>THEN</strong> the TUI SHALL restart the subscription immediately with the new topic set</li>
+<li><strong>AND</strong> SHALL persist the new topic set to TUI state</li>
+</ul>
+<h4 id="scenario-reconnect-on-grpc-failure">Scenario: Reconnect on gRPC failure<a class="headerlink" href="#scenario-reconnect-on-grpc-failure" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the subscription drops</li>
+<li><strong>THEN</strong> the TUI SHALL retry with exponential backoff (1s → 30s cap) and surface a backoff status; the event log SHALL be preserved across reconnects</li>
+</ul>
+<h3 id="requirement-world-management">Requirement: World Management<a class="headerlink" href="#requirement-world-management" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL manage market-data "worlds" as named abstractions over WebSocket
+connections. An <strong>atomic world</strong> SHALL be a connection tagged <code>world=&lt;name&gt;</code>;
+a <strong>composite world</strong> SHALL be a <code>statestore.world.&lt;name&gt;</code> entry listing
+component worlds (with DFS cycle detection before saving). World definitions
+SHALL be loadable from per-file TOML configs under
+<code>~/.config/virtufin/tui/worlds/*.toml</code>, each of <code>type</code> <code>"websocket"</code> (with
+<code>ws_url</code>, optional <code>handshake</code> steps, <code>reconnect</code>) or <code>"script"</code> (with
+<code>script</code>, <code>execution_trigger</code>, <code>execution_function</code>, <code>return_type</code>).</p>
+<p>The canonical world-open sequence SHALL be: connect → tag
+(<code>world</code>/<code>universe</code>/<code>world_source</code>) → wait for connected → replay handshake →
+start publish → tag <code>publishing</code> → persist.</p>
+<h4 id="scenario-connect-a-world">Scenario: Connect a world<a class="headerlink" href="#scenario-connect-a-world" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user connects a world config</li>
+<li><strong>THEN</strong> the TUI SHALL run the canonical open sequence and tag the connection with <code>world</code>, <code>universe</code>, and <code>world_source</code></li>
+</ul>
+<h4 id="scenario-compose-worlds">Scenario: Compose worlds<a class="headerlink" href="#scenario-compose-worlds" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user composes two or more worlds into a composite</li>
+<li><strong>THEN</strong> the TUI SHALL persist <code>statestore.world.&lt;name&gt;</code> with its component list</li>
+<li><strong>AND</strong> SHALL reject a composition that would create a cycle</li>
+</ul>
+<h4 id="scenario-replay-handshake-on-reconnect">Scenario: Replay handshake on reconnect<a class="headerlink" href="#scenario-replay-handshake-on-reconnect" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a world connection transitions from <code>reconnecting</code> to <code>connected</code></li>
+<li><strong>THEN</strong> the TUI SHALL replay the world's handshake (WebSocketManager never resends a handshake, initial or on reconnect)</li>
+</ul>
+<h3 id="requirement-strategy-management">Requirement: Strategy Management<a class="headerlink" href="#requirement-strategy-management" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL manage strategies as named abstractions. An <strong>atomic strategy</strong>
+SHALL be a worker tagged <code>type=&lt;name&gt;</code> (derived — no state entry); a
+<strong>composite strategy</strong> SHALL be a <code>statestore.strategy.&lt;name&gt;</code> entry listing
+component strategies (with DFS cycle detection before saving). Creating an
+atomic strategy SHALL create a worker and tag it with <code>type</code> and <code>source</code>.</p>
+<h4 id="scenario-create-an-atomic-strategy">Scenario: Create an atomic strategy<a class="headerlink" href="#scenario-create-an-atomic-strategy" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user creates an atomic strategy</li>
+<li><strong>THEN</strong> the TUI SHALL create a worker and tag it with the strategy <code>type</code> and <code>source</code></li>
+</ul>
+<h4 id="scenario-compose-strategies">Scenario: Compose strategies<a class="headerlink" href="#scenario-compose-strategies" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user composes strategies</li>
+<li><strong>THEN</strong> the TUI SHALL persist <code>statestore.strategy.&lt;name&gt;</code> with its component list and reject cycles</li>
+</ul>
+<h3 id="requirement-scenario-management">Requirement: Scenario Management<a class="headerlink" href="#requirement-scenario-management" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL edit the scenario registry (per the <a href="../scenarios/spec.md">Scenarios spec</a>)
+via the state store at <code>scenario.&lt;SCENARIO_ID&gt;</code> with the <code>scenario.index</code> set.
+<code>LIVE</code> SHALL be reserved (bootstrapped once at app startup, non-fatal on
+failure) and rejected as a user-supplied ID. Scenario IDs SHALL match
+<code>^[A-Z0-9_]{1,32}$</code>. Deletion SHALL require a double confirmation and SHALL
+mark <code>deleted</code>, drop the index entry, and purge the registry.</p>
+<h4 id="scenario-add-a-scenario">Scenario: Add a scenario<a class="headerlink" href="#scenario-add-a-scenario" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user adds a scenario with market/portfolio/strategy legs</li>
+<li><strong>THEN</strong> the TUI SHALL persist the triplet to <code>scenario.&lt;id&gt;</code> and add the ID to <code>scenario.index</code></li>
+<li><strong>AND</strong> SHALL reject <code>LIVE</code> and IDs not matching <code>^[A-Z0-9_]{1,32}$</code></li>
+</ul>
+<h4 id="scenario-set-the-active-scenario">Scenario: Set the active scenario<a class="headerlink" href="#scenario-set-the-active-scenario" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user activates a scenario</li>
+<li><strong>THEN</strong> the TUI SHALL set it active and refresh the trade status bar (which highlights when the active scenario is <code>LIVE</code>)</li>
+</ul>
+<h4 id="scenario-delete-a-scenario">Scenario: Delete a scenario<a class="headerlink" href="#scenario-delete-a-scenario" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user deletes a scenario</li>
+<li><strong>THEN</strong> the TUI SHALL require a double confirmation, then mark the entry <code>deleted</code>, remove it from <code>scenario.index</code>, and purge the registry entry</li>
+</ul>
+<h3 id="requirement-state-and-service-browser">Requirement: State and Service Browser<a class="headerlink" href="#requirement-state-and-service-browser" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL provide a service browser that enumerates registered services
+and methods via the gateway reflection RPCs (<code>ListServices</code>, <code>ListMethods</code>),
+renders a JSON input form, and dispatches invocation through the gateway's
+dynamic method dispatch. The browser SHALL expose raw JSON invocation only —
+it SHALL NOT attempt schema-driven form generation for arbitrary methods.</p>
+<h4 id="scenario-browse-services-and-methods">Scenario: Browse services and methods<a class="headerlink" href="#scenario-browse-services-and-methods" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user opens the service browser</li>
+<li><strong>THEN</strong> the TUI SHALL list services, then list a selected service's methods, and invoke a method by JSON payload</li>
+</ul>
+<h3 id="requirement-worker-registry-and-schema-driven-creation">Requirement: Worker Registry and Schema-Driven Creation<a class="headerlink" href="#requirement-worker-registry-and-schema-driven-creation" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL support creating workers from a declarative registry at
+<code>~/.config/virtufin/tui/workers.toml</code>. Each entry SHALL declare <code>name</code>,
+<code>mime_type</code>, <code>source_url</code> (templated with <code>{version}</code> or <code>{ref}</code>),
+<code>config_schema</code> (JSON Schema draft 2020-12), <code>versions</code>, and <code>authentication</code>.
+The new-worker flow SHALL render a form from <code>config_schema</code> (strings, integers,
+numbers, booleans, and enums; nested objects skipped with a warning). Source
+authentication SHALL resolve a <code>SourceCredential</code> (scheme <code>basic</code>/<code>bearer</code>) —
+<code>"virtufin"</code> SHALL resolve the org's server-resolved shared credential
+(<code>VIRTUFIN_REGISTRY_CREDENTIAL_NAME</code>), otherwise a named personal credential
+from <code>credentials.toml</code>.</p>
+<h4 id="scenario-create-a-worker-from-the-registry">Scenario: Create a worker from the registry<a class="headerlink" href="#scenario-create-a-worker-from-the-registry" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user picks a registered worker type</li>
+<li><strong>THEN</strong> the TUI SHALL render a form from <code>config_schema</code>, resolve the source credential, create the worker, and tag it <code>type</code> + <code>source</code></li>
+</ul>
+<h4 id="scenario-inline-or-versioned-source">Scenario: Inline or versioned source<a class="headerlink" href="#scenario-inline-or-versioned-source" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user supplies inline code, a relative file, a version dropdown, or a fixed URL as the code source</li>
+<li><strong>THEN</strong> the TUI SHALL build the <code>code_source</code> accordingly (inline content base64-encoded) and pass it to <code>CreateWorker</code></li>
+</ul>
+<h3 id="requirement-trigger-management">Requirement: Trigger Management<a class="headerlink" href="#requirement-trigger-management" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL list, schedule, and delete cron/point-in-time triggers via the
+TriggerService stubs (<code>ListTriggers</code>, <code>ScheduleTrigger</code>, <code>DeleteTrigger</code>). The
+schedule modal SHALL support both cron and point-in-time modes with name,
+target topic, schedule/due-time, repeat count, and TTL.</p>
+<h4 id="scenario-schedule-a-trigger">Scenario: Schedule a trigger<a class="headerlink" href="#scenario-schedule-a-trigger" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user schedules a trigger</li>
+<li><strong>THEN</strong> the TUI SHALL call <code>ScheduleTrigger</code> with the chosen cron or point-in-time parameters</li>
+</ul>
+<h3 id="requirement-ai-assistant">Requirement: AI Assistant<a class="headerlink" href="#requirement-ai-assistant" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL ship an AI chat tab that translates natural-language requests
+into control-plane operations via OpenAI-compatible tool calling. The agent
+logic SHALL be Textual-free (unit-testable) and SHALL have <strong>no privileged
+path</strong> — every tool SHALL map 1:1 to an existing <code>TuiClient</code>/<code>DataPump</code> call.
+The tool catalog SHALL include create/delete trigger, set event topics,
+create/start/stop worker, add/connect/remove world. The agent SHALL run a
+bounded loop (max 5 iterations) and SHALL never raise from tool execution
+(errors returned as <code>{"ok": false, "error": ...}</code> for the model).</p>
+<h4 id="scenario-provider-resolution">Scenario: Provider resolution<a class="headerlink" href="#scenario-provider-resolution" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the AI tab resolves a provider</li>
+<li><strong>THEN</strong> it SHALL check <code>VIRTUFIN_TUI_AI_PROVIDER</code> env → persisted default → first ready provider → none</li>
+<li><strong>AND</strong> SHALL show a configure state (disabled input) when no provider resolves</li>
+</ul>
+<h4 id="scenario-tool-execution-never-raises">Scenario: Tool execution never raises<a class="headerlink" href="#scenario-tool-execution-never-raises" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a tool call fails</li>
+<li><strong>THEN</strong> the TUI SHALL surface the error to the model as a structured result rather than raising</li>
+</ul>
+<h3 id="requirement-custom-pane-extension">Requirement: Custom Pane Extension<a class="headerlink" href="#requirement-custom-pane-extension" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL support user-defined panes dropped into
+<code>~/.config/virtufin/tui/panes/</code>. Two kinds SHALL be supported: a <strong>script +
+form</strong> pair (<code>&lt;name&gt;.py</code> + sibling <code>&lt;name&gt;.form.json</code>, run as a subprocess on
+submit) and a <strong>live widget</strong> pane (<code>&lt;name&gt;.py</code> defining a module-level <code>Pane</code>
+class with a <code>(stores, client, **kwargs)</code> constructor, mounted as a persistent
+page). Files matching neither pattern SHALL be skipped with a warning.</p>
+<h4 id="scenario-discover-panes">Scenario: Discover panes<a class="headerlink" href="#scenario-discover-panes" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the TUI resolves pane tabs</li>
+<li><strong>THEN</strong> it SHALL scan <code>~/.config/virtufin/tui/panes/</code> and map script+form pairs and live-widget classes to pages</li>
+</ul>
+<h3 id="requirement-dashboard-and-pane-layout">Requirement: Dashboard and Pane Layout<a class="headerlink" href="#requirement-dashboard-and-pane-layout" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL render a two-level tab layout (top-level tabs, per-tab sub-tabs)
+driven by an ordered pane spec. Built-in panes SHALL include <code>home</code>,
+<code>world</code>, <code>instruments</code>, <code>orderbook</code>, <code>portfolio</code>, <code>strategy</code>, <code>scenario</code>,
+<code>pnl</code>, <code>risk</code>, <code>workers</code>, <code>connections</code>, <code>scripts</code>, <code>triggers</code>, <code>events</code>,
+<code>config</code>, and <code>ai</code>. The layout SHALL be user-customizable and SHALL migrate
+newly-introduced default panes into existing user layouts without clobbering
+user removals (a <code>pane_order_version</code> stamp drives a one-time migration).
+Pages SHALL be <code>Widget</code> subclasses (not <code>Screen</code>s) mounted into a shared page
+body.</p>
+<h4 id="scenario-default-pane-order">Scenario: Default pane order<a class="headerlink" href="#scenario-default-pane-order" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the TUI starts with no pane customization</li>
+<li><strong>THEN</strong> the default order SHALL group trading panes (world, instruments, orderbook, portfolio, strategy, scenario, pnl, risk) under a <code>trading</code> tab and infra panes (workers, connections, scripts, triggers, events) under an <code>infra</code> tab</li>
+</ul>
+<h4 id="scenario-pane-migration-preserves-user-edits">Scenario: Pane migration preserves user edits<a class="headerlink" href="#scenario-pane-migration-preserves-user-edits" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a new default pane is introduced in a later release</li>
+<li><strong>THEN</strong> the migration SHALL insert it at its default position only if the user's <code>pane_order_version</code> is behind the new version</li>
+<li><strong>AND</strong> SHALL NOT re-add a pane the user previously removed</li>
+</ul>
+<h3 id="requirement-keyboard-dispatch">Requirement: Keyboard Dispatch<a class="headerlink" href="#requirement-keyboard-dispatch" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL expose per-page actions via a single dashboard binding table,
+with first-match-wins dispatch and footer visibility gated on whether the
+current page implements the action. Navigation SHALL support <code>right</code>/<code>left</code> to
+cycle top-level tabs (priority bindings) and <code>1</code>–<code>9</code> to switch sub-tabs.
+<code>?</code> SHALL show the help overlay; <code>q</code> SHALL quit.</p>
+<h4 id="scenario-page-conditional-bindings">Scenario: Page-conditional bindings<a class="headerlink" href="#scenario-page-conditional-bindings" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user presses a bound key on a page that does not implement the action</li>
+<li><strong>THEN</strong> the key SHALL be hidden from the footer help for that page</li>
+<li><strong>AND</strong> SHALL dispatch to the first matching action when present</li>
+</ul>
+<h3 id="requirement-distribution-as-a-single-python-package">Requirement: Distribution as a Single Python Package<a class="headerlink" href="#requirement-distribution-as-a-single-python-package" title="Permanent link">&para;</a></h3>
+<p>The TUI SHALL be distributed as a single pip-installable Python package built
+with hatchling, exposing a <code>virtufin-tui</code> console script entry point that calls
+<code>virtufin_tui.app:main</code>. It SHALL be runnable without installation via
+<code>uvx --from virtufin-tui virtufin-tui</code>. The package SHALL depend on
+<code>textual[syntax]</code>, <code>virtufin-api</code>, <code>grpcio</code>, <code>openai</code>, <code>pydantic</code>, and
+<code>tomlkit</code>. The version SHALL be pinned in <code>versions.env</code> as <code>LIBRARY_VERSION</code>.</p>
+<h4 id="scenario-uvx-run">Scenario: uvx run<a class="headerlink" href="#scenario-uvx-run" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> the user runs <code>uvx --from virtufin-tui virtufin-tui</code></li>
+<li><strong>THEN</strong> the TUI SHALL launch against the active context (or the config page if none is configured)</li>
+</ul>
+<h4 id="scenario-pinned-version">Scenario: Pinned version<a class="headerlink" href="#scenario-pinned-version" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> CI builds the package</li>
+<li><strong>THEN</strong> it SHALL inject <code>LIBRARY_VERSION</code> from <code>versions.env</code> into <code>pyproject.toml</code> before building</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <div style="display:table;width:100%">
+  <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
+  <span style="display:table-cell;text-align:right">2026-08-14T07:56:13Z</span>
+</div>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>
