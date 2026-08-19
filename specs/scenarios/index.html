@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/ce7294e166a585d5c46173e61246b4fdb8fda047"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/a40590a7e01faab332bd41e4c7d5031774ebfd55"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit ce7294e">
+       title="View commit a40590a">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">ce7294e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">a40590a</text>
       </svg>
     </a>
 </div>
@@ -310,14 +310,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/ce7294e166a585d5c46173e61246b4fdb8fda047"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/a40590a7e01faab332bd41e4c7d5031774ebfd55"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit ce7294e">
+       title="View commit a40590a">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">ce7294e</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">a40590a</text>
       </svg>
     </a>
 </div>
@@ -1687,7 +1687,7 @@
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
 <p>The scenario registry defines the triplet (market + portfolio + strategy legs) for every scenario ID that appears in Virtufin trading / position / risk / P&amp;L topics. The registry is the source of truth for what a scenario means; topics carry the opaque scenario ID, and the triplet lives here.</p>
 <p><strong>Related specs:</strong>
-- <a href="../pubsub-topics/spec.md">Pub/Sub Topics</a> — the <code>sc.&lt;scenarioId&gt;.*</code> topic pattern and the envelope extensions (<code>scenarioid</code>, <code>market.world</code>, <code>market.universe</code>, <code>portfolio.world</code>, <code>strategy.world</code>) that this spec defines the values for.</p>
+- <a href="../pubsub-topics/spec.md">Pub/Sub Topics</a> — the <code>sc.&lt;scenarioId&gt;.*</code> topic pattern and the envelope extensions (<code>scenarioid</code>, <code>marketworld</code>, <code>marketuniverse</code>, <code>portfolioworld</code>, <code>strategyworld</code>) that this spec defines the values for.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <h3 id="requirement-scenario-triplet">Requirement: Scenario Triplet<a class="headerlink" href="#requirement-scenario-triplet" title="Permanent link">&para;</a></h3>
 <p>Every scenario SHALL be defined by exactly three legs:</p>
@@ -1876,7 +1876,7 @@ is pure infrastructure and SHALL NOT carry domain logic.</p>
 <li><strong>THEN</strong> the publish SHALL proceed unconditionally — the registry is a lookup for consumers, not a publish-time gate</li>
 </ul>
 <h3 id="requirement-universe-naming">Requirement: Universe Naming<a class="headerlink" href="#requirement-universe-naming" title="Permanent link">&para;</a></h3>
-<p>Universes SHALL name data universes for market data, whether <code>act</code> or <code>hyp.&lt;name&gt;</code>. They appear in <code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> / <code>hyp.&lt;name&gt;.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> topics AND in the <code>market.universe</code> envelope extension.</p>
+<p>Universes SHALL name data universes for market data, whether <code>act</code> or <code>hyp.&lt;name&gt;</code>. They appear in <code>act.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> / <code>hyp.&lt;name&gt;.&lt;universe&gt;.exchange.&lt;venue&gt;.*</code> topics AND in the <code>marketuniverse</code> envelope extension.</p>
 <h4 id="scenario-universe-format">Scenario: Universe format<a class="headerlink" href="#scenario-universe-format" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service defines a new data universe</li>
@@ -1886,7 +1886,7 @@ is pure infrastructure and SHALL NOT carry domain logic.</p>
 <h4 id="scenario-universe-vs-scenario-id">Scenario: Universe vs scenario ID<a class="headerlink" href="#scenario-universe-vs-scenario-id" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service needs to distinguish "the data universe" from "a scenario running against that universe"</li>
-<li><strong>THEN</strong> the universe SHALL identify the data universe (in <code>market.universe</code>)</li>
+<li><strong>THEN</strong> the universe SHALL identify the data universe (in <code>marketuniverse</code>)</li>
 <li><strong>AND</strong> the scenario ID SHALL identify the scenario (in <code>scenarioid</code>)</li>
 <li><strong>AND</strong> one universe MAY back many scenario IDs (e.g., <code>EQ_2008_2009</code> for backtests with different strategies, or <code>ALL</code> for every LIVE-derived scenario)</li>
 </ul>
@@ -1935,7 +1935,7 @@ is pure infrastructure and SHALL NOT carry domain logic.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-08-18T09:28:17Z</span>
+  <span style="display:table-cell;text-align:right">2026-08-19T22:56:19Z</span>
 </div>
 
     </div>
