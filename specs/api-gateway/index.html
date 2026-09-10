@@ -205,14 +205,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5f4da423bed413533c50e8e9f3c037dbe089c287"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/f40c01a19cd79e4e2402370e8c9da5582df42299"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 5f4da42">
+       title="View commit f40c01a">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5f4da42</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">f40c01a</text>
       </svg>
     </a>
 </div>
@@ -312,14 +312,14 @@
     </div>
     <span class="md-source__repository">virtufin/virtufin-openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/5f4da423bed413533c50e8e9f3c037dbe089c287"
+    <a href="https://git.haenerconsulting.com/virtufin/virtufin-openspec/commit/f40c01a19cd79e4e2402370e8c9da5582df42299"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 5f4da42">
+       title="View commit f40c01a">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">5f4da42</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">f40c01a</text>
       </svg>
     </a>
 </div>
@@ -808,6 +808,17 @@
     <span class="md-ellipsis">
       
         Scenario: Bulk state retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-bulk-state-deletion-with-partial-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Bulk state deletion with partial failure
       
     </span>
   </a>
@@ -1656,6 +1667,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#scenario-bulk-state-deletion-with-partial-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario: Bulk state deletion with partial failure
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2107,7 +2129,7 @@
 <li><strong>THEN</strong> the gateway SHALL upgrade the request and forward it as native gRPC to the backend</li>
 </ul>
 <h3 id="requirement-distributed-state-management">Requirement: Distributed State Management<a class="headerlink" href="#requirement-distributed-state-management" title="Permanent link">&para;</a></h3>
-<p>The gateway SHALL provide CRUD operations on the Dapr state store with optimistic concurrency control via ETags. State changes SHALL emit events.</p>
+<p>The gateway SHALL provide CRUD operations on the Dapr state store with optimistic concurrency control via ETags. State changes SHALL emit events when the caller opts in.</p>
 <h4 id="scenario-save-state-with-etag">Scenario: Save state with ETag<a class="headerlink" href="#scenario-save-state-with-etag" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a client saves state with an ETag that matches the stored value</li>
@@ -2120,13 +2142,21 @@
 </ul>
 <h4 id="scenario-state-change-events">Scenario: State change events<a class="headerlink" href="#scenario-state-change-events" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> state is saved or deleted for a registered key</li>
-<li><strong>THEN</strong> a state change event SHALL be published to Dapr pub/sub on a well-known topic</li>
+<li><strong>WHEN</strong> state is saved or deleted and the request enables change notification</li>
+<li><strong>THEN</strong> a state change event SHALL be published, on the topic determined by the State Change Events requirement in <a href="../pubsub-topics/spec.md">pubsub-topics</a></li>
+<li><strong>AND</strong> when the request does not enable it, no event SHALL be published — emitting one is opt-in per request, not a property of every state change</li>
 </ul>
 <h4 id="scenario-bulk-state-retrieval">Scenario: Bulk state retrieval<a class="headerlink" href="#scenario-bulk-state-retrieval" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>WHEN</strong> a client requests all state for a registered service</li>
-<li><strong>THEN</strong> the gateway SHALL return all stored key-value pairs</li>
+<li><strong>WHEN</strong> a client requests multiple keys in one call</li>
+<li><strong>THEN</strong> the gateway SHALL return the stored value for each key it holds</li>
+<li><strong>AND</strong> the client SHALL supply the keys explicitly: the gateway maintains no registry of a service's keys, so there is no "all state for this service" operation</li>
+</ul>
+<h4 id="scenario-bulk-state-deletion-with-partial-failure">Scenario: Bulk state deletion with partial failure<a class="headerlink" href="#scenario-bulk-state-deletion-with-partial-failure" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>WHEN</strong> a bulk delete succeeds for some keys and fails for others</li>
+<li><strong>THEN</strong> the response SHALL identify the keys that failed, so the caller can retry those rather than repeating the whole batch</li>
+<li><strong>AND</strong> any change event SHALL name only the keys actually deleted</li>
 </ul>
 <h3 id="requirement-pubsub-and-event-streaming">Requirement: Pub/Sub and Event Streaming<a class="headerlink" href="#requirement-pubsub-and-event-streaming" title="Permanent link">&para;</a></h3>
 <p>The gateway SHALL support publishing events to Dapr pub/sub topics and subscribing clients to topic events via server-side streaming. Dead subscriptions SHALL be cleaned up.</p>
@@ -2306,7 +2336,7 @@ running unauthenticated.</p>
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-08-26T07:01:59Z</span>
+  <span style="display:table-cell;text-align:right">2026-09-10T01:48:18Z</span>
 </div>
 
     </div>
