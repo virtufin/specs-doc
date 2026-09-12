@@ -205,14 +205,14 @@
     </div>
     <span class="md-source__repository">virtufin/openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/openspec/commit/641bd7823cc4410456051eed0057aa030b0e4bfb"
+    <a href="https://git.haenerconsulting.com/virtufin/openspec/commit/0ceb475b157e87e280373bf1a630597ba030d5b9"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 641bd78">
+       title="View commit 0ceb475">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">641bd78</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">0ceb475</text>
       </svg>
     </a>
 </div>
@@ -312,14 +312,14 @@
     </div>
     <span class="md-source__repository">virtufin/openspec</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/openspec/commit/641bd7823cc4410456051eed0057aa030b0e4bfb"
+    <a href="https://git.haenerconsulting.com/virtufin/openspec/commit/0ceb475b157e87e280373bf1a630597ba030d5b9"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 641bd78">
+       title="View commit 0ceb475">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">641bd78</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">0ceb475</text>
       </svg>
     </a>
 </div>
@@ -3635,7 +3635,12 @@
 <ul>
 <li><strong>WHEN</strong> a service publishes an event</li>
 <li><strong>THEN</strong> <code>ce-type</code> SHALL match one of:</li>
-<li>Tier 0: <code>com.virtufin.&lt;service&gt;.&lt;category&gt;.&lt;event&gt;</code> (e.g. <code>com.virtufin.websocketmanager.lifecycle.connected</code>)</li>
+<li>Tier 0: <code>com.virtufin.&lt;service&gt;.&lt;action&gt;</code> (e.g. <code>com.virtufin.websocketmanager.connected</code>)
+    — no category segment: the Tier 0 topic is already <code>&lt;service&gt;.&lt;category&gt;</code>, so repeating it in the type
+    duplicates routing the subscriber already has. An <code>&lt;action&gt;</code> is one token; multi-word actions hyphenate
+    (<code>instance-registered</code>) rather than adding dotted sub-levels. The same <code>&lt;action&gt;</code> MAY appear under two
+    topics of one service (e.g. <code>com.virtufin.workmanager.online</code> on both <code>workmanager.lifecycle</code> and
+    <code>workmanager.infra.worker</code>); the topic is what disambiguates them.</li>
 <li>Market data: <code>com.virtufin.exchange.&lt;venue&gt;.&lt;entity&gt;.&lt;event&gt;</code> (e.g. <code>com.virtufin.exchange.binance.orderbook.updated</code>)</li>
 <li>Trading: <code>com.virtufin.trading.&lt;order|trade&gt;.&lt;event&gt;</code> (e.g. <code>com.virtufin.trading.order.filled</code>)</li>
 <li>Position: <code>com.virtufin.position.&lt;event&gt;</code> (e.g. <code>com.virtufin.position.flipped</code>)</li>
@@ -3645,7 +3650,9 @@
 <h4 id="scenario-ce-source-format">Scenario: ce-source format<a class="headerlink" href="#scenario-ce-source-format" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>WHEN</strong> a service publishes an event</li>
-<li><strong>THEN</strong> <code>ce-source</code> SHALL be the publishing service's URN (e.g. <code>urn:com.virtufin.websocketmanager</code>, <code>urn:com.virtufin.trading-engine</code>)</li>
+<li><strong>THEN</strong> <code>ce-source</code> SHALL be <code>urn:com.virtufin:&lt;service&gt;</code> (e.g. <code>urn:com.virtufin:websocketmanager</code>, <code>urn:com.virtufin:trading-engine</code>)</li>
+<li><strong>AND</strong> a per-instance publisher MAY append the instance as a further segment (e.g. <code>urn:com.virtufin:websocketmanager:{websocketId}</code>)</li>
+<li><strong>AND</strong> the namespace and service SHALL be colon-separated, not dot-separated: <code>urn:&lt;NID&gt;:&lt;NSS&gt;</code> is the URN shape, and the earlier <code>urn:com.virtufin.&lt;service&gt;</code> had no NSS at all</li>
 <li><strong>AND</strong> the URN SHALL be stable per service (not per instance)</li>
 </ul>
 <h4 id="scenario-subject-attribute-per-entity-events">Scenario: subject attribute (per-entity events)<a class="headerlink" href="#scenario-subject-attribute-per-entity-events" title="Permanent link">&para;</a></h4>
@@ -4192,8 +4199,8 @@
 <ul>
 <li><strong>WHEN</strong> a service writes infrastructure state with change notification enabled</li>
 <li><strong>THEN</strong> the event SHALL be published to <code>state.change</code></li>
-<li><strong>AND</strong> <code>ce-type</code> SHALL be <code>com.virtufin.state.change.saved</code> or <code>com.virtufin.state.change.deleted</code>, discriminating the action so a subscriber can filter without parsing the payload</li>
-<li><strong>AND</strong> <code>ce-source</code> SHALL be <code>urn:com.virtufin.api</code>, the publishing service</li>
+<li><strong>AND</strong> <code>ce-type</code> SHALL be <code>com.virtufin.api.state-saved</code> or <code>com.virtufin.api.state-deleted</code>, discriminating the action so a subscriber can filter without parsing the payload</li>
+<li><strong>AND</strong> <code>ce-source</code> SHALL be <code>urn:com.virtufin:api</code>, the publishing service</li>
 </ul>
 <h4 id="scenario-domain-state-change">Scenario: Domain state change<a class="headerlink" href="#scenario-domain-state-change" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4279,7 +4286,7 @@
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-09-12T08:30:06Z</span>
+  <span style="display:table-cell;text-align:right">2026-09-12T10:33:03Z</span>
 </div>
 
     </div>
